@@ -19,35 +19,35 @@
 # Change the file extension to match the format (.xml for XML, etc...)
 #
 ###
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
-category: info
+title: "YANG Data Models for Transport TE FGNM Extension Model"
+abbrev: "TE FGNM YANG"
+category: std
 
-docname: draft-todo-yourname-protocol-latest
+docname: draft-yu-ccamp-te-fgnm-yang-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
 consensus: true
 v: 3
 area: AREA
-workgroup: WG Working Group
+workgroup: Common Control and Measurement Plane
 keyword:
  - next generation
  - unicorn
  - sparkling distributed ledger
 venue:
-  group: WG
-  type: Working Group
-  mail: WG@example.com
-  arch: https://example.com/WG
-  github: USER/REPO
-  latest: https://example.com/LATEST
+  group: "Common Control and Measurement Plane"
+  type: "Working Group"
+  mail: "ccamp@ietf.org"
+  arch: "https://mailarchive.ietf.org/arch/browse/ccamp/"
+  github: YuChaode/draft-yu-ccamp-te-fgnm-yang
+  latest: https://YuChaode.github.io/draft-yu-ccamp-te-fgnm-yang/draft-yu-ccamp-te-fgnm-yang.html
 
 author:
  -
-    fullname: Your Name Here
-    organization: Your Organization Here
-    email: your.email@example.com
+    fullname: Chaode Yu
+    organization: Huawei Technologies
+    email: yuchaode@huawei.com
 
 normative:
 
