@@ -9,8 +9,8 @@ number:
 date:
 consensus: true
 v: 3
-area: AREA
-workgroup: Common Control and Measurement Plane
+area: "Routing"
+workgroup: "Common Control and Measurement Plane"
 keyword:
  - next generation
  - unicorn
@@ -20,8 +20,8 @@ venue:
   type: "Working Group"
   mail: "ccamp@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/ccamp/"
-  github: YuChaode/draft-yu-ccamp-te-fgnm-yang
-  latest: https://YuChaode.github.io/draft-yu-ccamp-te-fgnm-yang/draft-yu-ccamp-te-fgnm-yang.html
+  github: "YuChaode/draft-yu-ccamp-te-fgnm-yang"
+  latest: "https://YuChaode.github.io/draft-yu-ccamp-te-fgnm-yang/draft-yu-ccamp-te-fgnm-yang.html"
 
 author:
  -
