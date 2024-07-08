@@ -441,7 +441,7 @@ augment /te:te/te:tunnels/te:tunnel/te:secondary-reverse-paths
 {{fig-tet-fgnm-tree}} below shows the tree diagram of the YANG data model defined in module "ietf-te-topology-fgnm-ext".
 
 ~~~~ ascii-art
-{::include ./ietf-te-topology-fgnm-ext.tree}
+{::include ./yang/ietf-te-topology-fgnm-ext.tree}
 ~~~~
 {: #fig-tet-fgnm-tree title="Tree of TE Topology FGNM Extension"
 artwork-name="ietf-te-topology-fgnm-ext.tree"}
@@ -452,7 +452,7 @@ artwork-name="ietf-te-topology-fgnm-ext.tree"}
 {{fig-te-fgnm-tree}} below shows the tree diagram of the YANG data model defined in module "ietf-te-fgnm-ext".
 
 ~~~~ ascii-art
-{::include ./ietf-te-fgnm-ext.tree}
+{::include ./yang/ietf-te-fgnm-ext.tree}
 ~~~~
 {: #fig-te-fgnm-tree title="Tree of TE Tunnel FGNM Extension"
 artwork-name="ietf-te-fgnm-ext.tree"}
@@ -462,14 +462,14 @@ artwork-name="ietf-te-fgnm-ext.tree"}
 ## FGNM Extensin for TE Topology
 
 ~~~~ yang
-{::include ./ietf-te-topology-fgnm-ext.yang}
+{::include ./yang/ietf-te-topology-fgnm-ext.yang}
 ~~~~
 {: #fig-tet-fgnm-yang title="TE Topology FGNM Extension YANG module"
 sourcecode-markers="true" sourcecode-name="ietf-te-topology-fgnm-ext@2024-07-08.yang"}
 
 ## FGNM Extensin for TE Tunnel
 ~~~~ yang
-{::include ./ietf-te-fgnm-ext.yang}
+{::include ./yang/ietf-te-fgnm-ext.yang}
 ~~~~
 {: #fig-te-fgnm-yang title="TE Tunnel FGNM Extension YANG module"
 sourcecode-markers="true" sourcecode-name="ietf-te-fgnm-ext@2024-07-08.yang"}
