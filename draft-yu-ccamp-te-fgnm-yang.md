@@ -24,7 +24,6 @@ venue:
   latest: "https://YuChaode.github.io/draft-yu-ccamp-te-fgnm-yang/draft-yu-ccamp-te-fgnm-yang.html"
 
 author:
- -
   -
     name: Chaode Yu
     org: Huawei Technologies
@@ -67,9 +66,9 @@ informative:
   TMF-814:
     title: MTNM Solution Set (IDL) R4.5
     author:
-    org: TM Forum (TMF)
+      org: TM Forum (TMF)
     date:  2014
-    seriesinfo:
+    seriesinfo: TMF-814
     target: https://www.tmforum.org/resources/interface/tmf814-mtnm-solution-set-idl-version-r4-5/
 
 
@@ -81,7 +80,7 @@ informative:
     seriesinfo: ONF TR-547 TAPI RIA v1.0
     target: https://opennetworking.org/wp-content/uploads/2020/08/TR-547-TAPI-v2.1.3-Reference-Implementation-Agreement-1.pdf
 
-  ITU-T G.805:
+  ITU-T_G.805:
     title: Generic functional architecture of transport networks
     author:
       org: International Telecommunication Union
@@ -90,7 +89,7 @@ informative:
     target: https://www.itu.int/rec/T-REC-G.805-200003-I/en
 
 
-  ITU-T G.808:
+  ITU-T_G.808:
     title: Terms and definitions for network protection and restoration
     author:
       org: International Telecommunication Union
@@ -98,7 +97,7 @@ informative:
     seriesinfo: ITU-T Recommendation G.808
     target: https://www.itu.int/rec/T-REC-G.808-201611-I/en
 
-  ITU-T G.874:
+  ITU-T_G.874:
     title: Management aspects of optical transport network elements
     author:
       org: International Telecommunication Union
@@ -106,7 +105,7 @@ informative:
     seriesinfo: ITU-T Recommendation G.874
     target: https://www.itu.int/rec/T-REC-G.874-202010-I/en
 
-  ITU-T G.875:
+  ITU-T_G.875:
     title: Optical transport network%3AProtocol-neutral management information model for the network element view
     author:
       org: International Telecommunication Union
@@ -131,7 +130,7 @@ According to {{?I-D.draft-ietf-ccamp-transport-nbi-app-statement}}, it is good t
 
 In {{?I-D.draft-gstk-ccamp-actn-optical-transport-mgmt}}, it also raised another management approach, which is called Fine-Grain Network Management (FGNM). FGNM is aimed to provide traditional FCAPS capabilities.
 
-{{ITU-T G.805}} describes transport network from the viewpoint of the information transfer capability, provides a generic functional architecture which is also implementation independent. This recommendation is the implementation basis of most of the vendors' or operators' systems.
+{{ITU-T_G.805}} describes transport network from the viewpoint of the information transfer capability, provides a generic functional architecture which is also implementation independent. This recommendation is the implementation basis of most of the vendors' or operators' systems.
 
 To provide traditional FCAPS functionalities, we need to align with the modelling of traditional approach, which is suggested to be {{TMF-814}}. Therefore, some more TMF attributes would be introduced. To avoid introducing non-backward-compatible (NBC) changes, we would like to provide some extension YANG data models, based on the current model architecture.
 
@@ -178,15 +177,15 @@ Please remove this note.
 
 # Mapping of ACTN modelling objects with TMF objects
 
-{{ITU-T G.805}} describes the network as a transport network from the viewpoint of the information transfer capability. More specifically, the functional and structural architecture of transport networks are described independently of networking technology. It also defines various types of reference points, such as the Access Point (AP), Connection Point (CP), and Trail Connection Point (TCP), and the processing between reference points, which is called adaptation. A transport entity that transmits information such as trails and connections between reference points. For the details, we can refer to descriptions in chapter 3 of {{ITU-T G.805}} and Figure 1 to Figure 3.
+{{ITU-T_G.805}} describes the network as a transport network from the viewpoint of the information transfer capability. More specifically, the functional and structural architecture of transport networks are described independently of networking technology. It also defines various types of reference points, such as the Access Point (AP), Connection Point (CP), and Trail Connection Point (TCP), and the processing between reference points, which is called adaptation. A transport entity that transmits information such as trails and connections between reference points. For the details, we can refer to descriptions in chapter 3 of {{ITU-T_G.805}} and Figure 1 to Figure 3.
 
-One disadvantage of {{ITU-T G.805}} is it is too complicated. So TMF simplifies the modelling system of {{ITU-T G.805}}. The adaptation is changed to be the capabilities of reference points. The reference points is so that changed to some other terminologies, e.g. PTP and FTP etc. This simplification still can be mapped to {{ITU-T G.805}}. So that a lot of vendors and operators choose TMF modelling in their system.
+One disadvantage of {{ITU-T_G.805}} is it is too complicated. So TMF simplifies the modelling system of {{ITU-T_G.805}}. The adaptation is changed to be the capabilities of reference points. The reference points is so that changed to some other terminologies, e.g. PTP and FTP etc. This simplification still can be mapped to {{ITU-T_G.805}}. So that a lot of vendors and operators choose TMF modelling in their system.
 
-Based on the TMF modelling, CORBA/XML interface was defined to provide FCAPS interfaces. These interfaces were widely used in the operators’ network.
+Based on the TMF modelling, CORBA/XML interface was defined to provide FCAPS interfaces. These interfaces were widely used in the operators' network.
 
-The transport ACTN is also initially designed to simplify network configurations. To have a unified modelling with IP technology, many new modelling terms of TE were introduced and build up a new modelling system. Theoretically, these new modelling objects should be a part of, or can be mapped to the reference points or adaptation defined by {{ITU-T G.805}}. However, in the existing IETF documents, there is not sufficient details can be found.
+The transport ACTN is also initially designed to simplify network configurations. To have a unified modelling with IP technology, many new modelling terms of TE were introduced and build up a new modelling system. Theoretically, these new modelling objects should be a part of, or can be mapped to the reference points or adaptation defined by {{ITU-T_G.805}}. However, in the existing IETF documents, there is not sufficient details can be found.
 
-If the transport ACTN interface wants to support the complete FCAPS capability, there could be two approaches. The first approach is the ACTN interface build up a new alarm/performance monitoring mechanism,  based on its abstract control modelling. Just like what have been done in {{ITU-T G.874}} and {{ITU-T G.875}}.
+If the transport ACTN interface wants to support the complete FCAPS capability, there could be two approaches. The first approach is the ACTN interface build up a new alarm/performance monitoring mechanism,  based on its abstract control modelling. Just like what have been done in {{ITU-T_G.874}} and {{ITU-T_G.875}}.
 
 The second approach is reusing the traditional alarm/performance monitoring mechanism, so that the ACTN modelling needs to be mapped to the traditional modelling.
 
@@ -208,10 +207,9 @@ In this document, we would like to follow the second approach. Table 2 provides 
 | Ethernet Client signal| NA                 |
 | NA            | Protection Group           |
 | NA            | Equipment Protection Group |
-
 {: #tab-mapping title="Mapping of ACTN objects with TMF objects"}
 
-The ONF TAPI also defines a new set of terms, which are different from the definitions of the {{ITU-T G.805}}. But it provides the mapping of TAPI objects to ITU-T objects in Figure 3-2 of {{ONF_TR-547}}. In the appendix of this document, we also compare the ACTN object modelling and TAPI object modelling, which can be used as a reference for a possible integration of these two interfaces in a same MDSC.
+The ONF TAPI also defines a new set of terms, which are different from the definitions of the {{ITU-T_G.805}}. But it provides the mapping of TAPI objects to ITU-T objects in Figure 3-2 of {{ONF_TR-547}}. In the appendix of this document, we also compare the ACTN object modelling and TAPI object modelling, which can be used as a reference for a possible integration of these two interfaces in a same MDSC.
 
 # Model relationship
 
@@ -243,7 +241,6 @@ The current ACTN topology models for transport technology follows the relationsh
               +--------------+
 
 ~~~~
-
 {: #fig-actn-topology title="Relationship of ACTN topology"}
 
 TE topology model was aimed to define common attributes for all the technologies.  OTN topology and WDM topology, etc., they are all augmenting TE topology model to provide layer-specific extensions.
@@ -279,7 +276,6 @@ For layer-specific FGNM extensions could reference existing way and define in a 
            | WDM topology |                     | WDM FGNM EXT |
            +--------------+                     +--------------+
 ~~~~
-
 {: #fig-actn-fgnm-topology title="Relationship of FGNM ACTN topology"}
 
 It is also same for the TE tunnel architecture. The whole architecture after FGNM tunnel extensions will be:
@@ -303,7 +299,6 @@ It is also same for the TE tunnel architecture. The whole architecture after FGN
            | WDM Tunnel   |                 | WDM FGNM EXT |
            +--------------+                 +--------------+
 ~~~~
-
 {: #fig-actn-fgnm-tunnel title="Relationship of FGNM ACTN tunnel"}
 
 # FGNM Topology
@@ -355,7 +350,7 @@ We suggest to extend the current TE tunnel model to support the multi-point scen
 
 In some maintenance scenarios, people may need to freeze the restoration capability of a TE tunnel. For example, after obtaining the customers' consent, the carrier can choose not to restore services during the TE tunnel cutover. This prevents unstable services flapping caused by repeated fiber cuts during the cutover. The unstable services flapping would also affects existing services.
 
-Section 3.2.8.11 in {{ITU-T G.808}} mentions the freezing operation of protection and rerouting switching. Therefore, compared with traditional path management, the current TE tunnel model also needs to add freezing capability to the  protection and restoration structure.
+Section 3.2.8.11 in {{ITU-T_G.808}} mentions the freezing operation of protection and rerouting switching. Therefore, compared with traditional path management, the current TE tunnel model also needs to add freezing capability to the  protection and restoration structure.
 
 ### Lock of restoration reversion
 
@@ -507,7 +502,6 @@ sourcecode-markers="true" sourcecode-name="ietf-te-fgnm-ext@2024-07-08.yang"}
 | Ethernet Client signal| NA                 |connectivity service|
 | NA            | Protection Group           |NA                  |
 | NA            | Equipment Protection Group |NA                  |
-
 {: #tab-mapping2 title="Mapping of ACTN & TMF & TAPI Modelling"}
 
 {: numbered="false"}
