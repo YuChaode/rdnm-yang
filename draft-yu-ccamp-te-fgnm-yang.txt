@@ -1,0 +1,1316 @@
+
+
+
+
+Common Control and Measurement Plane                               C. Yu
+Internet-Draft                                       Huawei Technologies
+Intended status: Standards Track                                 X. Zhao
+Expires: 9 January 2025                                            CAICT
+                                                                  Y. Tan
+                                                            China Unicom
+                                                                N. Davis
+                                                                   Ciena
+                                                                 D. King
+                                                      Old Dog Consulting
+                                                             8 July 2024
+
+
+         YANG Data Models for Transport TE FGNM Extension Model
+                   draft-yu-ccamp-te-fgnm-yang-latest
+
+Abstract
+
+   This document defines two extension YANG data models augmenting to TE
+   topology and TE tunnel modules, based on the FGNM (Fine-Grain Network
+   Management) requirements in transport networks.
+
+About This Document
+
+   This note is to be removed before publishing as an RFC.
+
+   The latest revision of this draft can be found at
+   https://YuChaode.github.io/draft-yu-ccamp-te-fgnm-yang/draft-yu-
+   ccamp-te-fgnm-yang.html.  Status information for this document may be
+   found at https://datatracker.ietf.org/doc/draft-yu-ccamp-te-fgnm-
+   yang/.
+
+   Discussion of this document takes place on the Common Control and
+   Measurement Plane Working Group mailing list (mailto:ccamp@ietf.org),
+   which is archived at https://mailarchive.ietf.org/arch/browse/ccamp/.
+   Subscribe at https://www.ietf.org/mailman/listinfo/ccamp/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/YuChaode/draft-yu-ccamp-te-fgnm-yang.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 9 January 2025.
+
+Copyright Notice
+
+   Copyright (c) 2024 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+     1.1.  Terminology and Notations
+     1.2.  Requirements Notation
+     1.3.  Tree Diagram
+     1.4.  Prefix in Data Node Names
+   2.  Mapping of ACTN modelling objects with TMF objects
+   3.  Model relationship
+   4.  FGNM Topology
+     4.1.  FGNM extension for TE topology
+     4.2.  The modelling and usage of TTP
+   5.  FGNM Extensions for TE Tunnel
+     5.1.  Modelling of Point to Multi-Points and Multi-Points to
+           Multi-Points TE Tunnel
+     5.2.  Restoration
+       5.2.1.  Lock of restoration
+       5.2.2.  Lock of restoration reversion
+       5.2.3.  Scheduling of reversion time
+       5.2.4.  Priority of restoration
+       5.2.5.  YANG for restoration extension
+     5.3.  TTP hop
+   6.  Tree Diagram
+     6.1.  FGNM Extension for TE Topology
+     6.2.  FGNM Extension for TE Tunnel
+   7.  YANG Data Model
+     7.1.  FGNM Extensin for TE Topology
+     7.2.  FGNM Extensin for TE Tunnel
+   8.  Manageability Considerations
+   9.  Security Considerations
+   10. IANA Considerations
+   11. References
+     11.1.  Normative References
+     11.2.  Informative References
+   Appendix A.  Appendix
+     A.1.  Mapping Between ACTN & TMF & TAPI Modelling
+   Acknowledgments
+   Contributors
+   Authors' Addresses
+
+1.  Introduction
+
+   [RFC8795] defines a YANG data module for technology generic, and it
+   is augmented by some other technology specific data modules, e.g.
+   OTN topology data model in [I-D.draft-ietf-ccamp-otn-topo-yang].
+
+   [I-D.draft-ietf-teas-yang-te] defines a YANG data model for the
+   provisioning and management of Traffic Engineering (TE) tunnels,
+   Label Switched Paths (LSPs), and interfaces.  Similarly, it could be
+   also augmented by some other technology specific data modules to
+   implement a specific layer of TE tunnel.
+
+   According to [I-D.draft-ietf-ccamp-transport-nbi-app-statement], it
+   is good to used the current TE data model system to manage an
+   abstracted network topology.  In
+   [I-D.draft-gstk-ccamp-actn-optical-transport-mgmt], it is called
+   Abstracted Control (AC) approach.
+
+   In [I-D.draft-gstk-ccamp-actn-optical-transport-mgmt], it also raised
+   another management approach, which is called Fine-Grain Network
+   Management (FGNM).  FGNM is aimed to provide traditional FCAPS
+   capabilities.
+
+   [ITU-T_G.805] describes transport network from the viewpoint of the
+   information transfer capability, provides a generic functional
+   architecture which is also implementation independent.  This
+   recommendation is the implementation basis of most of the vendors' or
+   operators' systems.
+
+   To provide traditional FCAPS functionalities, we need to align with
+   the modelling of traditional approach, which is suggested to be
+   [TMF-814].  Therefore, some more TMF attributes would be introduced.
+   To avoid introducing non-backward-compatible (NBC) changes, we would
+   like to provide some extension YANG data models, based on the current
+   model architecture.
+
+   Some extensions is generic for all network layers would be defined in
+   the FGNM extension models, including generic TE topology FGNM
+   extension and generic TE tunnel FGNM extension.  The layer specific
+   FGNM extension should be found in some other YANG data modules.
+
+1.1.  Terminology and Notations
+
+   Note: to be added on demand.
+
+1.2.  Requirements Notation
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+1.3.  Tree Diagram
+
+   A simplified graphical representation of the data model is used in
+   this document.  The meaning of the symbols in this diagram is defined
+   in [RFC8340].
+
+1.4.  Prefix in Data Node Names
+
+   In this document, names of data nodes and other data model objects
+   are prefixed using the standard prefix associated with the
+   corresponding YANG imported modules, as showned in the following
+   table.
+
+       +===================+===========================+===========+
+       | Prefix            | Yang Module               | Reference |
+       +===================+===========================+===========+
+       | nw                | ietf-network              | [RFC8345] |
+       +-------------------+---------------------------+-----------+
+       | nt                | ietf-network-topology     | [RFC8345] |
+       +-------------------+---------------------------+-----------+
+       | tet               | ietf-te-topology          | [RFC8795] |
+       +-------------------+---------------------------+-----------+
+       | yang              | ietf-yang-types           | [RFC6991] |
+       +-------------------+---------------------------+-----------+
+       | inet              | ietf-inet-types           | [RFC6991] |
+       +-------------------+---------------------------+-----------+
+       | te                | ietf-te                   | RFCYYYY   |
+       +-------------------+---------------------------+-----------+
+       | te-types          | ietf-te-types             | [RFC8776] |
+       +-------------------+---------------------------+-----------+
+       | tet-fgnm-ext      | ietf-te-topology-fgnm-ext | RFC XXXX  |
+       +-------------------+---------------------------+-----------+
+       | te-fgnm-ext       | ietf-te-fgnm-ext          | RFC XXXX  |
+       +-------------------+---------------------------+-----------+
+       | te-types-fgnm-ext | ietf-te-types-fgnm-ext    | RFC XXXX  |
+       +-------------------+---------------------------+-----------+
+
+              Table 1: Prefixes and corresponding YANG modules
+
+   RFC Editor Note: Please replace XXXX with the RFC number assigned to
+   this document.  Please replace YYYY with the RFC number assigned to
+   the TE tunnel draft.  Please remove this note.
+
+2.  Mapping of ACTN modelling objects with TMF objects
+
+   [ITU-T_G.805] describes the network as a transport network from the
+   viewpoint of the information transfer capability.  More specifically,
+   the functional and structural architecture of transport networks are
+   described independently of networking technology.  It also defines
+   various types of reference points, such as the Access Point (AP),
+   Connection Point (CP), and Trail Connection Point (TCP), and the
+   processing between reference points, which is called adaptation.  A
+   transport entity that transmits information such as trails and
+   connections between reference points.  For the details, we can refer
+   to descriptions in chapter 3 of [ITU-T_G.805] and Figure 1 to
+   Figure 3.
+
+   One disadvantage of [ITU-T_G.805] is it is too complicated.  So TMF
+   simplifies the modelling system of [ITU-T_G.805].  The adaptation is
+   changed to be the capabilities of reference points.  The reference
+   points is so that changed to some other terminologies, e.g.  PTP and
+   FTP etc.  This simplification still can be mapped to [ITU-T_G.805].
+   So that a lot of vendors and operators choose TMF modelling in their
+   system.
+
+   Based on the TMF modelling, CORBA/XML interface was defined to
+   provide FCAPS interfaces.  These interfaces were widely used in the
+   operators' network.
+
+   The transport ACTN is also initially designed to simplify network
+   configurations.  To have a unified modelling with IP technology, many
+   new modelling terms of TE were introduced and build up a new
+   modelling system.  Theoretically, these new modelling objects should
+   be a part of, or can be mapped to the reference points or adaptation
+   defined by [ITU-T_G.805].  However, in the existing IETF documents,
+   there is not sufficient details can be found.
+
+   If the transport ACTN interface wants to support the complete FCAPS
+   capability, there could be two approaches.  The first approach is the
+   ACTN interface build up a new alarm/performance monitoring mechanism,
+   based on its abstract control modelling.  Just like what have been
+   done in [ITU-T_G.874] and [ITU-T_G.875].
+
+   The second approach is reusing the traditional alarm/performance
+   monitoring mechanism, so that the ACTN modelling needs to be mapped
+   to the traditional modelling.
+
+   Currently, there is not sufficient theoretical support for the first
+   approach, and there is not such a attempt is tried in IETF.  For the
+   second approach, one of the advantage is it can inherit the functions
+   integrated before.  So that there would not be two much efforts need
+   to pay for the new integration.
+
+   In this document, we would like to follow the second approach.
+   Table 2 provides a mapping between the ACTN objects and TMF objects.
+
+          +========================+============================+
+          | ACTN Object            | TMF Object                 |
+          +========================+============================+
+          | Network                | NA                         |
+          +------------------------+----------------------------+
+          | Node                   | Management Element         |
+          +------------------------+----------------------------+
+          | Link                   | Topology Link              |
+          +------------------------+----------------------------+
+          | TP                     | PTP                        |
+          +------------------------+----------------------------+
+          | TTP                    | CTP/FTP                    |
+          +------------------------+----------------------------+
+          | Tunnel                 | SNC/XC                     |
+          +------------------------+----------------------------+
+          | NE                     | Management Element         |
+          +------------------------+----------------------------+
+          | component              | equipment holder/equipment |
+          +------------------------+----------------------------+
+          | Client signal          | NA                         |
+          +------------------------+----------------------------+
+          | Ethernet Client signal | NA                         |
+          +------------------------+----------------------------+
+          | NA                     | Protection Group           |
+          +------------------------+----------------------------+
+          | NA                     | Equipment Protection Group |
+          +------------------------+----------------------------+
+
+             Table 2: Mapping of ACTN objects with TMF objects
+
+   The ONF TAPI also defines a new set of terms, which are different
+   from the definitions of the [ITU-T_G.805].  But it provides the
+   mapping of TAPI objects to ITU-T objects in Figure 3-2 of
+   [ONF_TR-547].  In the appendix of this document, we also compare the
+   ACTN object modelling and TAPI object modelling, which can be used as
+   a reference for a possible integration of these two interfaces in a
+   same MDSC.
+
+3.  Model relationship
+
+   The current ACTN topology models for transport technology follows the
+   relationship as bellow:
+
+             +----------------------+
+             |  network topology    |
+             +----------------------+
+                         ^
+                         |augmenting
+                         |
+             +----------------------+
+             |     TE topology      |
+             +----------------------+
+                ^      ^       ^
+                |  augmenting  |
+     augmenting |      |       |
+      +--------------+ |       |
+      | ETH topology | |       |
+      +--------------+ |       |
+                       |       |augmenting
+             +--------------+  |
+             | OTN topology |  |
+             +--------------+  |
+                               |
+                 +--------------+
+                 | WDM topology |
+                 +--------------+
+
+                  Figure 1: Relationship of ACTN topology
+
+   TE topology model was aimed to define common attributes for all the
+   technologies.  OTN topology and WDM topology, etc., they are all
+   augmenting TE topology model to provide layer-specific extensions.
+
+   Although most of the objects in ACTN and TMF can be mapped to each
+   other, the parameters of the objects cannot be completely matched.
+   In other words, the current ACTN object needs to be extended with
+   some properties to support the full functionality of a traditional
+   object.
+
+   But in the traditional transport standards there is not such a saying
+   of TE-related modelling.  If we want to extend the current IETF data
+   models to have full modelling of traditional approach, which is
+   called FGNM extension by us, we suggest to define the common
+   attributes for all the technologies in a TE topology FGNM extension
+   model.
+
+   For layer-specific FGNM extensions could reference existing way and
+   define in a separated layer-specific FGNM extension document.  So in
+   the FGNM approach, the ACTN topology architecture will be extended to
+   be:
+
+          +----------------------+
+          |  network topology    |
+          +----------------------+
+                      ^
+                      |
+                      |
+          +----------------------+           +----------------------+
+          |     TE topology      |<----------|   TE FGNM Extension  |
+          +----------------------+           +----------------------+
+             ^      ^       ^                     ^      ^       ^
+             |      |       |                     |      |       |
+             |      |       |                     |      |       |
+   +--------------+ |       |         +----------------+ |       |
+   | ETH topology | |       |         | ETH FGNM EXT   | |       |
+   +--------------+ |       |         +----------------+ |       |
+                    |       |                            |       |
+          +--------------+  |                +--------------+    |
+          | OTN topology |  |                | OTN FGNM EXT |    |
+          +--------------+  |                +--------------+    |
+                            |                                    |
+              +--------------+                     +--------------+
+              | WDM topology |                     | WDM FGNM EXT |
+              +--------------+                     +--------------+
+
+                Figure 2: Relationship of FGNM ACTN topology
+
+   It is also same for the TE tunnel architecture.  The whole
+   architecture after FGNM tunnel extensions will be:
+
+      +----------------------+           +----------------------+
+      |      TE Tunnel       |<----------|   TE FGNM Extension  |
+      +----------------------+           +----------------------+
+           ^      ^       ^                   ^      ^       ^
+           |      |       |                   |      |       |
+           |      |       |                   |      |       |
+   +------------+ |       |       +----------------+ |       |
+   | ETH Tunnel | |       |       | ETH FGNM EXT   | |       |
+   +------------+ |       |       +----------------+ |       |
+                  |       |                          |       |
+        +--------------+  |              +--------------+    |
+        | OTN Tunnel   |  |              | OTN FGNM EXT |    |
+        +--------------+  |              +--------------+    |
+                          |                                  |
+              +--------------+                 +--------------+
+              | WDM Tunnel   |                 | WDM FGNM EXT |
+              +--------------+                 +--------------+
+
+                 Figure 3: Relationship of FGNM ACTN tunnel
+
+4.  FGNM Topology
+
+   For the some objects, although it is defined in IETF, but the way of
+   abstraction is not so implementation friendly, especially for TTP.
+
+4.1.  FGNM extension for TE topology
+
+   (To be added)
+
+4.2.  The modelling and usage of TTP
+
+   According to the description of [RFC8795], TTP is an element of a TE
+   topology representing one or several potential transport service
+   termination points, (i.e., service client adaptation points, such as
+   a WDM/OCh transponder).
+
+   In the ITU-T standard, such an adaptation point can be the
+   termination point of an end-to-end connection, or the source or sink
+   point of the intermediate cross-connection.  A physical port can
+   generate a lot of logical objects.  For example, a 100G line port can
+   function as 80 lower-order ODU0 adaptation points, 40 ODU1 adaptation
+   points, or even the adaptation point of an OCh tunnel.  Considering
+   the data volume in large-scale network, it is not wise to expose all
+   these points.  Because that most of them are potentially existing,
+   they are probably not used at the end.
+
+   In the document of TE topology, it is not indicated whether the TTPs
+   should be provided at day 0 or not.  And it is also hard to find the
+   correlation with the physical port.
+
+   In this document, we suggest not to provide the potential TTPs but
+   the existing TTPs who have been used by connections at any time.  If
+   the client want to retrieve these potential TTPs, a single RPC can
+   help to do so.  This RPC should return the existing and potential
+   TTPs at the same time.
+
+   The key of TTP is tunnel-tp-id which is a binary type.  For the
+   potential TTPs, it is no need to allocate a tunnel-tp-id for them.
+   But the server can provide a name for these TTPs, this name should
+   follow the pattern defined by TMF.  When the client want to reference
+   a potential TTP, it can reference the name of this TTP, and then the
+   server will allocated a tunnel-tp-id for it after the connection
+   created.  And this TTP is no more than a potential TTP but an
+   existing TTP, it should appear in the TTP list of topology.
+
+   rpcs:
+      +---x query-ttp-by-tps
+         +--ro input
+         |  +--ro tp-list* [tp-id]
+         |     +--ro tp-id    leafref
+         +--ro output
+            +--ro result?        enumeration
+            +--ro result-list* [tp-id]
+               +--ro tp-id      leafref
+               +--ro ttp-list*
+                  +--ro tunnel-tp-id?   leafref
+                  +--ro ttp-name?       string
+                  +--ro using-status?   enumeration
+
+5.  FGNM Extensions for TE Tunnel
+
+5.1.  Modelling of Point to Multi-Points and Multi-Points to Multi-
+      Points TE Tunnel
+
+   The current TE tunnel model only supports point-to-point scenario.
+   Therefore, only one source and sink structure is defined on the
+   tunnel node.  In the transport technology, there are point-to-
+   multipoint scenarios and multipoint-to-multipoint connection
+   scenarios.  For example, multicast service.
+
+   We suggest to extend the current TE tunnel model to support the
+   multi-point scenario.  Considering the TTPs was not generate before
+   the tunnel created, the client can reference by the TTP by name.
+
+5.2.  Restoration
+
+5.2.1.  Lock of restoration
+
+   In some maintenance scenarios, people may need to freeze the
+   restoration capability of a TE tunnel.  For example, after obtaining
+   the customers' consent, the carrier can choose not to restore
+   services during the TE tunnel cutover.  This prevents unstable
+   services flapping caused by repeated fiber cuts during the cutover.
+   The unstable services flapping would also affects existing services.
+
+   Section 3.2.8.11 in [ITU-T_G.808] mentions the freezing operation of
+   protection and rerouting switching.  Therefore, compared with
+   traditional path management, the current TE tunnel model also needs
+   to add freezing capability to the protection and restoration
+   structure.
+
+5.2.2.  Lock of restoration reversion
+
+   For some cutover scenario, services may be rerouted to a new trail
+   before the cutover operation.  During the cutover, the fiber may be
+   frequently plug in and plug out due to commissioning.  To make sure
+   that the new route will not go back to the original route and if the
+   tunnel is restoration reversion, there would be a requirement the
+   freeze the restoration reversion function.  This is also a
+   functionality defined by ITU-T and it's missing in the current TE
+   tunnel.
+
+5.2.3.  Scheduling of reversion time
+
+   Maintenance job usually is taken place in a fixed time window, for
+   example at night when people are not using the network frequently as
+   daytime.  So that there will not be impact as large as operating at
+   daytime if the maintenance job is failed.  Operator can choose to
+   revert the services to the original path at night, so that the
+   restoration reversion would not have big impact on the network.
+
+5.2.4.  Priority of restoration
+
+   In some operator, they configure different restoration priority to
+   different tunnels or services.  When multiple services need to be
+   restored at a same time, high-priority services preferentially occupy
+   resources, and low-priority services can be rerouted only after the
+   rerouting of high-priority services is complete.
+
+5.2.5.  YANG for restoration extension
+
+   augment /te:te/te:tunnels/te:tunnel/te:restoration:
+      +--rw restoration-lock?             boolean
+      +--rw restoration-reversion-lock?   boolean
+      +--rw scheduled-reversion-time?     yang:date-and-time
+      +--rw restoration-priority?         enumeration
+
+5.3.  TTP hop
+
+   The current TE tunnel data model can support to specify explicit
+   node/LTP included/excluded.  However, for finer grain object, such as
+   TTP, it is not supported to specify.
+
+   For example, in the scenario where lower-order and higher-order ODUk
+   tunnel are both existing, sometimes multiple lower-order ODUk tunnels
+   need to multiplex a higher-order ODUk tunnel.  The client can specify
+   the higher-order ODUk tunnel's TTP to be included in the lower-order
+   ODUk tunnel's creation request.  If the lower-order ODUk doesn't need
+   to multiplex a higher-order ODUk tunnel, the client can specify the
+   higher-order ODUk tunnel's TTP to be excluded in the lower-order ODUk
+   tunnel's creation request.
+
+   There can be two ways to specify this TTP.  This higher-order ODUk
+   TTP can be existing in the topology if it has been occupied by a
+   higher-order ODUk tunnel.  Then in the TTP hop, the client can
+   specify the ttp-id of this TTP.  This TTP can also be nonexisting in
+   the topology or idle for tunnel creation.  And then then client can
+   specify the name of TTP in the creation request.
+
+   augment /te:te/te:tunnels/te:tunnel/te:primary-paths/te:primary-path
+           /te:explicit-route-objects-always
+           /te:route-object-include-exclude/te:type:
+      +--:(ttp-hop)
+         +--rw ttp-hop
+            +--rw node-id?    nw:node-id
+            +--rw (id-or-name)?
+               +--:(id)
+               |  +--rw ttp-id?     binary
+               +--:(name)
+                  +--rw ttp-name?   string
+   augment /te:te/te:tunnels/te:tunnel/te:secondary-paths
+           /te:secondary-path/te:explicit-route-objects-always
+           /te:route-object-include-exclude/te:type:
+      +--:(ttp-hop)
+         +--rw ttp-hop
+            +--rw node-id?    nw:node-id
+            +--rw (id-or-name)?
+               +--:(id)
+               |  +--rw ttp-id?     binary
+               +--:(name)
+                  +--rw ttp-name?   string
+   augment /te:te/te:tunnels/te:tunnel/te:primary-paths/te:primary-path
+           /te:primary-reverse-path/te:explicit-route-objects-always
+           /te:route-object-include-exclude/te:type:
+      +--:(ttp-hop)
+         +--rw ttp-hop
+            +--rw node-id?    nw:node-id
+            +--rw (id-or-name)?
+               +--:(id)
+               |  +--rw ttp-id?     binary
+               +--:(name)
+                  +--rw ttp-name?   string
+   augment /te:te/te:tunnels/te:tunnel/te:secondary-reverse-paths
+           /te:secondary-reverse-path/te:explicit-route-objects-always
+           /te:route-object-include-exclude/te:type:
+      +--:(ttp-hop)
+         +--rw ttp-hop
+            +--rw node-id?    nw:node-id
+            +--rw (id-or-name)?
+               +--:(id)
+               |  +--rw ttp-id?     binary
+               +--:(name)
+                  +--rw ttp-name?   string
+
+6.  Tree Diagram
+
+6.1.  FGNM Extension for TE Topology
+
+   Figure 4 below shows the tree diagram of the YANG data model defined
+   in module "ietf-te-topology-fgnm-ext".
+
+   module: ietf-te-topology-fgnm-ext
+
+     augment /nw:networks/nw:network/nw:node/tet:te:
+       +--rw (layer-specific-extension)?
+          +--:(generic)
+     augment /nw:networks/nw:network/nw:node/nt:termination-point
+               /tet:te:
+       +--rw (layer-specific-extension)?
+          +--:(generic)
+     augment /nw:networks/nw:network/nw:node/tet:te
+               /tet:tunnel-termination-point:
+       +--rw (layer-specific-extension)?
+          +--:(generic)
+     augment /nw:networks/nw:network/nt:link/tet:te:
+       +--rw (layer-specific-extension)?
+          +--:(generic)
+
+     rpcs:
+       +---x query-ttp-by-tps
+          +---w input
+          |  +---w tp-list* [tp-id]
+          |     +---w tp-id    leafref
+          +--ro output
+             +--ro result?        enumeration
+             +--ro result-list* [tp-id]
+                +--ro tp-id       leafref
+                +--ro ttp-list* []
+                   +--ro tunnel-tp-id?   leafref
+                   +--ro ttp-name?       string
+                   +--ro using-status?   enumeration
+
+                Figure 4: Tree of TE Topology FGNM Extension
+
+6.2.  FGNM Extension for TE Tunnel
+
+   Figure 5 below shows the tree diagram of the YANG data model defined
+   in module "ietf-te-fgnm-ext".
+
+   module: ietf-te-fgnm-ext
+
+     augment /te:te/te:tunnels/te:tunnel:
+       +--rw alias?                   string
+       +--ro create-time?             yang:date-and-time
+       +--ro active-time?             yang:date-and-time
+       +--rw source-endpoints
+       |  +--rw source-endpoint* []
+       |     +--rw node-id?
+       |     |       -> /nw:networks/network/node/node-id
+       |     +--rw (endpoint-tp)?
+       |     |  +--:(ltp)
+       |     |  |  +--rw tp-id?            leafref
+       |     |  +--:(ttp)
+       |     |     +--rw (id-or-name)?
+       |     |        +--:(id)
+       |     |        |  +--rw ttp-id?     leafref
+       |     |        +--:(name)
+       |     |           +--rw ttp-name?   leafref
+       |     +--rw protection-role?        enumeration
+       +--rw destination-endpoints
+          +--rw destination-endpoint* []
+             +--rw node-id?
+             |       -> /nw:networks/network/node/node-id
+             +--rw (endpoint-tp)?
+             |  +--:(ltp)
+             |  |  +--rw tp-id?            leafref
+             |  +--:(ttp)
+             |     +--rw (id-or-name)?
+             |        +--:(id)
+             |        |  +--rw ttp-id?     leafref
+             |        +--:(name)
+             |           +--rw ttp-name?   leafref
+             +--rw protection-role?        enumeration
+     augment /te:te/te:tunnels/te:tunnel/te:restoration:
+       +--rw restoration-lock?             boolean
+       +--rw restoration-reversion-lock?   boolean
+       +--rw scheduled-reversion-time?     yang:date-and-time
+       +--rw restoration-priority?         enumeration
+       +--rw restoration-layer?            enumeration
+
+                 Figure 5: Tree of TE Tunnel FGNM Extension
+
+7.  YANG Data Model
+
+7.1.  FGNM Extensin for TE Topology
+
+   <CODE BEGINS> file "ietf-te-topology-fgnm-ext@2024-07-08.yang"
+   module ietf-te-topology-fgnm-ext {
+     yang-version 1.1;
+     namespace "urn:ietf:params:xml:ns:yang:ietf-te-topology-fgnm-ext";
+     prefix tet-fgnm-ext;
+
+     import ietf-network {
+       prefix "nw";
+     }
+
+     import ietf-network-topology {
+       prefix "nt";
+     }
+
+     import ietf-te-topology {
+       prefix "tet";
+     }
+
+     organization
+       "IETF CCAMP Working Group";
+     contact
+       "WG Web: <http://tools.ietf.org/wg/ccamp/>
+        WG List: <mailto:ccamp@ietf.org>
+
+        Editor: Chaode Yu
+                <mailto:yuchaode@huawei.com>
+                Xing Zhao
+                <mailto:zhaoxing@caict.ac.cn>
+                Yanxia Tan
+                <mailto:tanyx11@chinaunicom.cn>
+                Nigel Davis
+                <mailto:ndavis@ciena.com>
+                Daniel King
+                <mailto:daniel@olddog.co.uk>";
+
+     description
+       "This module provide some extensions to TE topology model, based
+       on transport fine-grain network management requirement";
+
+     revision 2024-07-08 {
+       description
+         "Revision 1.0";
+       reference
+         "draft-yu-ccamp-te-fgnm-yang-01";
+     }
+
+     augment "/nw:networks/nw:network/nw:node/tet:te" {
+       description
+         "Generic fine-grain network management extensions for
+         te node";
+
+       uses node-fgnm-ext-grouping;
+     }
+
+     augment "/nw:networks/nw:network/nw:node/nt:termination-point/"
+           + "tet:te" {
+       description
+         "Generic fine-grain network management extensions for
+         termination point";
+
+       uses tp-fgnm-ext-grouping;
+     }
+
+     augment "/nw:networks/nw:network/nw:node/tet:te" +
+             "/tet:tunnel-termination-point" {
+       description
+         "Generic fine-grain network management extensions for
+         te node";
+
+       uses ttp-fgnm-ext-grouping;
+     }
+
+     augment "/nw:networks/nw:network/nt:link/tet:te" {
+       description
+         "Generic fine-grain network management extensions for link";
+
+       uses link-fgnm-ext-grouping;
+     }
+
+     grouping node-fgnm-ext-grouping {
+       choice layer-specific-extension {
+         case generic {
+
+         }
+       }
+     }
+
+     grouping tp-fgnm-ext-grouping {
+       choice layer-specific-extension {
+         case generic {
+
+         }
+       }
+     }
+
+     grouping ttp-fgnm-ext-grouping {
+       choice layer-specific-extension {
+         case generic {
+
+         }
+       }
+     }
+
+     grouping link-fgnm-ext-grouping {
+       choice layer-specific-extension {
+         case generic {
+         }
+       }
+     }
+
+     rpc query-ttp-by-tps {
+       input {
+         list tp-list {
+           key tp-id;
+           leaf tp-id {
+             type leafref {
+               path "/nw:networks/nw:network/nw:node" +
+                    "/nt:termination-point/nt:tp-id";
+             }
+
+             description "the identifier of TP to querey";
+           }
+         }
+       }
+
+       output {
+         leaf result {
+           type enumeration {
+             enum failed;
+             enum partially-successful;
+             enum successful;
+           }
+
+           description "the result of retrieval";
+         }
+
+         list result-list {
+           key tp-id;
+
+           leaf tp-id {
+             type leafref {
+               path "/nw:networks/nw:network/nw:node" +
+                    "/nt:termination-point/nt:tp-id";
+             }
+
+             description "the identifier of TP queried and returns TTPs";
+           }
+
+           list ttp-list {
+             leaf tunnel-tp-id {
+               type leafref {
+                 path "/nw:networks/nw:network/nw:node/tet:te" +
+                      "/tet:tunnel-termination-point/tet:tunnel-tp-id";
+               }
+
+               description "Identifier of TTP which is existing in the
+               topology. It is not required to return if it is not
+               existing in the topology.";
+             }
+
+             leaf ttp-name {
+               type string;
+               description "Name of TTP. If the ttp is idle, the default
+               name should be provided by the server and follow the
+               naming pattern of TMF814.";
+             }
+             leaf using-status {
+               type enumeration {
+                 enum idle;
+                 enum bidirectional-used;
+               }
+             }
+           }
+         }
+       }
+
+     }
+
+   }
+   <CODE ENDS>
+
+              Figure 6: TE Topology FGNM Extension YANG module
+
+7.2.  FGNM Extensin for TE Tunnel
+
+   <CODE BEGINS> file "ietf-te-fgnm-ext@2024-07-08.yang"
+   module ietf-te-fgnm-ext {
+     yang-version 1.1;
+     namespace "urn:ietf:params:xml:ns:yang:ietf-te-fgnm-ext";
+     prefix te-fgnm-ext;
+
+     import ietf-te {
+       prefix "te";
+     }
+
+     import ietf-yang-types {
+       prefix "yang";
+     }
+
+     import ietf-te-types-fgnm-ext {
+       prefix "te-types-fgnm-ext";
+     }
+
+     import ietf-network {
+       prefix "nw";
+     }
+
+     import ietf-network-topology {
+       prefix "nt";
+     }
+
+     import ietf-te-topology {
+       prefix "tet";
+     }
+
+     organization
+       "IETF CCAMP Working Group";
+     contact
+       "WG Web: <http://tools.ietf.org/wg/ccamp/>
+        WG List: <mailto:ccamp@ietf.org>
+
+        Editor: Chaode Yu
+                <mailto:yuchaode@huawei.com>
+                Xing Zhao
+                <mailto:zhaoxing@caict.ac.cn>
+                Yanxia Tan
+                <mailto:tanyx11@chinaunicom.cn>
+                Nigel Davis
+                <mailto:ndavis@ciena.com>
+                Daniel King
+                <mailto:daniel@olddog.co.uk>";
+
+     description
+       "This module provide some extensions to TE topology model, based
+       on transport fine-grain network management requirement";
+
+     revision 2024-07-08 {
+       description
+         "Revision 1.0";
+       reference
+         "draft-yu-ccamp-te-fgnm-yang-01";
+     }
+
+     augment "/te:te/te:tunnels/te:tunnel" {
+       leaf alias {
+         description
+           "alias of TE tunnel";
+         type string;
+       }
+
+       uses time-state-grouping;
+
+       container source-endpoints {
+         list source-endpoint {
+           uses endpoint-grouping;
+         }
+       }
+
+       container destination-endpoints {
+         list destination-endpoint {
+           uses endpoint-grouping;
+         }
+       }
+     }
+
+     augment  "/te:te/te:tunnels/te:tunnel/te:restoration" {
+       leaf restoration-lock {
+         description
+           "a lock to control whether the restoration can take effect or
+           not, it is useful in the maintenance scenrios, such as in
+           cutover";
+         type boolean;
+       }
+
+       leaf restoration-reversion-lock {
+         description
+           "a lock to control whether the reversion of restoration can
+           take effect or not.";
+         type boolean;
+       }
+
+       leaf scheduled-reversion-time {
+         description
+           "a time when the reversion of restoration can take effect.";
+         type yang:date-and-time;
+       }
+
+       leaf restoration-priority {
+         description
+           "when there are multiple services need to be restored, the
+           higher estoration priority services can occupied the idle
+           resource in priority, it is used to control the restoration
+           sequence.";
+         type enumeration {
+           enum high;
+           enum medium;
+           enum low;
+         }
+       }
+
+       leaf restoration-layer {
+         description
+           "the layer of topolgy prefered to be operated when restoration
+           is needed.";
+         type enumeration {
+           enum odu;
+           enum wdm;
+         }
+       }
+     }
+
+     augment  "/te:te/te:tunnels/te:tunnel/te:primary-paths"
+              + "/te:primary-path/te:explicit-route-objects-always"
+              + "/te:route-object-include-exclude/te:type"    {
+       description
+         "a TTP hop";
+       case ttp-hop {
+         uses te-types-fgnm-ext:explicit-ttp-hop;
+       }
+     }
+
+     augment  "/te:te/te:tunnels/te:tunnel/te:secondary-paths"
+              + "/te:secondary-path/te:explicit-route-objects-always"
+              + "/te:route-object-include-exclude/te:type"    {
+       description
+         "a TTP hop";
+       case ttp-hop {
+         uses te-types-fgnm-ext:explicit-ttp-hop;
+       }
+     }
+
+     augment  "/te:te/te:tunnels/te:tunnel/te:primary-paths"
+              + "/te:primary-path/te:primary-reverse-path"
+              + "/te:explicit-route-objects-always"
+              + "/te:route-object-include-exclude/te:type"    {
+       description
+         "a TTP hop";
+       case ttp-hop {
+         uses te-types-fgnm-ext:explicit-ttp-hop;
+       }
+     }
+
+     augment  "/te:te/te:tunnels/te:tunnel/te:secondary-reverse-paths"
+              + "/te:secondary-reverse-path"
+              + "/te:explicit-route-objects-always"
+              + "/te:route-object-include-exclude/te:type"    {
+       description
+         "a TTP hop";
+       case ttp-hop {
+         uses te-types-fgnm-ext:explicit-ttp-hop;
+       }
+     }
+
+     grouping time-state-grouping {
+       leaf create-time {
+         config false;
+         description
+           "the time when the tunnel was created";
+         type yang:date-and-time;
+       }
+
+       leaf active-time {
+         config false;
+         description
+           "the lastest time when the tunnel was activated";
+         type yang:date-and-time;
+       }
+     }
+
+     grouping endpoint-grouping {
+       leaf node-id {
+         type leafref {
+           path "/nw:networks/nw:network/nw:node/nw:node-id";
+         }
+       }
+
+       choice endpoint-tp {
+         case ltp {
+           leaf tp-id {
+             type leafref {
+               path "/nw:networks/nw:network/nw:node/nt:termination-point"
+               + "/nt:tp-id";
+             }
+           }
+         }
+
+         case ttp {
+           choice id-or-name {
+             case id {
+               leaf ttp-id {
+                 type leafref {
+                   path "/nw:networks/nw:network/nw:node/tet:te"
+                   + "/tet:tunnel-termination-point/tet:tunnel-tp-id";
+                 }
+               }
+             }
+
+             case name {
+               leaf ttp-name {
+                 type leafref {
+                   path "/nw:networks/nw:network/nw:node/tet:te"
+                   + "/tet:tunnel-termination-point/tet:name";
+                 }
+               }
+             }
+           }
+         }
+       }
+
+       leaf protection-role {
+         description
+           "role of this endpoint in multipoints scenario";
+         type enumeration {
+           enum work;
+           enum protect;
+         }
+       }
+     }
+
+   }
+   <CODE ENDS>
+
+               Figure 7: TE Tunnel FGNM Extension YANG module
+
+8.  Manageability Considerations
+
+   <Add any manageability considerations>
+
+9.  Security Considerations
+
+   <Add any security considerations>
+
+10.  IANA Considerations
+
+   <Add any IANA considerations>
+
+11.  References
+
+11.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC6991]  Schoenwaelder, J., Ed., "Common YANG Data Types",
+              RFC 6991, DOI 10.17487/RFC6991, July 2013,
+              <https://www.rfc-editor.org/rfc/rfc6991>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC8340]  Bjorklund, M. and L. Berger, Ed., "YANG Tree Diagrams",
+              BCP 215, RFC 8340, DOI 10.17487/RFC8340, March 2018,
+              <https://www.rfc-editor.org/rfc/rfc8340>.
+
+   [RFC8345]  Clemm, A., Medved, J., Varga, R., Bahadur, N.,
+              Ananthakrishnan, H., and X. Liu, "A YANG Data Model for
+              Network Topologies", RFC 8345, DOI 10.17487/RFC8345, March
+              2018, <https://www.rfc-editor.org/rfc/rfc8345>.
+
+   [RFC8776]  Saad, T., Gandhi, R., Liu, X., Beeram, V., and I. Bryskin,
+              "Common YANG Data Types for Traffic Engineering",
+              RFC 8776, DOI 10.17487/RFC8776, June 2020,
+              <https://www.rfc-editor.org/rfc/rfc8776>.
+
+   [RFC8795]  Liu, X., Bryskin, I., Beeram, V., Saad, T., Shah, H., and
+              O. Gonzalez de Dios, "YANG Data Model for Traffic
+              Engineering (TE) Topologies", RFC 8795,
+              DOI 10.17487/RFC8795, August 2020,
+              <https://www.rfc-editor.org/rfc/rfc8795>.
+
+11.2.  Informative References
+
+   [I-D.draft-gstk-ccamp-actn-optical-transport-mgmt]
+              Farrel, A., King, D., XingZhao, and C. Yu, "Integrating
+              YANG Configuration and Management into an Abstraction and
+              Control of TE Networks (ACTN) System for Optical
+              Networks", Work in Progress, Internet-Draft, draft-gstk-
+              ccamp-actn-optical-transport-mgmt-03, 12 April 2024,
+              <https://datatracker.ietf.org/doc/html/draft-gstk-ccamp-
+              actn-optical-transport-mgmt-03>.
+
+   [I-D.draft-ietf-ccamp-otn-topo-yang]
+              Zheng, H., Busi, I., Liu, X., Belotti, S., and O. G. de
+              Dios, "A YANG Data Model for Optical Transport Network
+              Topology", Work in Progress, Internet-Draft, draft-ietf-
+              ccamp-otn-topo-yang-19, 25 June 2024,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-ccamp-
+              otn-topo-yang-19>.
+
+   [I-D.draft-ietf-ccamp-transport-nbi-app-statement]
+              Busi, I., King, D., Zheng, H., and Y. Xu, "Transport
+              Northbound Interface Applicability Statement", Work in
+              Progress, Internet-Draft, draft-ietf-ccamp-transport-nbi-
+              app-statement-17, 10 July 2023,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-ccamp-
+              transport-nbi-app-statement-17>.
+
+   [I-D.draft-ietf-teas-yang-te]
+              Saad, T., Gandhi, R., Liu, X., Beeram, V. P., and I.
+              Bryskin, "A YANG Data Model for Traffic Engineering
+              Tunnels, Label Switched Paths and Interfaces", Work in
+              Progress, Internet-Draft, draft-ietf-teas-yang-te-36, 2
+              February 2024, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-teas-yang-te-36>.
+
+   [ITU-T_G.805]
+              International Telecommunication Union, "Generic functional
+              architecture of transport networks", ITU-T Recommendation
+              G.805 , March 2000,
+              <https://www.itu.int/rec/T-REC-G.805-200003-I/en>.
+
+   [ITU-T_G.808]
+              International Telecommunication Union, "Terms and
+              definitions for network protection and restoration", ITU-T
+              Recommendation G.808 , November 2016,
+              <https://www.itu.int/rec/T-REC-G.808-201611-I/en>.
+
+   [ITU-T_G.874]
+              International Telecommunication Union, "Management aspects
+              of optical transport network elements", ITU-T
+              Recommendation G.874 , October 2020,
+              <https://www.itu.int/rec/T-REC-G.874-202010-I/en>.
+
+   [ITU-T_G.875]
+              International Telecommunication Union, "Optical transport
+              network%3AProtocol-neutral management information model
+              for the network element view", ITU-T Recommendation
+              G.875 , June 2020,
+              <https://www.itu.int/rec/T-REC-G.875-202006-I/en>.
+
+   [ONF_TR-547]
+              Open Networking Foundation (ONF), "TAPI v2.1.3 Reference
+              Implementation Agreement", ONF TR-547 TAPI RIA v1.0 , July
+              2020, <https://opennetworking.org/wp-
+              content/uploads/2020/08/TR-547-TAPI-v2.1.3-Reference-
+              Implementation-Agreement-1.pdf>.
+
+   [TMF-814]  TM Forum (TMF), "MTNM Solution Set (IDL) R4.5", TMF-814 ,
+              2014, <https://www.tmforum.org/resources/interface/tmf814-
+              mtnm-solution-set-idl-version-r4-5/>.
+
+Appendix A.  Appendix
+
+A.1.  Mapping Between ACTN & TMF & TAPI Modelling
+
+   +===============+============================+======================+
+   | ACTN Object   | TMF Object                 | TAPI Object          |
+   +===============+============================+======================+
+   | Network       | NA                         | topology             |
+   +---------------+----------------------------+----------------------+
+   | Node          | Management Element         | node                 |
+   +---------------+----------------------------+----------------------+
+   | Link          | Topology Link              | link                 |
+   +---------------+----------------------------+----------------------+
+   | TP            | PTP                        | SIP/NEP              |
+   +---------------+----------------------------+----------------------+
+   | TTP           | CTP/FTP                    | CEP                  |
+   +---------------+----------------------------+----------------------+
+   | Tunnel        | SNC/XC                     | connection           |
+   +---------------+----------------------------+----------------------+
+   | NE            | Management Element         | device               |
+   +---------------+----------------------------+----------------------+
+   | component     | equipment holder/equipment | equipment/holder     |
+   +---------------+----------------------------+----------------------+
+   | Client signal | NA                         | connectivity         |
+   |               |                            | service              |
+   +---------------+----------------------------+----------------------+
+   | Ethernet      | NA                         | connectivity         |
+   | Client signal |                            | service              |
+   +---------------+----------------------------+----------------------+
+   | NA            | Protection Group           | NA                   |
+   +---------------+----------------------------+----------------------+
+   | NA            | Equipment Protection Group | NA                   |
+   +---------------+----------------------------+----------------------+
+
+              Table 3: Mapping of ACTN & TMF & TAPI Modelling
+
+Acknowledgments
+
+   This document was prepared using kramdown.
+
+Contributors
+
+   Zhoulong Liu
+   Huawei Technologies
+   Email: liuzhoulong@huawei.com
+
+
+   Italo Busi
+   Huawei Technologies
+   Email: Italo.Busi@huawei.com
+
+
+   Aihua Guo
+   Futurewei Technologies
+   Email: aihuaguo.ietf@gmail.com
+
+
+Authors' Addresses
+
+   Chaode Yu
+   Huawei Technologies
+   Email: yuchaode@huawei.com
+
+
+   Xing Zhao
+   CAICT
+   Email: zhaoxing@caict.ac.cn
+
+
+   Yanxia Tan
+   China Unicom
+   Email: tanyx11@chinaunicom.cn
+
+
+   Nigel Davis
+   Ciena
+   Email: ndavis@ciena.com
+
+
+   Daniel King
+   Old Dog Consulting
+   Email: daniel@olddog.co.uk
