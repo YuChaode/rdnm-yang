@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-24T01:08:44.684154+00:00",
+  "timestamp": "2024-11-26T01:05:06.404078+00:00",
   "repo": "YuChaode/draft-yu-ccamp-te-fgnm-yang",
   "labels": [
     {
@@ -49,6 +49,55 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOMTkN6c6gV0jT",
+      "title": "Scope of the draft",
+      "url": "https://github.com/YuChaode/draft-yu-ccamp-te-fgnm-yang/issues/1",
+      "state": "OPEN",
+      "author": "sergiobelotti",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Action @all: Use existing FGNM YANG I-D to capture common definitions, and then split for technology specific elements in future I-Ds.",
+      "createdAt": "2024-11-25T09:58:51Z",
+      "updatedAt": "2024-11-25T09:58:51Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOMTkN6c6gV28o",
+      "title": "FGNM acronym replacement",
+      "url": "https://github.com/YuChaode/draft-yu-ccamp-te-fgnm-yang/issues/2",
+      "state": "OPEN",
+      "author": "sergiobelotti",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We are not happy with the \"FGNM\" naming since it has been confused with \"Fine-grain optical transport networking (fgOTN)\"\r\nAction @AdrianFarrel : to provide some suggestions for an FGNM acronym replacement",
+      "createdAt": "2024-11-25T10:02:01Z",
+      "updatedAt": "2024-11-25T10:07:37Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOMTkN6c6gV4uJ",
+      "title": "Remove \"TE\" from I-D name/file",
+      "url": "https://github.com/YuChaode/draft-yu-ccamp-te-fgnm-yang/issues/3",
+      "state": "OPEN",
+      "author": "sergiobelotti",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Action @YuChaode : Remove \"TE\" from I-D name/file",
+      "createdAt": "2024-11-25T10:04:58Z",
+      "updatedAt": "2024-11-25T10:04:58Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": []
 }
