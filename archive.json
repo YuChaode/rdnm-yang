@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-28T01:05:51.864156+00:00",
+  "timestamp": "2024-12-01T01:16:47.946375+00:00",
   "repo": "YuChaode/draft-yu-ccamp-te-fgnm-yang",
   "labels": [
     {
@@ -47,6 +47,11 @@
       "name": "wontfix",
       "description": "This will not be worked on",
       "color": "ffffff"
+    },
+    {
+      "name": "agreed",
+      "description": "",
+      "color": "C2F569"
     }
   ],
   "issues": [
@@ -62,9 +67,17 @@
       "labels": [],
       "body": "Action @all: Use existing FGNM YANG I-D to capture common definitions, and then split for technology specific elements in future I-Ds.",
       "createdAt": "2024-11-25T09:58:51Z",
-      "updatedAt": "2024-11-25T09:58:51Z",
+      "updatedAt": "2024-11-28T14:15:09Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We are meeting again in 2 weeks . For that time : review the present version of the draft and provide comments/request for clarifications. ",
+          "createdAt": "2024-11-28T14:15:08Z",
+          "updatedAt": "2024-11-28T14:15:08Z"
+        }
+      ]
     },
     {
       "number": 2,
@@ -74,13 +87,28 @@
       "state": "OPEN",
       "author": "sergiobelotti",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
-      "labels": [],
+      "assignees": [
+        "danielkinguk",
+        "italobusi",
+        "sergiobelotti",
+        "YuChaode"
+      ],
+      "labels": [
+        "agreed"
+      ],
       "body": "We are not happy with the \"FGNM\" naming since it has been confused with \"Fine-grain optical transport networking (fgOTN)\"\r\nAction @AdrianFarrel : to provide some suggestions for an FGNM acronym replacement",
       "createdAt": "2024-11-25T10:02:01Z",
-      "updatedAt": "2024-11-25T10:07:37Z",
+      "updatedAt": "2024-11-28T14:13:01Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The new agreed name is \"RDNM\". We need to update the name of github repository, the name of the draft and text in the draft, and the name of invitation call.",
+          "createdAt": "2024-11-28T14:11:56Z",
+          "updatedAt": "2024-11-28T14:11:56Z"
+        }
+      ]
     },
     {
       "number": 3,
@@ -90,11 +118,17 @@
       "state": "OPEN",
       "author": "sergiobelotti",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
-      "labels": [],
+      "assignees": [
+        "italobusi",
+        "sergiobelotti",
+        "YuChaode"
+      ],
+      "labels": [
+        "agreed"
+      ],
       "body": "Action @YuChaode : Remove \"TE\" from I-D name/file",
       "createdAt": "2024-11-25T10:04:58Z",
-      "updatedAt": "2024-11-25T10:04:58Z",
+      "updatedAt": "2024-11-28T14:09:54Z",
       "closedAt": null,
       "comments": []
     }
