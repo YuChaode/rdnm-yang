@@ -1,9 +1,9 @@
 ---
-title: "YANG Data Models for Transport TE FGNM Extension Model"
-abbrev: "TE FGNM YANG"
+title: "YANG Data Models for Transport Network Rich Detailed Network Management (RDNM)"
+abbrev: "RDNM YANG"
 category: std
 
-docname: draft-yu-ccamp-te-fgnm-yang-latest
+docname: draft-yu-ccamp-rdnm-yang-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
