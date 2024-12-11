@@ -1,17 +1,17 @@
-# YANG Data Models for Transport TE FGNM Extension Model
+# YANG Data Models for Transport Network Rich Detailed Network Management (RDNM)
 
-This is the working area for the individual Internet-Draft, "YANG Data Models for Transport TE FGNM Extension Model".
+This is the working area for the individual Internet-Draft, "YANG Data Models for Transport Network Rich Detailed Network Management (RDNM)".
 
-* [Editor's Copy](https://YuChaode.github.io/draft-yu-ccamp-te-fgnm-yang/#go.draft-yu-ccamp-te-fgnm-yang.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-yu-ccamp-te-fgnm-yang)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-yu-ccamp-te-fgnm-yang)
-* [Compare Editor's Copy to Individual Draft](https://YuChaode.github.io/draft-yu-ccamp-te-fgnm-yang/#go.draft-yu-ccamp-te-fgnm-yang.diff)
+* [Editor's Copy](https://italobusi.github.io/rdnm-yang/#go.draft-yu-ccamp-rdnm-yang.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-yu-ccamp-rdnm-yang)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-yu-ccamp-rdnm-yang)
+* [Compare Editor's Copy to Individual Draft](https://italobusi.github.io/rdnm-yang/#go.draft-yu-ccamp-rdnm-yang.diff)
 
 
 ## Contributing
 
 See the
-[guidelines for contributions](https://github.com/YuChaode/draft-yu-ccamp-te-fgnm-yang/blob/main/CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/italobusi/rdnm-yang/blob/fork/CONTRIBUTING.md).
 
 Contributions can be made by creating pull requests.
 The GitHub interface supports creating pull requests using the Edit (✏) button.
