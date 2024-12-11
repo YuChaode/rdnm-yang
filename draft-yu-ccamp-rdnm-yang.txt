@@ -5,18 +5,19 @@
 Common Control and Measurement Plane                               C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                                 X. Zhao
-Expires: 9 January 2025                                            CAICT
+Expires: 14 June 2025                                              CAICT
                                                                   Y. Tan
                                                             China Unicom
                                                                 N. Davis
                                                                    Ciena
                                                                  D. King
                                                       Old Dog Consulting
-                                                             8 July 2024
+                                                        11 December 2024
 
 
-         YANG Data Models for Transport TE FGNM Extension Model
-                   draft-yu-ccamp-te-fgnm-yang-latest
+ YANG Data Models for Transport Network Rich Detail Network Management
+                                 (RDNM)
+                    draft-yu-ccamp-rdnm-yang-latest
 
 Abstract
 
@@ -31,8 +32,7 @@ About This Document
    The latest revision of this draft can be found at
    https://YuChaode.github.io/draft-yu-ccamp-te-fgnm-yang/draft-yu-
    ccamp-te-fgnm-yang.html.  Status information for this document may be
-   found at https://datatracker.ietf.org/doc/draft-yu-ccamp-te-fgnm-
-   yang/.
+   found at https://datatracker.ietf.org/doc/draft-yu-ccamp-rdnm-yang/.
 
    Discussion of this document takes place on the Common Control and
    Measurement Plane Working Group mailing list (mailto:ccamp@ietf.org),
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 January 2025.
+   This Internet-Draft will expire on 14 June 2025.
 
 Copyright Notice
 
@@ -1164,21 +1164,21 @@ Table of Contents
 11.2.  Informative References
 
    [I-D.draft-gstk-ccamp-actn-optical-transport-mgmt]
-              Farrel, A., King, D., XingZhao, and C. Yu, "Integrating
-              YANG Configuration and Management into an Abstraction and
-              Control of TE Networks (ACTN) System for Optical
-              Networks", Work in Progress, Internet-Draft, draft-gstk-
-              ccamp-actn-optical-transport-mgmt-03, 12 April 2024,
-              <https://datatracker.ietf.org/doc/html/draft-gstk-ccamp-
-              actn-optical-transport-mgmt-03>.
+              Tan, XingZhao, Yu, C., King, D., and A. Farrel,
+              "Integrating YANG Configuration and Management into an
+              Abstraction and Control of TE Networks (ACTN) System for
+              Optical Networks", Work in Progress, Internet-Draft,
+              draft-gstk-ccamp-actn-optical-transport-mgmt-05, 18
+              October 2024, <https://datatracker.ietf.org/doc/html/
+              draft-gstk-ccamp-actn-optical-transport-mgmt-05>.
 
    [I-D.draft-ietf-ccamp-otn-topo-yang]
               Zheng, H., Busi, I., Liu, X., Belotti, S., and O. G. de
               Dios, "A YANG Data Model for Optical Transport Network
               Topology", Work in Progress, Internet-Draft, draft-ietf-
-              ccamp-otn-topo-yang-19, 25 June 2024,
+              ccamp-otn-topo-yang-20, 7 November 2024,
               <https://datatracker.ietf.org/doc/html/draft-ietf-ccamp-
-              otn-topo-yang-19>.
+              otn-topo-yang-20>.
 
    [I-D.draft-ietf-ccamp-transport-nbi-app-statement]
               Busi, I., King, D., Zheng, H., and Y. Xu, "Transport
@@ -1192,9 +1192,9 @@ Table of Contents
               Saad, T., Gandhi, R., Liu, X., Beeram, V. P., and I.
               Bryskin, "A YANG Data Model for Traffic Engineering
               Tunnels, Label Switched Paths and Interfaces", Work in
-              Progress, Internet-Draft, draft-ietf-teas-yang-te-36, 2
-              February 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-teas-yang-te-36>.
+              Progress, Internet-Draft, draft-ietf-teas-yang-te-37, 9
+              October 2024, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-teas-yang-te-37>.
 
    [ITU-T_G.805]
               International Telecommunication Union, "Generic functional
