@@ -1,6 +1,6 @@
-# YANG Data Models for Transport Network Rich Detailed Network Management (RDNM)
+# YANG Data Models for Transport Network Rich Detail Network Management (RDNM)
 
-This is the working area for the individual Internet-Draft, "YANG Data Models for Transport Network Rich Detailed Network Management (RDNM)".
+This is the working area for the individual Internet-Draft, "YANG Data Models for Transport Network Rich Detail Network Management (RDNM)".
 
 * [Editor's Copy](https://italobusi.github.io/rdnm-yang/#go.draft-yu-ccamp-rdnm-yang.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-yu-ccamp-rdnm-yang)
