@@ -1,5 +1,5 @@
 ---
-title: "YANG Data Models for Transport Network Rich Detailed Network Management (RDNM)"
+title: "YANG Data Models for Transport Network Rich Detail Network Management (RDNM)"
 abbrev: "RDNM YANG"
 category: std
 
