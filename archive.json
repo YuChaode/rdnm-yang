@@ -1,7 +1,7 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-12-10T01:08:20.615007+00:00",
-  "repo": "YuChaode/draft-yu-ccamp-te-fgnm-yang",
+  "timestamp": "2024-12-12T01:06:47.824888+00:00",
+  "repo": "YuChaode/rdnm-yang",
   "labels": [
     {
       "name": "bug",
@@ -59,7 +59,7 @@
       "number": 1,
       "id": "I_kwDOMTkN6c6gV0jT",
       "title": "Scope of the draft",
-      "url": "https://github.com/YuChaode/draft-yu-ccamp-te-fgnm-yang/issues/1",
+      "url": "https://github.com/YuChaode/rdnm-yang/issues/1",
       "state": "OPEN",
       "author": "sergiobelotti",
       "authorAssociation": "COLLABORATOR",
@@ -83,7 +83,7 @@
       "number": 2,
       "id": "I_kwDOMTkN6c6gV28o",
       "title": "FGNM acronym replacement",
-      "url": "https://github.com/YuChaode/draft-yu-ccamp-te-fgnm-yang/issues/2",
+      "url": "https://github.com/YuChaode/rdnm-yang/issues/2",
       "state": "OPEN",
       "author": "sergiobelotti",
       "authorAssociation": "COLLABORATOR",
@@ -114,7 +114,7 @@
       "number": 3,
       "id": "I_kwDOMTkN6c6gV4uJ",
       "title": "Remove \"TE\" from I-D name/file",
-      "url": "https://github.com/YuChaode/draft-yu-ccamp-te-fgnm-yang/issues/3",
+      "url": "https://github.com/YuChaode/rdnm-yang/issues/3",
       "state": "OPEN",
       "author": "sergiobelotti",
       "authorAssociation": "COLLABORATOR",
