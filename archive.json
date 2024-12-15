@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-12-12T01:06:47.824888+00:00",
+  "timestamp": "2024-12-15T01:12:14.560310+00:00",
   "repo": "YuChaode/rdnm-yang",
   "labels": [
     {
@@ -98,7 +98,7 @@
       ],
       "body": "We are not happy with the \"FGNM\" naming since it has been confused with \"Fine-grain optical transport networking (fgOTN)\"\r\nAction @AdrianFarrel : to provide some suggestions for an FGNM acronym replacement",
       "createdAt": "2024-11-25T10:02:01Z",
-      "updatedAt": "2024-11-28T14:13:01Z",
+      "updatedAt": "2024-12-12T14:55:03Z",
       "closedAt": null,
       "comments": [
         {
@@ -107,6 +107,13 @@
           "body": "The new agreed name is \"RDNM\". We need to update the name of github repository, the name of the draft and text in the draft, and the name of invitation call.",
           "createdAt": "2024-11-28T14:11:56Z",
           "updatedAt": "2024-11-28T14:11:56Z"
+        },
+        {
+          "author": "danielkinguk",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Updated the acronym to FDNM in draft-ietf-ccamp-actn-optical-transport-mgmt (02 ver). ",
+          "createdAt": "2024-12-12T14:55:03Z",
+          "updatedAt": "2024-12-12T14:55:03Z"
         }
       ]
     },
@@ -129,6 +136,58 @@
       "body": "Action @YuChaode : Remove \"TE\" from I-D name/file",
       "createdAt": "2024-11-25T10:04:58Z",
       "updatedAt": "2024-11-28T14:09:54Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 4,
+      "id": "I_kwDOMTkN6c6jFdvK",
+      "title": "Review and comment on the 01 of the draft-yu-ccamp-te-fgnm-yang-01",
+      "url": "https://github.com/YuChaode/rdnm-yang/issues/4",
+      "state": "OPEN",
+      "author": "sergiobelotti",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I've summarized some comments in the attached word document\r\n[draft-yu-ccamp-te-fgnm-yang-01.docx](https://github.com/user-attachments/files/18113276/draft-yu-ccamp-te-fgnm-yang-01.docx)\r\n",
+      "createdAt": "2024-12-12T14:46:26Z",
+      "updatedAt": "2024-12-12T14:46:26Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOMTkN6c6jFhaH",
+      "title": "Clarify the text on replacing FCAPS",
+      "url": "https://github.com/YuChaode/rdnm-yang/issues/5",
+      "state": "OPEN",
+      "author": "danielkinguk",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "danielkinguk"
+      ],
+      "labels": [],
+      "body": "Observation from Scott that we are not replacing FCAPS, but we are providing FCAPS capability for ACTN.\r\n\r\nFor example, see:\r\n\r\n  \"This enhanced ACTN architecture is known as ACTN Rich-Detail Network\r\n   Management (ACTN RDNM).  It provides an evolution path for FCAPS\r\n   Operational Support System (OSS) functions from Common Object Request\r\n   Broker Architecture (CORBA) [CORBA] interfaces and the Multi-\r\n   Technology Operations System Interface (MTOSI) architecture [MTOSI],\r\n   to IETF YANG-based models and RESTful APIs.\"\r\n\r\nWe need to update to ensure that we are not replacing, but providing some FCAPS capability. \r\n",
+      "createdAt": "2024-12-12T14:51:51Z",
+      "updatedAt": "2024-12-12T14:51:51Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 6,
+      "id": "I_kwDOMTkN6c6jFifv",
+      "title": "Agree Use Case for FDNM that we can document in detail",
+      "url": "https://github.com/YuChaode/rdnm-yang/issues/6",
+      "state": "OPEN",
+      "author": "danielkinguk",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "danielkinguk"
+      ],
+      "labels": [],
+      "body": "Use case to be agreed, this could be in the existing YANG document or an applicability statement.  ",
+      "createdAt": "2024-12-12T14:53:29Z",
+      "updatedAt": "2024-12-12T14:53:30Z",
       "closedAt": null,
       "comments": []
     }
