@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-09T01:01:32.159292+00:00",
+  "timestamp": "2025-01-12T01:07:54.084567+00:00",
   "repo": "YuChaode/rdnm-yang",
   "labels": [
     {
@@ -147,11 +147,13 @@
       "state": "OPEN",
       "author": "sergiobelotti",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "YuChaode"
+      ],
       "labels": [],
       "body": "I've summarized some comments in the attached word document\r\n[draft-yu-ccamp-te-fgnm-yang-01.docx](https://github.com/user-attachments/files/18113276/draft-yu-ccamp-te-fgnm-yang-01.docx)\r\n",
       "createdAt": "2024-12-12T14:46:26Z",
-      "updatedAt": "2024-12-12T14:46:26Z",
+      "updatedAt": "2025-01-09T14:22:20Z",
       "closedAt": null,
       "comments": []
     },
