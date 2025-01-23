@@ -20,8 +20,8 @@ venue:
   type: "Working Group"
   mail: "ccamp@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/ccamp/"
-  github: "YuChaode/draft-yu-ccamp-te-fgnm-yang"
-  latest: "https://YuChaode.github.io/draft-yu-ccamp-te-fgnm-yang/draft-yu-ccamp-te-fgnm-yang.html"
+  github: " https://github.com/YuChaode/rdnm-yang"
+  latest: " https://github.com/YuChaode/rdnm-yang/draft-yu-ccamp-rdnm-yang.html"
 
 author:
   -
@@ -115,7 +115,7 @@ informative:
 
 --- abstract
 
-This document defines two extension YANG data models augmenting to TE topology and TE tunnel modules, based on the FGNM (Fine-Grain Network Management) requirements in transport networks.
+This document defines two extension YANG data models augmenting to TE topology and TE tunnel modules, based on the RDNM (Rich Detail Network Management) requirements in transport networks.
 
 --- middle
 
@@ -128,13 +128,13 @@ This document defines two extension YANG data models augmenting to TE topology a
 
 According to {{?I-D.draft-ietf-ccamp-transport-nbi-app-statement}}, it is good to used the current TE data model system to manage an abstracted network topology. In {{?I-D.draft-gstk-ccamp-actn-optical-transport-mgmt}}, it is called Abstracted Control (AC) approach.
 
-In {{?I-D.draft-gstk-ccamp-actn-optical-transport-mgmt}}, it also raised another management approach, which is called Fine-Grain Network Management (FGNM). FGNM is aimed to provide traditional FCAPS capabilities.
+In {{?I-D.draft-gstk-ccamp-actn-optical-transport-mgmt}}, it also raised another management approach, which is called Rich Detail Network Management (RDNM). RDNM is aimed to provide traditional FCAPS capabilities.
 
 {{ITU-T_G.805}} describes transport network from the viewpoint of the information transfer capability, provides a generic functional architecture which is also implementation independent. This recommendation is the implementation basis of most of the vendors' or operators' systems.
 
 To provide traditional FCAPS functionalities, we need to align with the modelling of traditional approach, which is suggested to be {{TMF-814}}. Therefore, some more TMF attributes would be introduced. To avoid introducing non-backward-compatible (NBC) changes, we would like to provide some extension YANG data models, based on the current model architecture.
 
-Some extensions is generic for all network layers would be defined in the FGNM extension models, including generic TE topology FGNM extension and generic TE tunnel FGNM extension. The layer specific FGNM extension should be found in some other YANG data modules.
+Some extensions is generic for all network layers would be defined in the RDNM extension models, including generic TE topology RDNM extension and generic TE tunnel RDNM extension. The layer specific RDNM extension should be found in some other YANG data modules.
 
 
 ## Terminology and Notations
@@ -165,9 +165,9 @@ The meaning of the symbols in this diagram is defined in {{!RFC8340}}.
 | inet   | ietf-inet-types                 | {{!RFC6991}}  |
 |te      | ietf-te                         | RFCYYYY |
 | te-types| ietf-te-types                  | {{!RFC8776}}  |
-| tet-fgnm-ext| ietf-te-topology-fgnm-ext  | RFC XXXX      |
-| te-fgnm-ext| ietf-te-fgnm-ext            | RFC XXXX      |
-| te-types-fgnm-ext| ietf-te-types-fgnm-ext| RFC XXXX      |
+| tet-rdnm-ext| ietf-te-topology-rdnm-ext  | RFC XXXX      |
+| te-rdnm-ext| ietf-te-rdnm-ext            | RFC XXXX      |
+| te-types-rdnm-ext| ietf-te-types-rdnm-ext| RFC XXXX      |
 {: #tab-prefixes title="Prefixes and corresponding YANG modules"}
 
 RFC Editor Note:
@@ -247,9 +247,9 @@ TE topology model was aimed to define common attributes for all the technologies
 
 Although most of the objects in ACTN and TMF can be mapped to each other, the parameters of the objects cannot be completely matched. In other words, the current ACTN object needs to be extended with some properties to support the full functionality of a traditional object.
 
-But in the traditional transport standards there is not such a saying of  TE-related modelling. If we want to extend the current IETF data models to have full modelling of traditional approach, which is called FGNM extension by us, we suggest to define the common attributes for all the technologies in a TE topology FGNM extension model.
+But in the traditional transport standards there is not such a saying of  TE-related modelling. If we want to extend the current IETF data models to have full modelling of traditional approach, which is called RDNM extension by us, we suggest to define the common attributes for all the technologies in a TE topology RDNM extension model.
 
-For layer-specific FGNM extensions could reference existing way and define in a separated layer-specific FGNM extension document. So in the FGNM approach, the ACTN topology architecture will be extended to be:
+For layer-specific RDNM extensions could reference existing way and define in a separated layer-specific RDNM extension document. So in the RDNM approach, the ACTN topology architecture will be extended to be:
 
 ~~~~ ascii-art
        +----------------------+
@@ -259,53 +259,53 @@ For layer-specific FGNM extensions could reference existing way and define in a 
                    |
                    |
        +----------------------+           +----------------------+
-       |     TE topology      |<----------|   TE FGNM Extension  |
+       |     TE topology      |<----------|   TE RDNM Extension  |
        +----------------------+           +----------------------+
           ^      ^       ^                     ^      ^       ^
           |      |       |                     |      |       |
           |      |       |                     |      |       |
 +--------------+ |       |         +----------------+ |       |
-| ETH topology | |       |         | ETH FGNM EXT   | |       |
+| ETH topology | |       |         | ETH RDNM EXT   | |       |
 +--------------+ |       |         +----------------+ |       |
                  |       |                            |       |
        +--------------+  |                +--------------+    |
-       | OTN topology |  |                | OTN FGNM EXT |    |
+       | OTN topology |  |                | OTN RDNM EXT |    |
        +--------------+  |                +--------------+    |
                          |                                    |
            +--------------+                     +--------------+
-           | WDM topology |                     | WDM FGNM EXT |
+           | WDM topology |                     | WDM RDNM EXT |
            +--------------+                     +--------------+
 ~~~~
-{: #fig-actn-fgnm-topology title="Relationship of FGNM ACTN topology"}
+{: #fig-actn-rdnm-topology title="Relationship of RDNM ACTN topology"}
 
-It is also same for the TE tunnel architecture. The whole architecture after FGNM tunnel extensions will be:
+It is also same for the TE tunnel architecture. The whole architecture after RDNM tunnel extensions will be:
 
 ~~~~ ascii-art
    +----------------------+           +----------------------+
-   |      TE Tunnel       |<----------|   TE FGNM Extension  |
+   |      TE Tunnel       |<----------|   TE RDNM Extension  |
    +----------------------+           +----------------------+
         ^      ^       ^                   ^      ^       ^
         |      |       |                   |      |       |
         |      |       |                   |      |       |
 +------------+ |       |       +----------------+ |       |
-| ETH Tunnel | |       |       | ETH FGNM EXT   | |       |
+| ETH Tunnel | |       |       | ETH RDNM EXT   | |       |
 +------------+ |       |       +----------------+ |       |
                |       |                          |       |
      +--------------+  |              +--------------+    |
-     | OTN Tunnel   |  |              | OTN FGNM EXT |    |
+     | OTN Tunnel   |  |              | OTN RDNM EXT |    |
      +--------------+  |              +--------------+    |
                        |                                  |
            +--------------+                 +--------------+
-           | WDM Tunnel   |                 | WDM FGNM EXT |
+           | WDM Tunnel   |                 | WDM RDNM EXT |
            +--------------+                 +--------------+
 ~~~~
-{: #fig-actn-fgnm-tunnel title="Relationship of FGNM ACTN tunnel"}
+{: #fig-actn-rdnm-tunnel title="Relationship of RDNM ACTN tunnel"}
 
-# FGNM Topology
+# RDNM Extension for Topology
 
 For the some objects, although it is defined in IETF, but the way of abstraction is not so implementation friendly,  especially for TTP.
 
-## FGNM extension for TE topology
+## RDNM extension for TE topology
 (To be added)
 
 ## The modelling and usage of TTP
@@ -336,7 +336,7 @@ rpcs:
                +--ro using-status?   enumeration
 ~~~~
 
-# FGNM Extensions for TE Tunnel
+# RDNM Extensions for TE Tunnel
 
 ## Modelling of Point to Multi-Points and Multi-Points to Multi-Points TE Tunnel
 
@@ -431,43 +431,50 @@ augment /te:te/te:tunnels/te:tunnel/te:secondary-reverse-paths
 
 #  Tree Diagram
 
-## FGNM Extension for TE Topology
+## RDNM Extension for TE Topology
 
-{{fig-tet-fgnm-tree}} below shows the tree diagram of the YANG data model defined in module "ietf-te-topology-fgnm-ext".
-
-~~~~ ascii-art
-{::include ./yang/ietf-te-topology-fgnm-ext.tree}
-~~~~
-{: #fig-tet-fgnm-tree title="Tree of TE Topology FGNM Extension"
-artwork-name="ietf-te-topology-fgnm-ext.tree"}
-
-
-## FGNM Extension for TE Tunnel
-
-{{fig-te-fgnm-tree}} below shows the tree diagram of the YANG data model defined in module "ietf-te-fgnm-ext".
+{{fig-tet-rdnm-tree}} below shows the tree diagram of the YANG data model defined in module "ietf-te-topology-rdnm-ext".
 
 ~~~~ ascii-art
-{::include ./yang/ietf-te-fgnm-ext.tree}
+{::include ./yang/ietf-te-topology-rdnm-ext.tree}
 ~~~~
-{: #fig-te-fgnm-tree title="Tree of TE Tunnel FGNM Extension"
-artwork-name="ietf-te-fgnm-ext.tree"}
+{: #fig-tet-rdnm-tree title="Tree of TE Topology RDNM Extension"
+artwork-name="ietf-te-topology-rdnm-ext.tree"}
+
+
+## RDNM Extension for TE Tunnel
+
+{{fig-te-rdnm-tree}} below shows the tree diagram of the YANG data model defined in module "ietf-te-rdnm-ext".
+
+~~~~ ascii-art
+{::include ./yang/ietf-te-rdnm-ext.tree}
+~~~~
+{: #fig-te-rdnm-tree title="Tree of TE Tunnel RDNM Extension"
+artwork-name="ietf-te-rdnm-ext.tree"}
 
 # YANG Data Model
 
-## FGNM Extensin for TE Topology
+## RDNM Extensin for TE Topology
 
 ~~~~ yang
-{::include ./yang/ietf-te-topology-fgnm-ext.yang}
+{::include ./yang/ietf-te-topology-rdnm-ext.yang}
 ~~~~
-{: #fig-tet-fgnm-yang title="TE Topology FGNM Extension YANG module"
-sourcecode-markers="true" sourcecode-name="ietf-te-topology-fgnm-ext@2024-07-08.yang"}
+{: #fig-tet-rdnm-yang title="TE Topology RDNM Extension YANG module"
+sourcecode-markers="true" sourcecode-name="ietf-te-topology-rdnm-ext@2025-01-16.yang"}
 
-## FGNM Extensin for TE Tunnel
+## RDNM Extensin for TE Tunnel
 ~~~~ yang
-{::include ./yang/ietf-te-fgnm-ext.yang}
+{::include ./yang/ietf-te-rdnm-ext.yang}
 ~~~~
-{: #fig-te-fgnm-yang title="TE Tunnel FGNM Extension YANG module"
-sourcecode-markers="true" sourcecode-name="ietf-te-fgnm-ext@2024-07-08.yang"}
+{: #fig-te-rdnm-yang title="TE Tunnel RDNM Extension YANG module"
+sourcecode-markers="true" sourcecode-name="ietf-te-rdnm-ext@2025-01-16.yang"}
+
+## RDNM Extension for TE Types
+~~~~ yang
+{::include ./yang/ietf-te-types-rdnm-ext.yang}
+~~~~
+{: #fig-te-types-rdnm-yang title="TE Types RDNM Extension YANG module"
+sourcecode-markers="true" sourcecode-name="ietf-te-types-rdnm-ext@2025-01-16.yang"}
 
 
 # Manageability Considerations
