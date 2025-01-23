@@ -1,0 +1,30 @@
+module: ietf-te-topology-rdnm-ext
+
+  augment /nw:networks/nw:network/nw:node/tet:te:
+    +--rw (layer-specific-extension)?
+       +--:(generic)
+  augment /nw:networks/nw:network/nw:node/nt:termination-point
+            /tet:te:
+    +--rw (layer-specific-extension)?
+       +--:(generic)
+  augment /nw:networks/nw:network/nw:node/tet:te
+            /tet:tunnel-termination-point:
+    +--rw (layer-specific-extension)?
+       +--:(generic)
+  augment /nw:networks/nw:network/nt:link/tet:te:
+    +--rw (layer-specific-extension)?
+       +--:(generic)
+
+  rpcs:
+    +---x query-ttp-by-tps
+       +---w input
+       |  +---w tp-list* [tp-id]
+       |     +---w tp-id    leafref
+       +--ro output
+          +--ro result?        enumeration
+          +--ro result-list* [tp-id]
+             +--ro tp-id       leafref
+             +--ro ttp-list* []
+                +--ro tunnel-tp-id?   leafref
+                +--ro ttp-name?       string
+                +--ro using-status?   enumeration
