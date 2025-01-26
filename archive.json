@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-23T01:00:03.349954+00:00",
+  "timestamp": "2025-01-26T01:02:02.347221+00:00",
   "repo": "YuChaode/rdnm-yang",
   "labels": [
     {
@@ -52,6 +52,11 @@
       "name": "agreed",
       "description": "",
       "color": "C2F569"
+    },
+    {
+      "name": "need discussion",
+      "description": "",
+      "color": "FBCA04"
     }
   ],
   "issues": [
@@ -162,7 +167,7 @@
       "id": "I_kwDOMTkN6c6jFhaH",
       "title": "Clarify the text on replacing FCAPS",
       "url": "https://github.com/YuChaode/rdnm-yang/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "danielkinguk",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -171,9 +176,17 @@
       "labels": [],
       "body": "Observation from Scott that we are not replacing FCAPS, but we are providing FCAPS capability for ACTN.\r\n\r\nFor example, see:\r\n\r\n  \"This enhanced ACTN architecture is known as ACTN Rich-Detail Network\r\n   Management (ACTN RDNM).  It provides an evolution path for FCAPS\r\n   Operational Support System (OSS) functions from Common Object Request\r\n   Broker Architecture (CORBA) [CORBA] interfaces and the Multi-\r\n   Technology Operations System Interface (MTOSI) architecture [MTOSI],\r\n   to IETF YANG-based models and RESTful APIs.\"\r\n\r\nWe need to update to ensure that we are not replacing, but providing some FCAPS capability. \r\n",
       "createdAt": "2024-12-12T14:51:51Z",
-      "updatedAt": "2024-12-12T14:51:51Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-01-23T14:22:41Z",
+      "closedAt": "2025-01-23T14:22:40Z",
+      "comments": [
+        {
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Text added in [draft-ietf-ccamp-actn-optical-transport-mgmt-02](https://datatracker.ietf.org/doc/html/draft-ietf-ccamp-actn-optical-transport-mgmt-02)",
+          "createdAt": "2025-01-23T14:22:40Z",
+          "updatedAt": "2025-01-23T14:22:40Z"
+        }
+      ]
     },
     {
       "number": 6,
@@ -192,7 +205,68 @@
       "updatedAt": "2024-12-12T14:53:30Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 7,
+      "id": "I_kwDOMTkN6c6nTVe2",
+      "title": "Fix the errors of YANG",
+      "url": "https://github.com/YuChaode/rdnm-yang/issues/7",
+      "state": "OPEN",
+      "author": "YuChaode",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-01-23T13:06:44Z",
+      "updatedAt": "2025-01-23T13:06:44Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 9,
+      "id": "I_kwDOMTkN6c6nUSd0",
+      "title": "Clarification of TTP model and terminology",
+      "url": "https://github.com/YuChaode/rdnm-yang/issues/9",
+      "state": "OPEN",
+      "author": "YuChaode",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [
+        "need discussion"
+      ],
+      "body": "Tunnel termination point (TTP) in IETF TE topology context represents a pool of potential trail termination points(TTP) for connections/LSPs. \nSee Sergio's comments in #4 on section 4: [draft-yu-ccamp-te-fgnm-yang-01.docx](https://github.com/user-attachments/files/18113276/draft-yu-ccamp-te-fgnm-yang-01.docx).\nSome clarification is needed  in the document.",
+      "createdAt": "2025-01-23T14:51:05Z",
+      "updatedAt": "2025-01-23T15:27:49Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 8,
+      "id": "PR_kwDOMTkN6c6IxVWV",
+      "title": "Remove TE and Replace FGNM with RDNM",
+      "url": "https://github.com/YuChaode/rdnm-yang/pull/8",
+      "state": "OPEN",
+      "author": "YuChaode",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-01-23T14:30:50Z",
+      "updatedAt": "2025-01-23T14:35:18Z",
+      "baseRepository": "YuChaode/rdnm-yang",
+      "baseRefName": "main",
+      "baseRefOid": "fb316aa08013d780f9030bd6f24f4f7e6ea1c704",
+      "headRepository": "YuChaode/rdnm-yang",
+      "headRefName": "v02",
+      "headRefOid": "4a295077375f368104aa8c2c5ef830b4ff0af4a9",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
