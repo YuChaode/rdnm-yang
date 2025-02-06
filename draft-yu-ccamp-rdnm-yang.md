@@ -1,5 +1,5 @@
 ---
-title: "YANG Data Models for Transport Network Rich Detail Network Management (RDNM)"
+title: "YANG Data Models for Transport Network Rich-Detail Network Management (RDNM)"
 abbrev: "RDNM YANG"
 category: std
 
@@ -115,7 +115,7 @@ informative:
 
 --- abstract
 
-This document defines two extension YANG data models augmenting to TE topology and TE tunnel modules, based on the RDNM (Rich Detail Network Management) requirements in transport networks.
+This document defines two extension YANG data models augmenting to TE topology and TE tunnel modules, based on the RDNM (Rich-Detail Network Management) requirements in transport networks.
 
 --- middle
 
@@ -128,7 +128,7 @@ This document defines two extension YANG data models augmenting to TE topology a
 
 According to {{?I-D.draft-ietf-ccamp-transport-nbi-app-statement}}, it is good to used the current TE data model system to manage an abstracted network topology. In {{?I-D.draft-gstk-ccamp-actn-optical-transport-mgmt}}, it is called Abstracted Control (AC) approach.
 
-In {{?I-D.draft-gstk-ccamp-actn-optical-transport-mgmt}}, it also raised another management approach, which is called Rich Detail Network Management (RDNM). RDNM is aimed to provide traditional FCAPS capabilities.
+In {{?I-D.draft-gstk-ccamp-actn-optical-transport-mgmt}}, it also raised another management approach, which is called Rich-Detail Network Management (RDNM). RDNM is aimed to provide traditional FCAPS capabilities.
 
 {{ITU-T_G.805}} describes transport network from the viewpoint of the information transfer capability, provides a generic functional architecture which is also implementation independent. This recommendation is the implementation basis of most of the vendors' or operators' systems.
 
