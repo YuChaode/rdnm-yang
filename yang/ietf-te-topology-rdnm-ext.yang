@@ -1,7 +1,7 @@
-module ietf-te-topology-fgnm-ext {
+module ietf-te-topology-rdnm-ext {
   yang-version 1.1;
-  namespace "urn:ietf:params:xml:ns:yang:ietf-te-topology-fgnm-ext";
-  prefix tet-fgnm-ext;
+  namespace "urn:ietf:params:xml:ns:yang:ietf-te-topology-rdnm-ext";
+  prefix tet-rdnm-ext;
 
   import ietf-network {
     prefix "nw";
@@ -40,7 +40,7 @@ module ietf-te-topology-fgnm-ext {
     description
       "Revision 1.0";
     reference
-      "draft-yu-ccamp-te-fgnm-yang-02";
+      "draft-yu-ccamp-te-rdnm-yang-00";
   }
   
   augment "/nw:networks/nw:network/nw:node/tet:te" {
@@ -48,7 +48,7 @@ module ietf-te-topology-fgnm-ext {
       "Generic fine-grain network management extensions for 
       te node";
     
-    uses node-fgnm-ext-grouping;
+    uses node-rdnm-ext-grouping;
   }
   
   augment "/nw:networks/nw:network/nw:node/nt:termination-point/"
@@ -57,7 +57,7 @@ module ietf-te-topology-fgnm-ext {
       "Generic fine-grain network management extensions for 
       termination point";
     
-    uses tp-fgnm-ext-grouping;
+    uses tp-rdnm-ext-grouping;
   }
   
   augment "/nw:networks/nw:network/nw:node/tet:te" +
@@ -66,17 +66,17 @@ module ietf-te-topology-fgnm-ext {
       "Generic fine-grain network management extensions for 
       te node";
     
-    uses ttp-fgnm-ext-grouping;
+    uses ttp-rdnm-ext-grouping;
   }  
   
   augment "/nw:networks/nw:network/nt:link/tet:te" {
     description 
       "Generic fine-grain network management extensions for link";
     
-    uses link-fgnm-ext-grouping;
+    uses link-rdnm-ext-grouping;
   }
   
-  grouping node-fgnm-ext-grouping {
+  grouping node-rdnm-ext-grouping {
     description
 	  "Generic extension of node.";
 	  
@@ -90,7 +90,7 @@ module ietf-te-topology-fgnm-ext {
     }
   }
   
-  grouping tp-fgnm-ext-grouping {
+  grouping tp-rdnm-ext-grouping {
     description
 	  "Generic extension of TP.";
 	  
@@ -104,7 +104,7 @@ module ietf-te-topology-fgnm-ext {
     }
   }
   
-  grouping ttp-fgnm-ext-grouping {
+  grouping ttp-rdnm-ext-grouping {
     description
 	  "Generic extension of TTP.";
 	  
@@ -118,7 +118,7 @@ module ietf-te-topology-fgnm-ext {
     }
   }
   
-  grouping link-fgnm-ext-grouping {
+  grouping link-rdnm-ext-grouping {
     description
 	  "Generic extension of link.";
 	  
