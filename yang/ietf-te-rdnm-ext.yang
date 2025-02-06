@@ -1,8 +1,8 @@
 
-module ietf-te-fgnm-ext {
+module ietf-te-rdnm-ext {
   yang-version 1.1;
-  namespace "urn:ietf:params:xml:ns:yang:ietf-te-fgnm-ext";
-  prefix te-fgnm-ext;
+  namespace "urn:ietf:params:xml:ns:yang:ietf-te-rdnm-ext";
+  prefix te-rdnm-ext;
   
   import ietf-te {
     prefix "te";
@@ -12,8 +12,8 @@ module ietf-te-fgnm-ext {
     prefix "yang";
   }
 
-  import ietf-te-types-fgnm-ext {
-    prefix "te-types-fgnm-ext";
+  import ietf-te-types-rdnm-ext {
+    prefix "te-types-rdnm-ext";
   }  
   
   import ietf-network {
@@ -49,11 +49,11 @@ module ietf-te-fgnm-ext {
     "This module provide some extensions to TE topology model, based
     on transport fine-grain network management requirement";
 
-  revision 2025-01-16 {
+  revision 2025-02-06 {
     description
       "Revision 1.0";
     reference
-      "draft-yu-ccamp-te-fgnm-yang-02";
+      "draft-yu-ccamp-te-rdnm-yang-02";
   }
 
   augment "/te:te/te:tunnels/te:tunnel" {
@@ -150,7 +150,7 @@ module ietf-te-fgnm-ext {
     description 
       "a TTP hop";
     case ttp-hop {
-      uses te-types-fgnm-ext:explicit-ttp-hop;
+      uses te-types-rdnm-ext:explicit-ttp-hop;
     }
   }
   
@@ -160,7 +160,7 @@ module ietf-te-fgnm-ext {
     description 
       "a TTP hop";
     case ttp-hop {
-      uses te-types-fgnm-ext:explicit-ttp-hop;
+      uses te-types-rdnm-ext:explicit-ttp-hop;
     }
   }  
   
@@ -171,7 +171,7 @@ module ietf-te-fgnm-ext {
     description 
       "a TTP hop";
     case ttp-hop {
-      uses te-types-fgnm-ext:explicit-ttp-hop;
+      uses te-types-rdnm-ext:explicit-ttp-hop;
     }
   }
   
@@ -182,7 +182,7 @@ module ietf-te-fgnm-ext {
     description 
       "a TTP hop";
     case ttp-hop {
-      uses te-types-fgnm-ext:explicit-ttp-hop;
+      uses te-types-rdnm-ext:explicit-ttp-hop;
     }
   }    
   
