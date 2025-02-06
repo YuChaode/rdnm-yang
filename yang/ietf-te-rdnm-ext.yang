@@ -53,7 +53,7 @@ module ietf-te-rdnm-ext {
     description
       "Revision 1.0";
     reference
-      "draft-yu-ccamp-te-rdnm-yang-02";
+      "draft-yu-ccamp-te-rdnm-yang-00";
   }
 
   augment "/te:te/te:tunnels/te:tunnel" {
