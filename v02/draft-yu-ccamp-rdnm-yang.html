@@ -4,22 +4,22 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>YANG Data Models for Transport Network Rich Detail Network Management (RDNM)</title>
+<title>YANG Data Models for Transport Network Rich-Detail Network Management (RDNM)</title>
 <meta content="Chaode Yu" name="author">
 <meta content="Xing Zhao" name="author">
 <meta content="Yanxia Tan" name="author">
 <meta content="Nigel Davis" name="author">
 <meta content="Daniel King" name="author">
 <meta content="
-       This document defines two extension YANG data models augmenting to TE topology and TE tunnel modules, based on the RDNM (Rich Detail Network Management) requirements in transport networks. 
+       This document defines two extension YANG data models augmenting to TE topology and TE tunnel modules, based on the RDNM (Rich-Detail Network Management) requirements in transport networks. 
     " name="description">
-<meta content="xml2rfc 3.25.0" name="generator">
+<meta content="xml2rfc 3.26.0" name="generator">
 <meta content="next generation" name="keyword">
 <meta content="unicorn" name="keyword">
 <meta content="sparkling distributed ledger" name="keyword">
 <meta content="draft-yu-ccamp-rdnm-yang-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.25.0
+  xml2rfc 3.26.0
     Python 3.12.8
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
@@ -1050,11 +1050,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">RDNM YANG</td>
-<td class="right">January 2025</td>
+<td class="right">February 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Yu, et al.</td>
-<td class="center">Expires 27 July 2025</td>
+<td class="center">Expires 10 August 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1067,12 +1067,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-yu-ccamp-rdnm-yang-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-01-23" class="published">23 January 2025</time>
+<time datetime="2025-02-06" class="published">6 February 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-07-27">27 July 2025</time></dd>
+<dd class="expires"><time datetime="2025-08-10">10 August 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1098,10 +1098,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
 </dl>
 </div>
-<h1 id="title">YANG Data Models for Transport Network Rich Detail Network Management (RDNM)</h1>
+<h1 id="title">YANG Data Models for Transport Network Rich-Detail Network Management (RDNM)</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document defines two extension YANG data models augmenting to TE topology and TE tunnel modules, based on the RDNM (Rich Detail Network Management) requirements in transport networks.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document defines two extension YANG data models augmenting to TE topology and TE tunnel modules, based on the RDNM (Rich-Detail Network Management) requirements in transport networks.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1138,7 +1138,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 27 July 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 10 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1306,7 +1306,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-1-1"><span>[<a href="#RFC8795" class="cite xref">RFC8795</a>]</span> defines a YANG data module for technology generic, and it is augmented by some other technology specific data modules, e.g. OTN topology data model in <span>[<a href="#I-D.draft-ietf-ccamp-otn-topo-yang" class="cite xref">I-D.draft-ietf-ccamp-otn-topo-yang</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2"><span>[<a href="#I-D.draft-ietf-teas-yang-te" class="cite xref">I-D.draft-ietf-teas-yang-te</a>]</span> defines a YANG data model for the provisioning and management of Traffic Engineering (TE) tunnels, Label Switched Paths (LSPs), and interfaces. Similarly, it could be also augmented by some other technology specific data modules to implement a specific layer of TE tunnel.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">According to <span>[<a href="#I-D.draft-ietf-ccamp-transport-nbi-app-statement" class="cite xref">I-D.draft-ietf-ccamp-transport-nbi-app-statement</a>]</span>, it is good to used the current TE data model system to manage an abstracted network topology. In <span>[<a href="#I-D.draft-gstk-ccamp-actn-optical-transport-mgmt" class="cite xref">I-D.draft-gstk-ccamp-actn-optical-transport-mgmt</a>]</span>, it is called Abstracted Control (AC) approach.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">In <span>[<a href="#I-D.draft-gstk-ccamp-actn-optical-transport-mgmt" class="cite xref">I-D.draft-gstk-ccamp-actn-optical-transport-mgmt</a>]</span>, it also raised another management approach, which is called Rich Detail Network Management (RDNM). RDNM is aimed to provide traditional FCAPS capabilities.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-4">In <span>[<a href="#I-D.draft-gstk-ccamp-actn-optical-transport-mgmt" class="cite xref">I-D.draft-gstk-ccamp-actn-optical-transport-mgmt</a>]</span>, it also raised another management approach, which is called Rich-Detail Network Management (RDNM). RDNM is aimed to provide traditional FCAPS capabilities.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-1-5"><span>[<a href="#ITU-T_G.805" class="cite xref">ITU-T_G.805</a>]</span> describes transport network from the viewpoint of the information transfer capability, provides a generic functional architecture which is also implementation independent. This recommendation is the implementation basis of most of the vendors' or operators' systems.<a href="#section-1-5" class="pilcrow">¶</a></p>
 <p id="section-1-6">To provide traditional FCAPS functionalities, we need to align with the modelling of traditional approach, which is suggested to be <span>[<a href="#TMF-814" class="cite xref">TMF-814</a>]</span>. Therefore, some more TMF attributes would be introduced. To avoid introducing non-backward-compatible (NBC) changes, we would like to provide some extension YANG data models, based on the current model architecture.<a href="#section-1-6" class="pilcrow">¶</a></p>
 <p id="section-1-7">Some extensions is generic for all network layers would be defined in the RDNM extension models, including generic TE topology RDNM extension and generic TE tunnel RDNM extension. The layer specific RDNM extension should be found in some other YANG data modules.<a href="#section-1-7" class="pilcrow">¶</a></p>

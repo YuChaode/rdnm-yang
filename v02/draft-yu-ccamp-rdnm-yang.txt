@@ -5,24 +5,24 @@
 Common Control and Measurement Plane                               C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                                 X. Zhao
-Expires: 27 July 2025                                              CAICT
+Expires: 10 August 2025                                            CAICT
                                                                   Y. Tan
                                                             China Unicom
                                                                 N. Davis
                                                                    Ciena
                                                                  D. King
                                                       Old Dog Consulting
-                                                         23 January 2025
+                                                         6 February 2025
 
 
- YANG Data Models for Transport Network Rich Detail Network Management
+ YANG Data Models for Transport Network Rich-Detail Network Management
                                  (RDNM)
                     draft-yu-ccamp-rdnm-yang-latest
 
 Abstract
 
    This document defines two extension YANG data models augmenting to TE
-   topology and TE tunnel modules, based on the RDNM (Rich Detail
+   topology and TE tunnel modules, based on the RDNM (Rich-Detail
    Network Management) requirements in transport networks.
 
 About This Document
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 July 2025.
+   This Internet-Draft will expire on 10 August 2025.
 
 Copyright Notice
 
@@ -117,8 +117,8 @@ Table of Contents
 1.  Introduction
 
    [RFC8795] defines a YANG data module for technology generic, and it
-   is augmented by some other technology specific data modules, e.g.
-   OTN topology data model in [I-D.draft-ietf-ccamp-otn-topo-yang].
+   is augmented by some other technology specific data modules, e.g. OTN
+   topology data model in [I-D.draft-ietf-ccamp-otn-topo-yang].
 
    [I-D.draft-ietf-teas-yang-te] defines a YANG data model for the
    provisioning and management of Traffic Engineering (TE) tunnels,
@@ -133,7 +133,7 @@ Table of Contents
    Abstracted Control (AC) approach.
 
    In [I-D.draft-gstk-ccamp-actn-optical-transport-mgmt], it also raised
-   another management approach, which is called Rich Detail Network
+   another management approach, which is called Rich-Detail Network
    Management (RDNM).  RDNM is aimed to provide traditional FCAPS
    capabilities.
 
@@ -227,7 +227,7 @@ Table of Contents
    One disadvantage of [ITU-T_G.805] is it is too complicated.  So TMF
    simplifies the modelling system of [ITU-T_G.805].  The adaptation is
    changed to be the capabilities of reference points.  The reference
-   points is so that changed to some other terminologies, e.g.  PTP and
+   points is so that changed to some other terminologies, e.g. PTP and
    FTP etc.  This simplification still can be mapped to [ITU-T_G.805].
    So that a lot of vendors and operators choose TMF modelling in their
    system.
