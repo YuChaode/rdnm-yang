@@ -1,6 +1,6 @@
-module ietf-te-types-fgnm-ext {
+module ietf-te-types-rdnm-ext {
   yang-version 1.1;
-  namespace "urn:ietf:params:xml:ns:yang:ietf-te-types-fgnm-ext";
+  namespace "urn:ietf:params:xml:ns:yang:ietf-te-types-rdnm-ext";
   prefix te-types-ext;
   
   organization
@@ -21,14 +21,14 @@ module ietf-te-types-fgnm-ext {
              <mailto:daniel@olddog.co.uk>";
 
   description
-    "This module provide type definition for those FGNM extensions to
+    "This module provide type definition for those RDNM extensions to
 	TE topology and TE tunnel modules";
 
-  revision 2025-01-16 {
+  revision 2025-02-06 {
     description
       "Revision 1.0";
     reference
-      "draft-yu-ccamp-te-fgnm-yang-02";
+      "draft-yu-ccamp-te-rdnm-yang-00";
   }  
     
   grouping explicit-ttp-hop {
