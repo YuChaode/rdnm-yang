@@ -726,7 +726,7 @@ Table of Contents
 
      description
        "This module provide some extensions to TE topology model, based
-       on transport fine-grain network management requirement";
+       on transport Rich-Detail Network Management requirement";
 
      revision 2025-02-06 {
        description
@@ -737,7 +737,7 @@ Table of Contents
 
      augment "/nw:networks/nw:network/nw:node/tet:te" {
        description
-         "Generic fine-grain network management extensions for
+         "Generic Rich-Detail Network Management extensions for
          te node";
 
        uses node-rdnm-ext-grouping;
@@ -746,7 +746,7 @@ Table of Contents
      augment "/nw:networks/nw:network/nw:node/nt:termination-point/"
            + "tet:te" {
        description
-         "Generic fine-grain network management extensions for
+         "Generic Rich-Detail Network Management extensions for
          termination point";
 
        uses tp-rdnm-ext-grouping;
@@ -755,7 +755,7 @@ Table of Contents
      augment "/nw:networks/nw:network/nw:node/tet:te" +
              "/tet:tunnel-termination-point" {
        description
-         "Generic fine-grain network management extensions for
+         "Generic Rich-Detail Network Management extensions for
          te node";
 
        uses ttp-rdnm-ext-grouping;
@@ -763,7 +763,7 @@ Table of Contents
 
      augment "/nw:networks/nw:network/nt:link/tet:te" {
        description
-         "Generic fine-grain network management extensions for link";
+         "Generic Rich-Detail Network Management extensions for link";
 
        uses link-rdnm-ext-grouping;
      }
