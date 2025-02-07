@@ -47,7 +47,7 @@ module ietf-te-rdnm-ext {
 
   description
     "This module provide some extensions to TE topology model, based
-    on transport fine-grain network management requirement";
+    on transport Rich-Detail Network Management requirement";
 
   revision 2025-02-06 {
     description
@@ -59,7 +59,7 @@ module ietf-te-rdnm-ext {
   augment "/te:te/te:tunnels/te:tunnel" {
     description
 	  "Extensions for TE tunnel structure, includes alias, time 
-	  management and another option os specifying source and 
+	  management and another option of specifying source and 
 	  destination.";
   
     leaf alias {
