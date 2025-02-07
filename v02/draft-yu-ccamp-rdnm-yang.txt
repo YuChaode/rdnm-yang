@@ -5,14 +5,14 @@
 Common Control and Measurement Plane                               C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                                 X. Zhao
-Expires: 10 August 2025                                            CAICT
+Expires: 11 August 2025                                            CAICT
                                                                   Y. Tan
                                                             China Unicom
                                                                 N. Davis
                                                                    Ciena
                                                                  D. King
                                                       Old Dog Consulting
-                                                         6 February 2025
+                                                         7 February 2025
 
 
  YANG Data Models for Transport Network Rich-Detail Network Management
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 August 2025.
+   This Internet-Draft will expire on 11 August 2025.
 
 Copyright Notice
 
@@ -959,7 +959,7 @@ Table of Contents
 
      description
        "This module provide some extensions to TE topology model, based
-       on transport fine-grain network management requirement";
+       on transport Rich-Detail Network Management requirement";
 
      revision 2025-02-06 {
        description
@@ -971,7 +971,7 @@ Table of Contents
      augment "/te:te/te:tunnels/te:tunnel" {
        description
              "Extensions for TE tunnel structure, includes alias, time
-             management and another option os specifying source and
+             management and another option of specifying source and
              destination.";
 
        leaf alias {
