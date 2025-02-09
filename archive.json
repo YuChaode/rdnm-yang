@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-06T01:01:15.725661+00:00",
+  "timestamp": "2025-02-09T01:04:32.610574+00:00",
   "repo": "YuChaode/rdnm-yang",
   "labels": [
     {
@@ -254,19 +254,82 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-01-23T14:30:50Z",
-      "updatedAt": "2025-01-23T14:35:18Z",
+      "updatedAt": "2025-02-07T22:03:06Z",
       "baseRepository": "YuChaode/rdnm-yang",
       "baseRefName": "main",
       "baseRefOid": "fb316aa08013d780f9030bd6f24f4f7e6ea1c704",
       "headRepository": "YuChaode/rdnm-yang",
       "headRefName": "v02",
-      "headRefOid": "4a295077375f368104aa8c2c5ef830b4ff0af4a9",
+      "headRefOid": "4756d1e20e53e81ea8fa43488228ecd998236f83",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMTkN6c6bJWXH",
+          "commit": {
+            "abbreviatedOid": "4756d1e"
+          },
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-07T21:46:55Z",
+          "updatedAt": "2025-02-07T22:03:06Z",
+          "comments": [
+            {
+              "originalPosition": 73,
+              "body": "Do we need to prefix RDNM with TE?\r\n\r\n```suggestion\r\n       |     TE topology      |<----------|      RDNM Extension  |\r\n```",
+              "createdAt": "2025-02-07T21:46:55Z",
+              "updatedAt": "2025-02-07T22:03:06Z"
+            },
+            {
+              "originalPosition": 102,
+              "body": "Do we need to prefix RDNM with TE?\r\n\r\n```suggestion\r\n   |      TE Tunnel       |<----------|      RDNM Extension  |\r\n```",
+              "createdAt": "2025-02-07T21:48:14Z",
+              "updatedAt": "2025-02-07T22:03:06Z"
+            },
+            {
+              "originalPosition": 52,
+              "body": "Do we need to emphasize TE everywhere? Do we need ext suffix?\r\nThe prefixes also looks too long. The conventions we are using are otnt for topology and otn-tnl for tunnel.\r\n\r\nWhat about:\r\n\r\n```suggestion\r\n|  rdnmt | ietf-rdnm-topology | RFC XXXX      |\r\n| rdnm-tnl | ietf-rdnm-tunnel            | RFC XXXX      |\r\n| rdnm-types | ietf-rdnm-types | RFC XXXX      |\r\n```\r\n",
+              "createdAt": "2025-02-07T21:56:21Z",
+              "updatedAt": "2025-02-07T22:03:06Z"
+            },
+            {
+              "originalPosition": 182,
+              "body": "typo\r\n\r\n```suggestion\r\n## RDNM Extension for TE Topology\r\n```",
+              "createdAt": "2025-02-07T21:58:34Z",
+              "updatedAt": "2025-02-07T22:03:06Z"
+            },
+            {
+              "originalPosition": 194,
+              "body": "typo:\r\n\r\n```suggestion\r\n## RDNM Extension for TE Tunnel\r\n```",
+              "createdAt": "2025-02-07T21:58:56Z",
+              "updatedAt": "2025-02-07T22:03:06Z"
+            },
+            {
+              "originalPosition": 205,
+              "body": "I do not think we need to specify extensions for the types but just new RDNM types:\r\n\r\n```suggestion\r\n## RDNM Types\r\n\r\n~~~~ yang\r\n```",
+              "createdAt": "2025-02-07T21:59:41Z",
+              "updatedAt": "2025-02-07T22:03:06Z"
+            },
+            {
+              "originalPosition": 208,
+              "body": "See previous comment:\r\n\r\n```suggestion\r\n{: #fig-te-types-rdnm-yang title=\"RDNM Types YANG module\"\r\n```",
+              "createdAt": "2025-02-07T22:00:05Z",
+              "updatedAt": "2025-02-07T22:03:06Z"
+            },
+            {
+              "originalPosition": 25,
+              "body": "```suggestion\r\n    \"This module defines Rich-Detail Network Management (RDNM) YANG types.\";\r\n\r\n```",
+              "createdAt": "2025-02-07T22:02:15Z",
+              "updatedAt": "2025-02-07T22:03:06Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
