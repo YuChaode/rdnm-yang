@@ -13,14 +13,14 @@
 <meta content="
        This document defines two extension YANG data models augmenting to TE topology and TE tunnel modules, based on the RDNM (Rich-Detail Network Management) requirements in transport networks. 
     " name="description">
-<meta content="xml2rfc 3.26.0" name="generator">
+<meta content="xml2rfc 3.27.0" name="generator">
 <meta content="next generation" name="keyword">
 <meta content="unicorn" name="keyword">
 <meta content="sparkling distributed ledger" name="keyword">
 <meta content="draft-yu-ccamp-rdnm-yang-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.26.0
-    Python 3.12.8
+  xml2rfc 3.27.0
+    Python 3.12.9
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
@@ -441,7 +441,7 @@ dl {
     margin-bottom: 0;
   }
 }
-dl > dt {
+dl:not(.dlNewline) > dt {
   float: left;
   margin-right: 2ch;
   min-width: 8ch;
@@ -1054,7 +1054,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Yu, et al.</td>
-<td class="center">Expires 11 August 2025</td>
+<td class="center">Expires 24 August 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1067,12 +1067,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-yu-ccamp-rdnm-yang-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-02-07" class="published">7 February 2025</time>
+<time datetime="2025-02-20" class="published">20 February 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-08-11">11 August 2025</time></dd>
+<dd class="expires"><time datetime="2025-08-24">24 August 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1138,7 +1138,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 11 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 24 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1247,13 +1247,13 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-yang-data-model" class="internal xref">YANG Data Model</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-rdnm-extensin-for-te-topolo" class="internal xref">RDNM Extensin for TE Topology</a></p>
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-rdnm-extension-for-te-topolog" class="internal xref">RDNM Extension for TE Topology</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
-                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-rdnm-extensin-for-te-tunnel" class="internal xref">RDNM Extensin for TE Tunnel</a></p>
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-rdnm-extension-for-te-tunnel" class="internal xref">RDNM Extension for TE Tunnel</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3">
-                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="auto internal xref">7.3</a>.  <a href="#name-rdnm-extension-for-te-types" class="internal xref">RDNM Extension for TE Types</a></p>
+                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="auto internal xref">7.3</a>.  <a href="#name-rdnm-types" class="internal xref">RDNM Types</a></p>
 </li>
             </ul>
 </li>
@@ -1409,18 +1409,18 @@ The meaning of the symbols in this diagram is defined in <span>[<a href="#RFC834
 </td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">tet-rdnm-ext</td>
-              <td class="text-left" rowspan="1" colspan="1">ietf-te-topology-rdnm-ext</td>
+              <td class="text-left" rowspan="1" colspan="1">rdnmt</td>
+              <td class="text-left" rowspan="1" colspan="1">ietf-rdnm-topology</td>
               <td class="text-left" rowspan="1" colspan="1">RFC XXXX</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">te-rdnm-ext</td>
-              <td class="text-left" rowspan="1" colspan="1">ietf-te-rdnm-ext</td>
+              <td class="text-left" rowspan="1" colspan="1">rdnm-tnl</td>
+              <td class="text-left" rowspan="1" colspan="1">ietf-rdnm-tunnel</td>
               <td class="text-left" rowspan="1" colspan="1">RFC XXXX</td>
             </tr>
             <tr>
-              <td class="text-left" rowspan="1" colspan="1">te-types-rdnm-ext</td>
-              <td class="text-left" rowspan="1" colspan="1">ietf-te-types-rdnm-ext</td>
+              <td class="text-left" rowspan="1" colspan="1">rdnm-types</td>
+              <td class="text-left" rowspan="1" colspan="1">ietf-rdnm-types</td>
               <td class="text-left" rowspan="1" colspan="1">RFC XXXX</td>
             </tr>
           </tbody>
@@ -1569,7 +1569,7 @@ Please remove this note.<a href="#section-1.4-3" class="pilcrow">¶</a></p>
                    |
                    |
        +----------------------+           +----------------------+
-       |     TE topology      |&lt;----------|   TE RDNM Extension  |
+       |     TE topology      |&lt;----------|      RDNM Extension  |
        +----------------------+           +----------------------+
           ^      ^       ^                     ^      ^       ^
           |      |       |                     |      |       |
@@ -1597,7 +1597,7 @@ Please remove this note.<a href="#section-1.4-3" class="pilcrow">¶</a></p>
         <div class="alignLeft art-ascii-art art-text artwork" id="section-3-9.1">
 <pre>
    +----------------------+           +----------------------+
-   |      TE Tunnel       |&lt;----------|   TE RDNM Extension  |
+   |      TE Tunnel       |&lt;----------|      RDNM Extension  |
    +----------------------+           +----------------------+
         ^      ^       ^                   ^      ^       ^
         |      |       |                   |      |       |
@@ -1914,10 +1914,10 @@ module: ietf-te-rdnm-ext
       <h2 id="name-yang-data-model">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-yang-data-model" class="section-name selfRef">YANG Data Model</a>
       </h2>
-<div id="rdnm-extensin-for-te-topology">
+<div id="rdnm-extension-for-te-topology-2">
 <section id="section-7.1">
-        <h3 id="name-rdnm-extensin-for-te-topolo">
-<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-rdnm-extensin-for-te-topolo" class="section-name selfRef">RDNM Extensin for TE Topology</a>
+        <h3 id="name-rdnm-extension-for-te-topolog">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-rdnm-extension-for-te-topolog" class="section-name selfRef">RDNM Extension for TE Topology</a>
         </h3>
 <span id="name-te-topology-rdnm-extension-"></span><div id="fig-tet-rdnm-yang">
 <figure id="figure-6">
@@ -2147,10 +2147,10 @@ module ietf-te-topology-rdnm-ext {
 </div>
 </section>
 </div>
-<div id="rdnm-extensin-for-te-tunnel">
+<div id="rdnm-extension-for-te-tunnel-1">
 <section id="section-7.2">
-        <h3 id="name-rdnm-extensin-for-te-tunnel">
-<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-rdnm-extensin-for-te-tunnel" class="section-name selfRef">RDNM Extensin for TE Tunnel</a>
+        <h3 id="name-rdnm-extension-for-te-tunnel">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-rdnm-extension-for-te-tunnel" class="section-name selfRef">RDNM Extension for TE Tunnel</a>
         </h3>
 <span id="name-te-tunnel-rdnm-extension-ya"></span><div id="fig-te-rdnm-yang">
 <figure id="figure-7">
@@ -2443,12 +2443,12 @@ module ietf-te-rdnm-ext {
 </div>
 </section>
 </div>
-<div id="rdnm-extension-for-te-types">
+<div id="rdnm-types">
 <section id="section-7.3">
-        <h3 id="name-rdnm-extension-for-te-types">
-<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-rdnm-extension-for-te-types" class="section-name selfRef">RDNM Extension for TE Types</a>
+        <h3 id="name-rdnm-types">
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-rdnm-types" class="section-name selfRef">RDNM Types</a>
         </h3>
-<span id="name-te-types-rdnm-extension-yan"></span><div id="fig-te-types-rdnm-yang">
+<span id="name-rdnm-types-yang-module"></span><div id="fig-te-types-rdnm-yang">
 <figure id="figure-8">
           <div class="breakable lang-yang sourcecode" id="section-7.3-1.1">
 <pre>&lt;CODE BEGINS&gt; file "ietf-te-types-rdnm-ext@2025-01-16.yang"
@@ -2476,8 +2476,8 @@ module ietf-te-types-rdnm-ext {
              &lt;mailto:daniel@olddog.co.uk&gt;";
 
   description
-    "This module provide type definition for those RDNM extensions to
-        TE topology and TE tunnel modules";
+    "This module defines Rich-Detail Network Management (RDNM) YANG types.";
+
 
   revision 2025-02-06 {
     description
@@ -2525,7 +2525,7 @@ module ietf-te-types-rdnm-ext {
 &lt;CODE ENDS&gt;</pre>
 </div>
 <figcaption><a href="#figure-8" class="selfRef">Figure 8</a>:
-<a href="#name-te-types-rdnm-extension-yan" class="selfRef">TE Types RDNM Extension YANG module</a>
+<a href="#name-rdnm-types-yang-module" class="selfRef">RDNM Types YANG module</a>
           </figcaption></figure>
 </div>
 </section>

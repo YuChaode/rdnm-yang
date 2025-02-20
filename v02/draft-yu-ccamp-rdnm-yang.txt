@@ -5,14 +5,14 @@
 Common Control and Measurement Plane                               C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                                 X. Zhao
-Expires: 11 August 2025                                            CAICT
+Expires: 24 August 2025                                            CAICT
                                                                   Y. Tan
                                                             China Unicom
                                                                 N. Davis
                                                                    Ciena
                                                                  D. King
                                                       Old Dog Consulting
-                                                         7 February 2025
+                                                        20 February 2025
 
 
  YANG Data Models for Transport Network Rich-Detail Network Management
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 August 2025.
+   This Internet-Draft will expire on 24 August 2025.
 
 Copyright Notice
 
@@ -99,9 +99,9 @@ Table of Contents
      6.1.  RDNM Extension for TE Topology
      6.2.  RDNM Extension for TE Tunnel
    7.  YANG Data Model
-     7.1.  RDNM Extensin for TE Topology
-     7.2.  RDNM Extensin for TE Tunnel
-     7.3.  RDNM Extension for TE Types
+     7.1.  RDNM Extension for TE Topology
+     7.2.  RDNM Extension for TE Tunnel
+     7.3.  RDNM Types
    8.  Manageability Considerations
    9.  Security Considerations
    10. IANA Considerations
@@ -180,31 +180,31 @@ Table of Contents
    corresponding YANG imported modules, as showned in the following
    table.
 
-       +===================+===========================+===========+
-       | Prefix            | Yang Module               | Reference |
-       +===================+===========================+===========+
-       | nw                | ietf-network              | [RFC8345] |
-       +-------------------+---------------------------+-----------+
-       | nt                | ietf-network-topology     | [RFC8345] |
-       +-------------------+---------------------------+-----------+
-       | tet               | ietf-te-topology          | [RFC8795] |
-       +-------------------+---------------------------+-----------+
-       | yang              | ietf-yang-types           | [RFC6991] |
-       +-------------------+---------------------------+-----------+
-       | inet              | ietf-inet-types           | [RFC6991] |
-       +-------------------+---------------------------+-----------+
-       | te                | ietf-te                   | RFCYYYY   |
-       +-------------------+---------------------------+-----------+
-       | te-types          | ietf-te-types             | [RFC8776] |
-       +-------------------+---------------------------+-----------+
-       | tet-rdnm-ext      | ietf-te-topology-rdnm-ext | RFC XXXX  |
-       +-------------------+---------------------------+-----------+
-       | te-rdnm-ext       | ietf-te-rdnm-ext          | RFC XXXX  |
-       +-------------------+---------------------------+-----------+
-       | te-types-rdnm-ext | ietf-te-types-rdnm-ext    | RFC XXXX  |
-       +-------------------+---------------------------+-----------+
+            +============+=======================+===========+
+            | Prefix     | Yang Module           | Reference |
+            +============+=======================+===========+
+            | nw         | ietf-network          | [RFC8345] |
+            +------------+-----------------------+-----------+
+            | nt         | ietf-network-topology | [RFC8345] |
+            +------------+-----------------------+-----------+
+            | tet        | ietf-te-topology      | [RFC8795] |
+            +------------+-----------------------+-----------+
+            | yang       | ietf-yang-types       | [RFC6991] |
+            +------------+-----------------------+-----------+
+            | inet       | ietf-inet-types       | [RFC6991] |
+            +------------+-----------------------+-----------+
+            | te         | ietf-te               | RFCYYYY   |
+            +------------+-----------------------+-----------+
+            | te-types   | ietf-te-types         | [RFC8776] |
+            +------------+-----------------------+-----------+
+            | rdnmt      | ietf-rdnm-topology    | RFC XXXX  |
+            +------------+-----------------------+-----------+
+            | rdnm-tnl   | ietf-rdnm-tunnel      | RFC XXXX  |
+            +------------+-----------------------+-----------+
+            | rdnm-types | ietf-rdnm-types       | RFC XXXX  |
+            +------------+-----------------------+-----------+
 
-              Table 1: Prefixes and corresponding YANG modules
+             Table 1: Prefixes and corresponding YANG modules
 
    RFC Editor Note: Please replace XXXX with the RFC number assigned to
    this document.  Please replace YYYY with the RFC number assigned to
@@ -361,7 +361,7 @@ Table of Contents
                       |
                       |
           +----------------------+           +----------------------+
-          |     TE topology      |<----------|   TE RDNM Extension  |
+          |     TE topology      |<----------|      RDNM Extension  |
           +----------------------+           +----------------------+
              ^      ^       ^                     ^      ^       ^
              |      |       |                     |      |       |
@@ -384,7 +384,7 @@ Table of Contents
    architecture after RDNM tunnel extensions will be:
 
       +----------------------+           +----------------------+
-      |      TE Tunnel       |<----------|   TE RDNM Extension  |
+      |      TE Tunnel       |<----------|      RDNM Extension  |
       +----------------------+           +----------------------+
            ^      ^       ^                   ^      ^       ^
            |      |       |                   |      |       |
@@ -687,7 +687,7 @@ Table of Contents
 
 7.  YANG Data Model
 
-7.1.  RDNM Extensin for TE Topology
+7.1.  RDNM Extension for TE Topology
 
    <CODE BEGINS> file "ietf-te-topology-rdnm-ext@2025-01-16.yang"
    module ietf-te-topology-rdnm-ext {
@@ -908,7 +908,7 @@ Table of Contents
 
               Figure 6: TE Topology RDNM Extension YANG module
 
-7.2.  RDNM Extensin for TE Tunnel
+7.2.  RDNM Extension for TE Tunnel
 
    <CODE BEGINS> file "ietf-te-rdnm-ext@2025-01-16.yang"
    module ietf-te-rdnm-ext {
@@ -1192,7 +1192,7 @@ Table of Contents
 
                Figure 7: TE Tunnel RDNM Extension YANG module
 
-7.3.  RDNM Extension for TE Types
+7.3.  RDNM Types
 
    <CODE BEGINS> file "ietf-te-types-rdnm-ext@2025-01-16.yang"
    module ietf-te-types-rdnm-ext {
@@ -1218,8 +1218,8 @@ Table of Contents
                 <mailto:daniel@olddog.co.uk>";
 
      description
-       "This module provide type definition for those RDNM extensions to
-           TE topology and TE tunnel modules";
+       "This module defines Rich-Detail Network Management (RDNM) YANG types.";
+
 
      revision 2025-02-06 {
        description
@@ -1265,7 +1265,7 @@ Table of Contents
    }
    <CODE ENDS>
 
-               Figure 8: TE Types RDNM Extension YANG module
+                      Figure 8: RDNM Types YANG module
 
 8.  Manageability Considerations
 
