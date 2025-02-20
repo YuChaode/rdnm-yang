@@ -21,8 +21,8 @@ module ietf-te-types-rdnm-ext {
              <mailto:daniel@olddog.co.uk>";
 
   description
-    "This module provide type definition for those RDNM extensions to
-	TE topology and TE tunnel modules";
+    "This module defines Rich-Detail Network Management (RDNM) YANG types.";
+
 
   revision 2025-02-06 {
     description

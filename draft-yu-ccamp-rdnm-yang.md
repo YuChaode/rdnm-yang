@@ -165,9 +165,9 @@ The meaning of the symbols in this diagram is defined in {{!RFC8340}}.
 | inet   | ietf-inet-types                 | {{!RFC6991}}  |
 |te      | ietf-te                         | RFCYYYY |
 | te-types| ietf-te-types                  | {{!RFC8776}}  |
-| tet-rdnm-ext| ietf-te-topology-rdnm-ext  | RFC XXXX      |
-| te-rdnm-ext| ietf-te-rdnm-ext            | RFC XXXX      |
-| te-types-rdnm-ext| ietf-te-types-rdnm-ext| RFC XXXX      |
+|  rdnmt | ietf-rdnm-topology | RFC XXXX      |
+| rdnm-tnl | ietf-rdnm-tunnel            | RFC XXXX      |
+| rdnm-types | ietf-rdnm-types | RFC XXXX      |
 {: #tab-prefixes title="Prefixes and corresponding YANG modules"}
 
 RFC Editor Note:
@@ -259,7 +259,7 @@ For layer-specific RDNM extensions could reference existing way and define in a 
                    |
                    |
        +----------------------+           +----------------------+
-       |     TE topology      |<----------|   TE RDNM Extension  |
+       |     TE topology      |<----------|      RDNM Extension  |
        +----------------------+           +----------------------+
           ^      ^       ^                     ^      ^       ^
           |      |       |                     |      |       |
@@ -282,7 +282,7 @@ It is also same for the TE tunnel architecture. The whole architecture after RDN
 
 ~~~~ ascii-art
    +----------------------+           +----------------------+
-   |      TE Tunnel       |<----------|   TE RDNM Extension  |
+   |      TE Tunnel       |<----------|      RDNM Extension  |
    +----------------------+           +----------------------+
         ^      ^       ^                   ^      ^       ^
         |      |       |                   |      |       |
@@ -454,7 +454,7 @@ artwork-name="ietf-te-rdnm-ext.tree"}
 
 # YANG Data Model
 
-## RDNM Extensin for TE Topology
+## RDNM Extension for TE Topology
 
 ~~~~ yang
 {::include ./yang/ietf-te-topology-rdnm-ext.yang}
@@ -462,18 +462,19 @@ artwork-name="ietf-te-rdnm-ext.tree"}
 {: #fig-tet-rdnm-yang title="TE Topology RDNM Extension YANG module"
 sourcecode-markers="true" sourcecode-name="ietf-te-topology-rdnm-ext@2025-01-16.yang"}
 
-## RDNM Extensin for TE Tunnel
+## RDNM Extension for TE Tunnel
 ~~~~ yang
 {::include ./yang/ietf-te-rdnm-ext.yang}
 ~~~~
 {: #fig-te-rdnm-yang title="TE Tunnel RDNM Extension YANG module"
 sourcecode-markers="true" sourcecode-name="ietf-te-rdnm-ext@2025-01-16.yang"}
 
-## RDNM Extension for TE Types
+## RDNM Types
+
 ~~~~ yang
 {::include ./yang/ietf-te-types-rdnm-ext.yang}
 ~~~~
-{: #fig-te-types-rdnm-yang title="TE Types RDNM Extension YANG module"
+{: #fig-te-types-rdnm-yang title="RDNM Types YANG module"
 sourcecode-markers="true" sourcecode-name="ietf-te-types-rdnm-ext@2025-01-16.yang"}
 
 
