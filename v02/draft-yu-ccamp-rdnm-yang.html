@@ -1054,7 +1054,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Yu, et al.</td>
-<td class="center">Expires 24 August 2025</td>
+<td class="center">Expires 26 August 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1067,12 +1067,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-yu-ccamp-rdnm-yang-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-02-20" class="published">20 February 2025</time>
+<time datetime="2025-02-22" class="published">22 February 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-08-24">24 August 2025</time></dd>
+<dd class="expires"><time datetime="2025-08-26">26 August 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1138,7 +1138,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 24 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 26 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1306,10 +1306,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-1-1"><span>[<a href="#RFC8795" class="cite xref">RFC8795</a>]</span> defines a YANG data module for technology generic, and it is augmented by some other technology specific data modules, e.g. OTN topology data model in <span>[<a href="#I-D.draft-ietf-ccamp-otn-topo-yang" class="cite xref">I-D.draft-ietf-ccamp-otn-topo-yang</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2"><span>[<a href="#I-D.draft-ietf-teas-yang-te" class="cite xref">I-D.draft-ietf-teas-yang-te</a>]</span> defines a YANG data model for the provisioning and management of Traffic Engineering (TE) tunnels, Label Switched Paths (LSPs), and interfaces. Similarly, it could be also augmented by some other technology specific data modules to implement a specific layer of TE tunnel.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">According to <span>[<a href="#I-D.draft-ietf-ccamp-transport-nbi-app-statement" class="cite xref">I-D.draft-ietf-ccamp-transport-nbi-app-statement</a>]</span>, it is good to used the current TE data model system to manage an abstracted network topology. In <span>[<a href="#I-D.draft-gstk-ccamp-actn-optical-transport-mgmt" class="cite xref">I-D.draft-gstk-ccamp-actn-optical-transport-mgmt</a>]</span>, it is called Abstracted Control (AC) approach.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">In <span>[<a href="#I-D.draft-gstk-ccamp-actn-optical-transport-mgmt" class="cite xref">I-D.draft-gstk-ccamp-actn-optical-transport-mgmt</a>]</span>, it also raised another management approach, which is called Rich-Detail Network Management (RDNM). RDNM is aimed to provide traditional FCAPS capabilities.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-4">In <span>[<a href="#I-D.draft-gstk-ccamp-actn-optical-transport-mgmt" class="cite xref">I-D.draft-gstk-ccamp-actn-optical-transport-mgmt</a>]</span>, it also raised another management approach, which is called Rich-Detail Network Management (RDNM). RDNM is designed to continue to deliver FCAPS capabilities within the context of ACTN.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-1-5"><span>[<a href="#ITU-T_G.805" class="cite xref">ITU-T_G.805</a>]</span> describes transport network from the viewpoint of the information transfer capability, provides a generic functional architecture which is also implementation independent. This recommendation is the implementation basis of most of the vendors' or operators' systems.<a href="#section-1-5" class="pilcrow">¶</a></p>
 <p id="section-1-6">To provide traditional FCAPS functionalities, we need to align with the modelling of traditional approach, which is suggested to be <span>[<a href="#TMF-814" class="cite xref">TMF-814</a>]</span>. Therefore, some more TMF attributes would be introduced. To avoid introducing non-backward-compatible (NBC) changes, we would like to provide some extension YANG data models, based on the current model architecture.<a href="#section-1-6" class="pilcrow">¶</a></p>
-<p id="section-1-7">Some extensions is generic for all network layers would be defined in the RDNM extension models, including generic TE topology RDNM extension and generic TE tunnel RDNM extension. The layer specific RDNM extension should be found in some other YANG data modules.<a href="#section-1-7" class="pilcrow">¶</a></p>
+<p id="section-1-7">Some extensions, which are generic for all network layers, are defined in the RDNM topology and RDNM tunnel models. Layer-specific RDNM extensions can be found in other YANG data modules.<a href="#section-1-7" class="pilcrow">¶</a></p>
 <div id="terminology-and-notations">
 <section id="section-1.1">
         <h3 id="name-terminology-and-notations">

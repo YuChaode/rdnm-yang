@@ -5,14 +5,14 @@
 Common Control and Measurement Plane                               C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                                 X. Zhao
-Expires: 24 August 2025                                            CAICT
+Expires: 26 August 2025                                            CAICT
                                                                   Y. Tan
                                                             China Unicom
                                                                 N. Davis
                                                                    Ciena
                                                                  D. King
                                                       Old Dog Consulting
-                                                        20 February 2025
+                                                        22 February 2025
 
 
  YANG Data Models for Transport Network Rich-Detail Network Management
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 August 2025.
+   This Internet-Draft will expire on 26 August 2025.
 
 Copyright Notice
 
@@ -134,8 +134,8 @@ Table of Contents
 
    In [I-D.draft-gstk-ccamp-actn-optical-transport-mgmt], it also raised
    another management approach, which is called Rich-Detail Network
-   Management (RDNM).  RDNM is aimed to provide traditional FCAPS
-   capabilities.
+   Management (RDNM).  RDNM is designed to continue to deliver FCAPS
+   capabilities within the context of ACTN.
 
    [ITU-T_G.805] describes transport network from the viewpoint of the
    information transfer capability, provides a generic functional
@@ -150,10 +150,9 @@ Table of Contents
    like to provide some extension YANG data models, based on the current
    model architecture.
 
-   Some extensions is generic for all network layers would be defined in
-   the RDNM extension models, including generic TE topology RDNM
-   extension and generic TE tunnel RDNM extension.  The layer specific
-   RDNM extension should be found in some other YANG data modules.
+   Some extensions, which are generic for all network layers, are
+   defined in the RDNM topology and RDNM tunnel models.  Layer-specific
+   RDNM extensions can be found in other YANG data modules.
 
 1.1.  Terminology and Notations
 
