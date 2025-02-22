@@ -431,51 +431,51 @@ augment /te:te/te:tunnels/te:tunnel/te:secondary-reverse-paths
 
 #  Tree Diagram
 
-## RDNM Extension for TE Topology
+## RDNM Topology
 
-{{fig-tet-rdnm-tree}} below shows the tree diagram of the YANG data model defined in module "ietf-te-topology-rdnm-ext".
-
-~~~~ ascii-art
-{::include ./yang/ietf-te-topology-rdnm-ext.tree}
-~~~~
-{: #fig-tet-rdnm-tree title="Tree of TE Topology RDNM Extension"
-artwork-name="ietf-te-topology-rdnm-ext.tree"}
-
-
-## RDNM Extension for TE Tunnel
-
-{{fig-te-rdnm-tree}} below shows the tree diagram of the YANG data model defined in module "ietf-te-rdnm-ext".
+{{fig-tet-rdnm-tree}} below shows the tree diagram of the YANG data model defined in module "ietf-rdnm-topology".
 
 ~~~~ ascii-art
-{::include ./yang/ietf-te-rdnm-ext.tree}
+{::include ./yang/ietf-rdnm-topology.tree}
 ~~~~
-{: #fig-te-rdnm-tree title="Tree of TE Tunnel RDNM Extension"
-artwork-name="ietf-te-rdnm-ext.tree"}
+{: #fig-tet-rdnm-tree title="Tree of RDNM Topology"
+artwork-name="ietf-rdnm-topology.tree"}
+
+
+## RDNM Tunnel
+
+{{fig-rdnm-tnl-tree}} below shows the tree diagram of the YANG data model defined in module "ietf-rdnm-tunnel".
+
+~~~~ ascii-art
+{::include ./yang/ietf-rdnm-tunnel.tree}
+~~~~
+{: #fig-rdnm-tnl-tree title="Tree of RDNM Tunnel"
+artwork-name="ietf-rdnm-tunnel.tree"}
 
 # YANG Data Model
 
-## RDNM Extension for TE Topology
+## RDNM Topology
 
 ~~~~ yang
-{::include ./yang/ietf-te-topology-rdnm-ext.yang}
+{::include ./yang/ietf-rdnm-topology.yang}
 ~~~~
-{: #fig-tet-rdnm-yang title="TE Topology RDNM Extension YANG module"
-sourcecode-markers="true" sourcecode-name="ietf-te-topology-rdnm-ext@2025-01-16.yang"}
+{: #fig-tet-rdnm-yang title="RDNM Topology YANG module"
+sourcecode-markers="true" sourcecode-name="ietf-rdnm-topology@2025-02-22.yang"}
 
-## RDNM Extension for TE Tunnel
+## RDNM Tunnel
 ~~~~ yang
-{::include ./yang/ietf-te-rdnm-ext.yang}
+{::include ./yang/ietf-rdnm-tunnel.yang}
 ~~~~
-{: #fig-te-rdnm-yang title="TE Tunnel RDNM Extension YANG module"
-sourcecode-markers="true" sourcecode-name="ietf-te-rdnm-ext@2025-01-16.yang"}
+{: #fig-rdnm-tunnel title="RDNM Tunnel YANG module"
+sourcecode-markers="true" sourcecode-name="ietf-rdnm-tunnel@2025-02-22.yang"}
 
 ## RDNM Types
 
 ~~~~ yang
-{::include ./yang/ietf-te-types-rdnm-ext.yang}
+{::include ./yang/ietf-rdnm-types.yang}
 ~~~~
-{: #fig-te-types-rdnm-yang title="RDNM Types YANG module"
-sourcecode-markers="true" sourcecode-name="ietf-te-types-rdnm-ext@2025-01-16.yang"}
+{: #fig-rdnm-types-yang title="RDNM Types YANG module"
+sourcecode-markers="true" sourcecode-name="ietf-rdnm-types@2025-02-22.yang"}
 
 
 # Manageability Considerations
