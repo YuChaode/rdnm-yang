@@ -128,13 +128,13 @@ This document defines two extension YANG data models augmenting to TE topology a
 
 According to {{?I-D.draft-ietf-ccamp-transport-nbi-app-statement}}, it is good to used the current TE data model system to manage an abstracted network topology. In {{?I-D.draft-gstk-ccamp-actn-optical-transport-mgmt}}, it is called Abstracted Control (AC) approach.
 
-In {{?I-D.draft-gstk-ccamp-actn-optical-transport-mgmt}}, it also raised another management approach, which is called Rich-Detail Network Management (RDNM). RDNM is aimed to provide traditional FCAPS capabilities.
+In {{?I-D.draft-gstk-ccamp-actn-optical-transport-mgmt}}, it also raised another management approach, which is called Rich-Detail Network Management (RDNM). RDNM is designed to continue to deliver FCAPS capabilities within the context of ACTN.
 
 {{ITU-T_G.805}} describes transport network from the viewpoint of the information transfer capability, provides a generic functional architecture which is also implementation independent. This recommendation is the implementation basis of most of the vendors' or operators' systems.
 
 To provide traditional FCAPS functionalities, we need to align with the modelling of traditional approach, which is suggested to be {{TMF-814}}. Therefore, some more TMF attributes would be introduced. To avoid introducing non-backward-compatible (NBC) changes, we would like to provide some extension YANG data models, based on the current model architecture.
 
-Some extensions is generic for all network layers would be defined in the RDNM extension models, including generic TE topology RDNM extension and generic TE tunnel RDNM extension. The layer specific RDNM extension should be found in some other YANG data modules.
+Some extensions, which are generic for all network layers, are defined in the RDNM topology and RDNM tunnel models. Layer-specific RDNM extensions can be found in other YANG data modules.
 
 
 ## Terminology and Notations
