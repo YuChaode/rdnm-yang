@@ -96,11 +96,11 @@ Table of Contents
        5.2.5.  YANG for restoration extension
      5.3.  TTP hop
    6.  Tree Diagram
-     6.1.  RDNM Extension for TE Topology
-     6.2.  RDNM Extension for TE Tunnel
+     6.1.  RDNM Topology
+     6.2.  RDNM Tunnel
    7.  YANG Data Model
-     7.1.  RDNM Extension for TE Topology
-     7.2.  RDNM Extension for TE Tunnel
+     7.1.  RDNM Topology
+     7.2.  RDNM Tunnel
      7.3.  RDNM Types
    8.  Manageability Considerations
    9.  Security Considerations
@@ -598,12 +598,12 @@ Table of Contents
 
 6.  Tree Diagram
 
-6.1.  RDNM Extension for TE Topology
+6.1.  RDNM Topology
 
    Figure 4 below shows the tree diagram of the YANG data model defined
-   in module "ietf-te-topology-rdnm-ext".
+   in module "ietf-rdnm-topology".
 
-   module: ietf-te-topology-rdnm-ext
+   module: ietf-rdnm-topology
 
      augment /nw:networks/nw:network/nw:node/tet:te:
        +--rw (layer-specific-extension)?
@@ -634,14 +634,14 @@ Table of Contents
                    +--ro ttp-name?       string
                    +--ro using-status?   enumeration
 
-                Figure 4: Tree of TE Topology RDNM Extension
+                      Figure 4: Tree of RDNM Topology
 
-6.2.  RDNM Extension for TE Tunnel
+6.2.  RDNM Tunnel
 
    Figure 5 below shows the tree diagram of the YANG data model defined
-   in module "ietf-te-rdnm-ext".
+   in module "ietf-rdnm-tunnel".
 
-   module: ietf-te-rdnm-ext
+   module: ietf-rdnm-tunnel
 
      augment /te:te/te:tunnels/te:tunnel:
        +--rw alias?                   string
@@ -682,17 +682,17 @@ Table of Contents
        +--rw restoration-priority?         enumeration
        +--rw restoration-layer?            enumeration
 
-                 Figure 5: Tree of TE Tunnel RDNM Extension
+                       Figure 5: Tree of RDNM Tunnel
 
 7.  YANG Data Model
 
-7.1.  RDNM Extension for TE Topology
+7.1.  RDNM Topology
 
-   <CODE BEGINS> file "ietf-te-topology-rdnm-ext@2025-01-16.yang"
-   module ietf-te-topology-rdnm-ext {
+   <CODE BEGINS> file "ietf-rdnm-topology@2025-02-22.yang"
+   module ietf-rdnm-topology {
      yang-version 1.1;
-     namespace "urn:ietf:params:xml:ns:yang:ietf-te-topology-rdnm-ext";
-     prefix tet-rdnm-ext;
+     namespace "urn:ietf:params:xml:ns:yang:ietf-rdnm-topology";
+     prefix rdnmt;
 
      import ietf-network {
        prefix "nw";
@@ -727,11 +727,11 @@ Table of Contents
        "This module provide some extensions to TE topology model, based
        on transport Rich-Detail Network Management requirement";
 
-     revision 2025-02-06 {
+     revision 2025-02-22 {
        description
          "Revision 1.0";
        reference
-         "draft-yu-ccamp-te-rdnm-yang-00";
+         "draft-yu-ccamp-rdnm-yang-00";
      }
 
      augment "/nw:networks/nw:network/nw:node/tet:te" {
@@ -769,11 +769,11 @@ Table of Contents
 
      grouping node-rdnm-ext-grouping {
        description
-             "Generic extension of node.";
+         "Generic extension of node.";
 
        choice layer-specific-extension {
-             description
-               "The layer rate information.";
+         description
+           "The layer rate information.";
 
          case generic {
 
@@ -783,11 +783,11 @@ Table of Contents
 
      grouping tp-rdnm-ext-grouping {
        description
-             "Generic extension of TP.";
+         "Generic extension of TP.";
 
        choice layer-specific-extension {
-             description
-               "The layer rate information.";
+         description
+           "The layer rate information.";
 
          case generic {
 
@@ -797,11 +797,11 @@ Table of Contents
 
      grouping ttp-rdnm-ext-grouping {
        description
-             "Generic extension of TTP.";
+         "Generic extension of TTP.";
 
        choice layer-specific-extension {
-             description
-               "The layer rate information.";
+         description
+           "The layer rate information.";
 
          case generic {
 
@@ -811,11 +811,11 @@ Table of Contents
 
      grouping link-rdnm-ext-grouping {
        description
-             "Generic extension of link.";
+         "Generic extension of link.";
 
        choice layer-specific-extension {
-             description
-               "The layer rate information.";
+         description
+           "The layer rate information.";
 
          case generic {
          }
@@ -824,12 +824,12 @@ Table of Contents
 
      rpc query-ttp-by-tps {
        description
-             "Query all the TTPs on the LTPs";
+         "Query all the TTPs on the LTPs";
 
        input {
          list tp-list {
-               description
-                     "the LTPs to retrieve.";
+           description
+             "the LTPs to retrieve.";
 
            key tp-id;
            leaf tp-id {
@@ -855,8 +855,8 @@ Table of Contents
          }
 
          list result-list {
-               description
-                     "The result list.";
+           description
+             "The result list.";
 
            key tp-id;
 
@@ -870,8 +870,8 @@ Table of Contents
            }
 
            list ttp-list {
-                     description
-                       "the TTPs list for this LTP.";
+             description
+               "the TTPs list for this LTP.";
 
              leaf tunnel-tp-id {
                type leafref {
@@ -905,15 +905,15 @@ Table of Contents
    }
    <CODE ENDS>
 
-              Figure 6: TE Topology RDNM Extension YANG module
+                    Figure 6: RDNM Topology YANG module
 
-7.2.  RDNM Extension for TE Tunnel
+7.2.  RDNM Tunnel
 
-   <CODE BEGINS> file "ietf-te-rdnm-ext@2025-01-16.yang"
-   module ietf-te-rdnm-ext {
+   <CODE BEGINS> file "ietf-rdnm-tunnel@2025-02-22.yang"
+   module ietf-rdnm-tunnel {
      yang-version 1.1;
-     namespace "urn:ietf:params:xml:ns:yang:ietf-te-rdnm-ext";
-     prefix te-rdnm-ext;
+     namespace "urn:ietf:params:xml:ns:yang:ietf-rdnm-tunnel";
+     prefix rdnm-tnl;
 
      import ietf-te {
        prefix "te";
@@ -923,8 +923,8 @@ Table of Contents
        prefix "yang";
      }
 
-     import ietf-te-types-rdnm-ext {
-       prefix "te-types-rdnm-ext";
+     import ietf-rdnm-types {
+       prefix "rdnm-types";
      }
 
      import ietf-network {
@@ -960,18 +960,18 @@ Table of Contents
        "This module provide some extensions to TE topology model, based
        on transport Rich-Detail Network Management requirement";
 
-     revision 2025-02-06 {
+     revision 2025-02-22 {
        description
          "Revision 1.0";
        reference
-         "draft-yu-ccamp-te-rdnm-yang-00";
+         "draft-yu-ccamp-rdnm-yang-00";
      }
 
      augment "/te:te/te:tunnels/te:tunnel" {
        description
-             "Extensions for TE tunnel structure, includes alias, time
-             management and another option of specifying source and
-             destination.";
+         "Extensions for TE tunnel structure, includes alias, time
+         management and another option of specifying source and
+         destination.";
 
        leaf alias {
          type string;
@@ -982,29 +982,29 @@ Table of Contents
        uses time-state-grouping;
 
        container source-endpoints {
-             description
-               "Source endpoints.";
+         description
+           "Source endpoints.";
          list source-endpoint {
            uses endpoint-grouping;
-                   description
-                     "List of source endpoints.";
+           description
+             "List of source endpoints.";
          }
        }
 
        container destination-endpoints {
-             description
-               "Destination endpoints.";
+         description
+           "Destination endpoints.";
          list destination-endpoint {
            uses endpoint-grouping;
-                   description
-                     "List of destination endpoints.";
+           description
+             "List of destination endpoints.";
          }
        }
      }
 
      augment  "/te:te/te:tunnels/te:tunnel/te:restoration" {
        description
-             "Extensions of TE tunnel restoration.";
+         "Extensions of TE tunnel restoration.";
 
        leaf restoration-lock {
          type boolean;
@@ -1017,7 +1017,7 @@ Table of Contents
 
        leaf restoration-reversion-lock {
          type boolean;
-             description
+         description
            "a lock to control whether the reversion of restoration can
            take effect or not.";
        }
@@ -1025,7 +1025,7 @@ Table of Contents
        leaf scheduled-reversion-time {
          type yang:date-and-time;
 
-             description
+         description
            "a time when the reversion of restoration can take effect.";
        }
 
@@ -1061,7 +1061,7 @@ Table of Contents
        description
          "a TTP hop";
        case ttp-hop {
-         uses te-types-rdnm-ext:explicit-ttp-hop;
+         uses rdnm-types:explicit-ttp-hop;
        }
      }
 
@@ -1071,7 +1071,7 @@ Table of Contents
        description
          "a TTP hop";
        case ttp-hop {
-         uses te-types-rdnm-ext:explicit-ttp-hop;
+         uses rdnm-types:explicit-ttp-hop;
        }
      }
 
@@ -1082,7 +1082,7 @@ Table of Contents
        description
          "a TTP hop";
        case ttp-hop {
-         uses te-types-rdnm-ext:explicit-ttp-hop;
+         uses rdnm-types:explicit-ttp-hop;
        }
      }
 
@@ -1093,13 +1093,13 @@ Table of Contents
        description
          "a TTP hop";
        case ttp-hop {
-         uses te-types-rdnm-ext:explicit-ttp-hop;
+         uses rdnm-types:explicit-ttp-hop;
        }
      }
 
      grouping time-state-grouping {
        description
-             "time management of TE tunnel.";
+         "time management of TE tunnel.";
 
        leaf create-time {
          type yang:date-and-time;
@@ -1110,7 +1110,7 @@ Table of Contents
        }
 
        leaf active-time {
-             type yang:date-and-time;
+         type yang:date-and-time;
          config false;
          description
            "the lastest time when the tunnel was activated";
@@ -1119,20 +1119,20 @@ Table of Contents
 
      grouping endpoint-grouping {
        description
-             "Source/destination endpoint information of TE tunnel.";
+         "Source/destination endpoint information of TE tunnel.";
 
        leaf node-id {
          type leafref {
            path "/nw:networks/nw:network/nw:node/nw:node-id";
          }
-             description
-               "Identifier of node for this endpoint.";
+         description
+           "Identifier of node for this endpoint.";
        }
 
        choice endpoint-tp {
-             description
-               "The client can choose to specify LTP or TTP to create TE
-                   tunnel.";
+         description
+           "The client can choose to specify LTP or TTP to create TE
+           tunnel.";
 
          case ltp {
            leaf tp-id {
@@ -1140,16 +1140,16 @@ Table of Contents
                path "/nw:networks/nw:network/nw:node/nt:termination-point"
                + "/nt:tp-id";
              }
-                     description
-                       "identifier of LTP for this endpoint.";
+             description
+               "identifier of LTP for this endpoint.";
            }
          }
 
          case ttp {
            choice id-or-name {
-                     description
-                       "The client can choose to specify the identifier or the
-                           name of TTP to create TE tunnel.";
+             description
+               "The client can choose to specify the identifier or the
+               name of TTP to create TE tunnel.";
 
              case id {
                leaf ttp-id {
@@ -1157,8 +1157,8 @@ Table of Contents
                    path "/nw:networks/nw:network/nw:node/tet:te"
                    + "/tet:tunnel-termination-point/tet:tunnel-tp-id";
                  }
-                             description
-                               "the identifier of TTP for this endpoint.";
+                 description
+                   "the identifier of TTP for this endpoint.";
                }
              }
 
@@ -1168,8 +1168,8 @@ Table of Contents
                    path "/nw:networks/nw:network/nw:node/tet:te"
                    + "/tet:tunnel-termination-point/tet:name";
                  }
-                             description
-                               "the name of TTP for this endpoint.";
+                 description
+                   "the name of TTP for this endpoint.";
                }
              }
            }
@@ -1189,15 +1189,15 @@ Table of Contents
    }
    <CODE ENDS>
 
-               Figure 7: TE Tunnel RDNM Extension YANG module
+                     Figure 7: RDNM Tunnel YANG module
 
 7.3.  RDNM Types
 
-   <CODE BEGINS> file "ietf-te-types-rdnm-ext@2025-01-16.yang"
-   module ietf-te-types-rdnm-ext {
+   <CODE BEGINS> file "ietf-rdnm-types@2025-02-22.yang"
+   module ietf-rdnm-types {
      yang-version 1.1;
-     namespace "urn:ietf:params:xml:ns:yang:ietf-te-types-rdnm-ext";
-     prefix te-types-ext;
+     namespace "urn:ietf:params:xml:ns:yang:ietf-rdnm-types";
+     prefix rdnm-types;
 
      organization
        "IETF CCAMP Working Group";
@@ -1220,45 +1220,45 @@ Table of Contents
        "This module defines Rich-Detail Network Management (RDNM) YANG types.";
 
 
-     revision 2025-02-06 {
+     revision 2025-02-22 {
        description
          "Revision 1.0";
        reference
-         "draft-yu-ccamp-te-rdnm-yang-00";
+         "draft-yu-ccamp-rdnm-yang-00";
      }
 
      grouping explicit-ttp-hop {
        container ttp-hop {
+         description
+           "TTP Hop";
+
+         leaf node-id {
+           type nw:node-id;
+           description
+             "identifier of node for this TTP hop.";
+         }
+
+         choice id-or-name {
+           description
+             "The server can choose to display the identifier or
+             the name of TTP.";
+
+           case id {
+             leaf ttp-id {
+               type binary;
+             }
              description
-               "TTP Hop";
-
-             leaf node-id {
-               type nw:node-id;
-                   description
-                     "identifier of node for this TTP hop.";
-             }
-
-             choice id-or-name {
-               description
-                     "The server can choose to display the identifier or
-                     the name of TTP.";
-
-               case id {
-                 leaf ttp-id {
-                   type binary;
-                 }
-                     description
-                       "the identifier of TTP for this TTP hop.";
-               }
-               case name {
-                 leaf ttp-name {
-                   type string;
-                 }
-                     description
-                       "the name of TTP for this TTP hop.";
-               }
-             }
+               "the identifier of TTP for this TTP hop.";
            }
+           case name {
+             leaf ttp-name {
+               type string;
+             }
+             description
+               "the name of TTP for this TTP hop.";
+           }
+         }
+       }
      }
 
    }
