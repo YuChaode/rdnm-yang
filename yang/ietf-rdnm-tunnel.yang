@@ -1,8 +1,7 @@
-
-module ietf-te-fgnm-ext {
+module ietf-rdnm-tunnel {
   yang-version 1.1;
-  namespace "urn:ietf:params:xml:ns:yang:ietf-te-fgnm-ext";
-  prefix te-fgnm-ext;
+  namespace "urn:ietf:params:xml:ns:yang:ietf-rdnm-tunnel";
+  prefix rdnm-tnl;
   
   import ietf-te {
     prefix "te";
@@ -12,8 +11,8 @@ module ietf-te-fgnm-ext {
     prefix "yang";
   }
 
-  import ietf-te-types-fgnm-ext {
-    prefix "te-types-fgnm-ext";
+  import ietf-rdnm-types {
+    prefix "rdnm-types";
   }  
   
   import ietf-network {
@@ -47,166 +46,207 @@ module ietf-te-fgnm-ext {
 
   description
     "This module provide some extensions to TE topology model, based
-    on transport fine-grain network management requirement";
+    on transport Rich-Detail Network Management requirement";
 
-  revision 2024-07-08 {
+  revision 2025-02-22 {
     description
       "Revision 1.0";
     reference
-      "draft-yu-ccamp-te-fgnm-yang-01";
+      "draft-yu-ccamp-rdnm-yang-00";
   }
 
   augment "/te:te/te:tunnels/te:tunnel" {
+    description
+      "Extensions for TE tunnel structure, includes alias, time 
+      management and another option of specifying source and 
+      destination.";
+  
     leaf alias {
+      type string;
       description 
         "alias of TE tunnel";
-      type string;
     }
   
     uses time-state-grouping;
     
     container source-endpoints {
+      description
+        "Source endpoints.";
       list source-endpoint {
         uses endpoint-grouping;
+        description
+          "List of source endpoints.";
       }
     }
     
     container destination-endpoints {
+      description
+        "Destination endpoints.";
       list destination-endpoint {
         uses endpoint-grouping;
+        description
+          "List of destination endpoints.";
       }
     }
   }
   
   augment  "/te:te/te:tunnels/te:tunnel/te:restoration" {
+    description
+      "Extensions of TE tunnel restoration.";
+      
     leaf restoration-lock {
+      type boolean;
+      
       description
         "a lock to control whether the restoration can take effect or
         not, it is useful in the maintenance scenrios, such as in
         cutover";
-      type boolean;
     }
     
     leaf restoration-reversion-lock {
+      type boolean;
       description
         "a lock to control whether the reversion of restoration can
         take effect or not.";
-      type boolean;
     }
     
     leaf scheduled-reversion-time {
+      type yang:date-and-time;
+      
       description
         "a time when the reversion of restoration can take effect.";
-      type yang:date-and-time;
     }
     
     leaf restoration-priority {
-      description
-        "when there are multiple services need to be restored, the 
-        higher estoration priority services can occupied the idle 
-        resource in priority, it is used to control the restoration 
-        sequence.";
       type enumeration {
         enum high;
         enum medium;
         enum low;
       }
+      
+      description
+        "when there are multiple services need to be restored, the 
+        higher estoration priority services can occupied the idle 
+        resource in priority, it is used to control the restoration 
+        sequence.";
     }
     
     leaf restoration-layer {
-      description
-        "the layer of topolgy prefered to be operated when restoration
-        is needed.";
       type enumeration {
         enum odu;
         enum wdm;
       }
+      
+      description
+        "the layer of topolgy prefered to be operated when restoration
+        is needed.";
     }
   }
   
   augment  "/te:te/te:tunnels/te:tunnel/te:primary-paths"
-           + "/te:primary-path/te:explicit-route-objects-always"
+           + "/te:primary-path/te:explicit-route-objects"
            + "/te:route-object-include-exclude/te:type"    {
     description 
       "a TTP hop";
     case ttp-hop {
-      uses te-types-fgnm-ext:explicit-ttp-hop;
+      uses rdnm-types:explicit-ttp-hop;
     }
   }
   
   augment  "/te:te/te:tunnels/te:tunnel/te:secondary-paths"
-           + "/te:secondary-path/te:explicit-route-objects-always"
+           + "/te:secondary-path/te:explicit-route-objects"
            + "/te:route-object-include-exclude/te:type"    {
     description 
       "a TTP hop";
     case ttp-hop {
-      uses te-types-fgnm-ext:explicit-ttp-hop;
+      uses rdnm-types:explicit-ttp-hop;
     }
   }  
   
   augment  "/te:te/te:tunnels/te:tunnel/te:primary-paths"
            + "/te:primary-path/te:primary-reverse-path"
-           + "/te:explicit-route-objects-always"
+           + "/te:explicit-route-objects"
            + "/te:route-object-include-exclude/te:type"    {
     description 
       "a TTP hop";
     case ttp-hop {
-      uses te-types-fgnm-ext:explicit-ttp-hop;
+      uses rdnm-types:explicit-ttp-hop;
     }
   }
   
   augment  "/te:te/te:tunnels/te:tunnel/te:secondary-reverse-paths"
            + "/te:secondary-reverse-path"
-           + "/te:explicit-route-objects-always"
+           + "/te:explicit-route-objects"
            + "/te:route-object-include-exclude/te:type"    {
     description 
       "a TTP hop";
     case ttp-hop {
-      uses te-types-fgnm-ext:explicit-ttp-hop;
+      uses rdnm-types:explicit-ttp-hop;
     }
   }    
   
   grouping time-state-grouping {
+    description
+      "time management of TE tunnel.";
+      
     leaf create-time {
+      type yang:date-and-time;
       config false;
       description
         "the time when the tunnel was created";
-      type yang:date-and-time;
+
     }
     
     leaf active-time {
+      type yang:date-and-time;
       config false;
       description
         "the lastest time when the tunnel was activated";
-      type yang:date-and-time;
     }    
   }
   
   grouping endpoint-grouping {
+    description
+      "Source/destination endpoint information of TE tunnel.";
+      
     leaf node-id {
       type leafref {
         path "/nw:networks/nw:network/nw:node/nw:node-id";
       }
+      description
+        "Identifier of node for this endpoint.";
     }
     
     choice endpoint-tp {
+      description
+        "The client can choose to specify LTP or TTP to create TE 
+        tunnel.";
+        
       case ltp {
         leaf tp-id {
           type leafref {
             path "/nw:networks/nw:network/nw:node/nt:termination-point"
             + "/nt:tp-id";
           }
+          description
+            "identifier of LTP for this endpoint.";
         }
       }
       
       case ttp {
         choice id-or-name {
+          description
+            "The client can choose to specify the identifier or the 
+            name of TTP to create TE tunnel.";
+            
           case id {
             leaf ttp-id {
               type leafref {
                 path "/nw:networks/nw:network/nw:node/tet:te"
                 + "/tet:tunnel-termination-point/tet:tunnel-tp-id";
               }
+              description
+                "the identifier of TTP for this endpoint.";
             }
           }
           
@@ -216,6 +256,8 @@ module ietf-te-fgnm-ext {
                 path "/nw:networks/nw:network/nw:node/tet:te"
                 + "/tet:tunnel-termination-point/tet:name";
               }
+              description
+                "the name of TTP for this endpoint.";
             }
           }
         }
@@ -223,12 +265,12 @@ module ietf-te-fgnm-ext {
     }
     
     leaf protection-role {
-      description
-        "role of this endpoint in multipoints scenario";
       type enumeration {
         enum work;
         enum protect;
       }
+      description
+        "role of this endpoint in multipoints scenario";
     }
   }
   

@@ -1,7 +1,7 @@
-module ietf-te-topology-fgnm-ext {
+module ietf-rdnm-topology {
   yang-version 1.1;
-  namespace "urn:ietf:params:xml:ns:yang:ietf-te-topology-fgnm-ext";
-  prefix tet-fgnm-ext;
+  namespace "urn:ietf:params:xml:ns:yang:ietf-rdnm-topology";
+  prefix rdnmt;
 
   import ietf-network {
     prefix "nw";
@@ -34,82 +34,112 @@ module ietf-te-topology-fgnm-ext {
 
   description
     "This module provide some extensions to TE topology model, based
-    on transport fine-grain network management requirement";
+    on transport Rich-Detail Network Management requirement";
 
-  revision 2024-07-08 {
+  revision 2025-02-22 {
     description
       "Revision 1.0";
     reference
-      "draft-yu-ccamp-te-fgnm-yang-01";
+      "draft-yu-ccamp-rdnm-yang-00";
   }
   
   augment "/nw:networks/nw:network/nw:node/tet:te" {
     description 
-      "Generic fine-grain network management extensions for 
+      "Generic Rich-Detail Network Management extensions for 
       te node";
     
-    uses node-fgnm-ext-grouping;
+    uses node-rdnm-ext-grouping;
   }
   
   augment "/nw:networks/nw:network/nw:node/nt:termination-point/"
         + "tet:te" {
     description 
-      "Generic fine-grain network management extensions for 
+      "Generic Rich-Detail Network Management extensions for 
       termination point";
     
-    uses tp-fgnm-ext-grouping;
+    uses tp-rdnm-ext-grouping;
   }
   
   augment "/nw:networks/nw:network/nw:node/tet:te" +
           "/tet:tunnel-termination-point" {
     description 
-      "Generic fine-grain network management extensions for 
+      "Generic Rich-Detail Network Management extensions for 
       te node";
     
-    uses ttp-fgnm-ext-grouping;
+    uses ttp-rdnm-ext-grouping;
   }  
   
   augment "/nw:networks/nw:network/nt:link/tet:te" {
     description 
-      "Generic fine-grain network management extensions for link";
+      "Generic Rich-Detail Network Management extensions for link";
     
-    uses link-fgnm-ext-grouping;
+    uses link-rdnm-ext-grouping;
   }
   
-  grouping node-fgnm-ext-grouping {
+  grouping node-rdnm-ext-grouping {
+    description
+      "Generic extension of node.";
+      
     choice layer-specific-extension {
+      description
+        "The layer rate information.";
+        
       case generic {
       
       }
     }
   }
   
-  grouping tp-fgnm-ext-grouping {
+  grouping tp-rdnm-ext-grouping {
+    description
+      "Generic extension of TP.";
+      
     choice layer-specific-extension {
+      description
+        "The layer rate information.";
+        
       case generic {
       
       }
     }
   }
   
-  grouping ttp-fgnm-ext-grouping {
+  grouping ttp-rdnm-ext-grouping {
+    description
+      "Generic extension of TTP.";
+      
     choice layer-specific-extension {
+      description
+        "The layer rate information.";
+        
       case generic {
       
       }
     }
   }
   
-  grouping link-fgnm-ext-grouping {
+  grouping link-rdnm-ext-grouping {
+    description
+      "Generic extension of link.";
+      
     choice layer-specific-extension {
+      description
+        "The layer rate information.";
+        
       case generic {
       }
     }
   }
   
   rpc query-ttp-by-tps {
+    description
+      "Query all the TTPs on the LTPs";
+      
     input {
       list tp-list {
+        description
+          "the LTPs to retrieve.";
+          
         key tp-id;
         leaf tp-id {
           type leafref {
@@ -134,6 +164,9 @@ module ietf-te-topology-fgnm-ext {
       }
       
       list result-list {
+        description
+          "The result list.";
+          
         key tp-id;
         
         leaf tp-id {
@@ -146,6 +179,9 @@ module ietf-te-topology-fgnm-ext {
         }
         
         list ttp-list {
+          description
+            "the TTPs list for this LTP.";
+            
           leaf tunnel-tp-id {
             type leafref {
               path "/nw:networks/nw:network/nw:node/tet:te" + 

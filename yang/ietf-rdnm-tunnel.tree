@@ -1,4 +1,4 @@
-module: ietf-te-fgnm-ext
+module: ietf-rdnm-tunnel
 
   augment /te:te/te:tunnels/te:tunnel:
     +--rw alias?                   string
