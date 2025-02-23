@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-20T01:02:10.333000+00:00",
+  "timestamp": "2025-02-23T01:06:36.352013+00:00",
   "repo": "YuChaode/rdnm-yang",
   "labels": [
     {
@@ -239,6 +239,22 @@
       "updatedAt": "2025-01-23T15:27:49Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 10,
+      "id": "I_kwDOMTkN6c6q2QRq",
+      "title": "Seperate the scenarios of tunnel segment and E2E tunnel",
+      "url": "https://github.com/YuChaode/rdnm-yang/issues/10",
+      "state": "OPEN",
+      "author": "YuChaode",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The tunnel's endpoint contains two scenarios right now, the tunnel can start from a LTP which maybe a scenario of tunnel segment. It needs some more discussion.",
+      "createdAt": "2025-02-20T14:36:04Z",
+      "updatedAt": "2025-02-20T14:36:04Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -254,13 +270,13 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-01-23T14:30:50Z",
-      "updatedAt": "2025-02-07T22:03:06Z",
+      "updatedAt": "2025-02-22T03:48:49Z",
       "baseRepository": "YuChaode/rdnm-yang",
       "baseRefName": "main",
       "baseRefOid": "fb316aa08013d780f9030bd6f24f4f7e6ea1c704",
       "headRepository": "YuChaode/rdnm-yang",
       "headRefName": "v02",
-      "headRefOid": "4756d1e20e53e81ea8fa43488228ecd998236f83",
+      "headRefOid": "72a4f581547da08b1762a53be73321da1b1ae2e5",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -326,6 +342,221 @@
               "body": "```suggestion\r\n    \"This module defines Rich-Detail Network Management (RDNM) YANG types.\";\r\n\r\n```",
               "createdAt": "2025-02-07T22:02:15Z",
               "updatedAt": "2025-02-07T22:03:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMTkN6c6cuijp",
+          "commit": {
+            "abbreviatedOid": "4756d1e"
+          },
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-20T10:45:10Z",
+          "updatedAt": "2025-02-20T11:18:31Z",
+          "comments": [
+            {
+              "originalPosition": 61,
+              "body": "\"...in a TE topology RDNM extension model.\" , Shall we need to add \"TE\" up front to topology word ? ",
+              "createdAt": "2025-02-20T10:45:10Z",
+              "updatedAt": "2025-02-20T11:18:31Z"
+            },
+            {
+              "originalPosition": 168,
+              "body": "delete te both for the tree fig and for the model",
+              "createdAt": "2025-02-20T10:51:13Z",
+              "updatedAt": "2025-02-20T11:18:31Z"
+            },
+            {
+              "originalPosition": 2,
+              "body": "I think it would be without \"te\"",
+              "createdAt": "2025-02-20T10:54:01Z",
+              "updatedAt": "2025-02-20T11:18:31Z"
+            },
+            {
+              "originalPosition": 1,
+              "body": "it seems to me the suggestion above by Italo was to avoid \"te\" : ietf-rdnm-types",
+              "createdAt": "2025-02-20T11:17:20Z",
+              "updatedAt": "2025-02-20T11:18:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMTkN6c6cu771",
+          "commit": {
+            "abbreviatedOid": "4756d1e"
+          },
+          "author": "sergiobelotti",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-20T11:19:43Z",
+          "updatedAt": "2025-02-20T11:19:43Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOMTkN6c6cwXY7",
+          "commit": {
+            "abbreviatedOid": "4756d1e"
+          },
+          "author": "danielkinguk",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "A few minor changes to wording.",
+          "createdAt": "2025-02-20T13:51:34Z",
+          "updatedAt": "2025-02-20T13:53:06Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "I think we can say \"RDNM is designed to deliver traditional FCAPS capabilities.\", designed probably better word than aimed.",
+              "createdAt": "2025-02-20T13:51:34Z",
+              "updatedAt": "2025-02-20T13:53:06Z"
+            },
+            {
+              "originalPosition": 39,
+              "body": "\"Some extensions, which are generic for all network layers, will be defined in the RDNM extension models, including the generic TE topology RDNM extension and the generic TE tunnel RDNM extension. Layer-specific RDNM extensions can be found in other YANG data modules.\"",
+              "createdAt": "2025-02-20T13:52:00Z",
+              "updatedAt": "2025-02-20T13:53:06Z"
+            },
+            {
+              "originalPosition": 61,
+              "body": "\"Traditional transport standards do not include a concept of TE-related modeling. If we aim to extend the current IETF data models for a comprehensive representation of the traditional approach, referred to as the RDNM extension. We propose defining common attributes for all technologies within a TE topology RDNM extension model.\"",
+              "createdAt": "2025-02-20T13:52:41Z",
+              "updatedAt": "2025-02-20T13:53:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMTkN6c6cwpBz",
+          "commit": {
+            "abbreviatedOid": "4756d1e"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-20T14:15:17Z",
+          "updatedAt": "2025-02-20T14:15:17Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "RDNM is designed to continue to deliver FCAPS capabilities within the context of ACTN.",
+              "createdAt": "2025-02-20T14:15:17Z",
+              "updatedAt": "2025-02-20T14:16:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMTkN6c6cwtcv",
+          "commit": {
+            "abbreviatedOid": "4756d1e"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-20T14:21:24Z",
+          "updatedAt": "2025-02-20T14:21:25Z",
+          "comments": [
+            {
+              "originalPosition": 39,
+              "body": "Some extensions, which are generic for all network layers, are defined in the RDNM topology and RDNM tunnel models. Layer-specific RDNM extensions can be found in other YANG data modules.",
+              "createdAt": "2025-02-20T14:21:24Z",
+              "updatedAt": "2025-02-20T14:21:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMTkN6c6cwuO1",
+          "commit": {
+            "abbreviatedOid": "4756d1e"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-20T14:22:17Z",
+          "updatedAt": "2025-02-20T14:22:17Z",
+          "comments": [
+            {
+              "originalPosition": 52,
+              "body": "To do: to chage the YANG models' name and the prefix.",
+              "createdAt": "2025-02-20T14:22:17Z",
+              "updatedAt": "2025-02-20T14:22:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMTkN6c6cwytP",
+          "commit": {
+            "abbreviatedOid": "4756d1e"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-20T14:27:51Z",
+          "updatedAt": "2025-02-20T14:27:51Z",
+          "comments": [
+            {
+              "originalPosition": 61,
+              "body": "To do: Daniel will update the sentences after the meeting.",
+              "createdAt": "2025-02-20T14:27:51Z",
+              "updatedAt": "2025-02-20T14:27:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMTkN6c6cwzwU",
+          "commit": {
+            "abbreviatedOid": "4756d1e"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-20T14:29:18Z",
+          "updatedAt": "2025-02-20T14:29:19Z",
+          "comments": [
+            {
+              "originalPosition": 168,
+              "body": "Will do after the meeting.",
+              "createdAt": "2025-02-20T14:29:18Z",
+              "updatedAt": "2025-02-20T14:29:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMTkN6c6cw1FT",
+          "commit": {
+            "abbreviatedOid": "6acb5ec"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-20T14:31:01Z",
+          "updatedAt": "2025-02-20T14:37:57Z",
+          "comments": [
+            {
+              "originalPosition": 2,
+              "body": "Will do after the meeting",
+              "createdAt": "2025-02-20T14:31:01Z",
+              "updatedAt": "2025-02-20T14:37:57Z"
+            },
+            {
+              "originalPosition": 254,
+              "body": "Replace tabs with space",
+              "createdAt": "2025-02-20T14:32:19Z",
+              "updatedAt": "2025-02-20T14:37:57Z"
+            },
+            {
+              "originalPosition": 1,
+              "body": "agree",
+              "createdAt": "2025-02-20T14:36:38Z",
+              "updatedAt": "2025-02-20T14:37:57Z"
             }
           ]
         }
