@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-09T00:56:10.900886+00:00",
+  "timestamp": "2025-03-11T01:04:57.742552+00:00",
   "repo": "YuChaode/rdnm-yang",
   "labels": [
     {
@@ -253,6 +253,22 @@
       "body": "The tunnel's endpoint contains two scenarios right now, the tunnel can start from a LTP which maybe a scenario of tunnel segment. It needs some more discussion.",
       "createdAt": "2025-02-20T14:36:04Z",
       "updatedAt": "2025-02-20T14:36:04Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 11,
+      "id": "I_kwDOMTkN6c6tPrqr",
+      "title": "The discussion of terminology maping of different modelling",
+      "url": "https://github.com/YuChaode/rdnm-yang/issues/11",
+      "state": "OPEN",
+      "author": "YuChaode",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "It is important to align the terminology of different modelling, so that the FCAPS functionalities can be inherit by our RDNM work. And we can eliminate the difficulty of integrating different interfaces.\n\n[Mapping.pptx](https://github.com/user-attachments/files/19159253/Mapping.pptx)",
+      "createdAt": "2025-03-10T09:13:17Z",
+      "updatedAt": "2025-03-10T09:16:08Z",
       "closedAt": null,
       "comments": []
     }
