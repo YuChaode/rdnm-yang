@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-01T01:14:26.447022+00:00",
+  "timestamp": "2025-04-06T01:11:02.207854+00:00",
   "repo": "YuChaode/rdnm-yang",
   "labels": [
     {
@@ -268,9 +268,17 @@
       "labels": [],
       "body": "It is important to align the terminology of different modelling, so that the FCAPS functionalities can be inherit by our RDNM work. And we can eliminate the difficulty of integrating different interfaces.\n\n[Mapping.pptx](https://github.com/user-attachments/files/19159253/Mapping.pptx)",
       "createdAt": "2025-03-10T09:13:17Z",
-      "updatedAt": "2025-03-10T09:16:08Z",
+      "updatedAt": "2025-04-05T22:07:10Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "nigel-r-davis",
+          "authorAssociation": "NONE",
+          "body": "As presennted on the call 20250403.\n\n[Mappings-IETF.pptx](https://github.com/user-attachments/files/19618642/Mappings-IETF.pptx)\n\nThe slide shows various industry models side by side relating all to ITU-G.805. It highlights some questions regarding the roles of the entities in the IETF models.",
+          "createdAt": "2025-04-05T22:05:34Z",
+          "updatedAt": "2025-04-05T22:07:09Z"
+        }
+      ]
     }
   ],
   "pulls": [
