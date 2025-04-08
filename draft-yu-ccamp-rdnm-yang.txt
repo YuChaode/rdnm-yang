@@ -5,34 +5,34 @@
 Common Control and Measurement Plane                               C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                                 X. Zhao
-Expires: 14 June 2025                                              CAICT
+Expires: 10 October 2025                                           CAICT
                                                                   Y. Tan
                                                             China Unicom
                                                                 N. Davis
                                                                    Ciena
                                                                  D. King
                                                       Old Dog Consulting
-                                                        11 December 2024
+                                                            8 April 2025
 
 
- YANG Data Models for Transport Network Rich Detail Network Management
+ YANG Data Models for Transport Network Rich-Detail Network Management
                                  (RDNM)
                     draft-yu-ccamp-rdnm-yang-latest
 
 Abstract
 
    This document defines two extension YANG data models augmenting to TE
-   topology and TE tunnel modules, based on the FGNM (Fine-Grain Network
-   Management) requirements in transport networks.
+   topology and TE tunnel modules, based on the RDNM (Rich-Detail
+   Network Management) requirements in transport networks.
 
 About This Document
 
    This note is to be removed before publishing as an RFC.
 
    The latest revision of this draft can be found at
-   https://YuChaode.github.io/draft-yu-ccamp-te-fgnm-yang/draft-yu-
-   ccamp-te-fgnm-yang.html.  Status information for this document may be
-   found at https://datatracker.ietf.org/doc/draft-yu-ccamp-rdnm-yang/.
+   https://github.com/YuChaode/rdnm-yang/draft-yu-ccamp-rdnm-yang.html.
+   Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-yu-ccamp-rdnm-yang/.
 
    Discussion of this document takes place on the Common Control and
    Measurement Plane Working Group mailing list (mailto:ccamp@ietf.org),
@@ -40,7 +40,7 @@ About This Document
    Subscribe at https://www.ietf.org/mailman/listinfo/ccamp/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/YuChaode/draft-yu-ccamp-te-fgnm-yang.
+   https://github.com/ https://github.com/YuChaode/rdnm-yang.
 
 Status of This Memo
 
@@ -57,11 +57,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 June 2025.
+   This Internet-Draft will expire on 10 October 2025.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -82,10 +82,10 @@ Table of Contents
      1.4.  Prefix in Data Node Names
    2.  Mapping of ACTN modelling objects with TMF objects
    3.  Model relationship
-   4.  FGNM Topology
-     4.1.  FGNM extension for TE topology
+   4.  RDNM Extension for Topology
+     4.1.  RDNM extension for TE topology
      4.2.  The modelling and usage of TTP
-   5.  FGNM Extensions for TE Tunnel
+   5.  RDNM Extensions for TE Tunnel
      5.1.  Modelling of Point to Multi-Points and Multi-Points to
            Multi-Points TE Tunnel
      5.2.  Restoration
@@ -96,11 +96,12 @@ Table of Contents
        5.2.5.  YANG for restoration extension
      5.3.  TTP hop
    6.  Tree Diagram
-     6.1.  FGNM Extension for TE Topology
-     6.2.  FGNM Extension for TE Tunnel
+     6.1.  RDNM Topology
+     6.2.  RDNM Tunnel
    7.  YANG Data Model
-     7.1.  FGNM Extensin for TE Topology
-     7.2.  FGNM Extensin for TE Tunnel
+     7.1.  RDNM Topology
+     7.2.  RDNM Tunnel
+     7.3.  RDNM Types
    8.  Manageability Considerations
    9.  Security Considerations
    10. IANA Considerations
@@ -116,8 +117,8 @@ Table of Contents
 1.  Introduction
 
    [RFC8795] defines a YANG data module for technology generic, and it
-   is augmented by some other technology specific data modules, e.g.
-   OTN topology data model in [I-D.draft-ietf-ccamp-otn-topo-yang].
+   is augmented by some other technology specific data modules, e.g. OTN
+   topology data model in [I-D.draft-ietf-ccamp-otn-topo-yang].
 
    [I-D.draft-ietf-teas-yang-te] defines a YANG data model for the
    provisioning and management of Traffic Engineering (TE) tunnels,
@@ -132,9 +133,9 @@ Table of Contents
    Abstracted Control (AC) approach.
 
    In [I-D.draft-gstk-ccamp-actn-optical-transport-mgmt], it also raised
-   another management approach, which is called Fine-Grain Network
-   Management (FGNM).  FGNM is aimed to provide traditional FCAPS
-   capabilities.
+   another management approach, which is called Rich-Detail Network
+   Management (RDNM).  RDNM is designed to continue to deliver FCAPS
+   capabilities within the context of ACTN.
 
    [ITU-T_G.805] describes transport network from the viewpoint of the
    information transfer capability, provides a generic functional
@@ -149,10 +150,9 @@ Table of Contents
    like to provide some extension YANG data models, based on the current
    model architecture.
 
-   Some extensions is generic for all network layers would be defined in
-   the FGNM extension models, including generic TE topology FGNM
-   extension and generic TE tunnel FGNM extension.  The layer specific
-   FGNM extension should be found in some other YANG data modules.
+   Some extensions, which are generic for all network layers, are
+   defined in the RDNM topology and RDNM tunnel models.  Layer-specific
+   RDNM extensions can be found in other YANG data modules.
 
 1.1.  Terminology and Notations
 
@@ -179,31 +179,31 @@ Table of Contents
    corresponding YANG imported modules, as showned in the following
    table.
 
-       +===================+===========================+===========+
-       | Prefix            | Yang Module               | Reference |
-       +===================+===========================+===========+
-       | nw                | ietf-network              | [RFC8345] |
-       +-------------------+---------------------------+-----------+
-       | nt                | ietf-network-topology     | [RFC8345] |
-       +-------------------+---------------------------+-----------+
-       | tet               | ietf-te-topology          | [RFC8795] |
-       +-------------------+---------------------------+-----------+
-       | yang              | ietf-yang-types           | [RFC6991] |
-       +-------------------+---------------------------+-----------+
-       | inet              | ietf-inet-types           | [RFC6991] |
-       +-------------------+---------------------------+-----------+
-       | te                | ietf-te                   | RFCYYYY   |
-       +-------------------+---------------------------+-----------+
-       | te-types          | ietf-te-types             | [RFC8776] |
-       +-------------------+---------------------------+-----------+
-       | tet-fgnm-ext      | ietf-te-topology-fgnm-ext | RFC XXXX  |
-       +-------------------+---------------------------+-----------+
-       | te-fgnm-ext       | ietf-te-fgnm-ext          | RFC XXXX  |
-       +-------------------+---------------------------+-----------+
-       | te-types-fgnm-ext | ietf-te-types-fgnm-ext    | RFC XXXX  |
-       +-------------------+---------------------------+-----------+
+            +============+=======================+===========+
+            | Prefix     | Yang Module           | Reference |
+            +============+=======================+===========+
+            | nw         | ietf-network          | [RFC8345] |
+            +------------+-----------------------+-----------+
+            | nt         | ietf-network-topology | [RFC8345] |
+            +------------+-----------------------+-----------+
+            | tet        | ietf-te-topology      | [RFC8795] |
+            +------------+-----------------------+-----------+
+            | yang       | ietf-yang-types       | [RFC6991] |
+            +------------+-----------------------+-----------+
+            | inet       | ietf-inet-types       | [RFC6991] |
+            +------------+-----------------------+-----------+
+            | te         | ietf-te               | RFCYYYY   |
+            +------------+-----------------------+-----------+
+            | te-types   | ietf-te-types         | [RFC8776] |
+            +------------+-----------------------+-----------+
+            | rdnmt      | ietf-rdnm-topology    | RFC XXXX  |
+            +------------+-----------------------+-----------+
+            | rdnm-tnl   | ietf-rdnm-tunnel      | RFC XXXX  |
+            +------------+-----------------------+-----------+
+            | rdnm-types | ietf-rdnm-types       | RFC XXXX  |
+            +------------+-----------------------+-----------+
 
-              Table 1: Prefixes and corresponding YANG modules
+             Table 1: Prefixes and corresponding YANG modules
 
    RFC Editor Note: Please replace XXXX with the RFC number assigned to
    this document.  Please replace YYYY with the RFC number assigned to
@@ -226,7 +226,7 @@ Table of Contents
    One disadvantage of [ITU-T_G.805] is it is too complicated.  So TMF
    simplifies the modelling system of [ITU-T_G.805].  The adaptation is
    changed to be the capabilities of reference points.  The reference
-   points is so that changed to some other terminologies, e.g.  PTP and
+   points is so that changed to some other terminologies, e.g. PTP and
    FTP etc.  This simplification still can be mapped to [ITU-T_G.805].
    So that a lot of vendors and operators choose TMF modelling in their
    system.
@@ -344,13 +344,12 @@ Table of Contents
    But in the traditional transport standards there is not such a saying
    of TE-related modelling.  If we want to extend the current IETF data
    models to have full modelling of traditional approach, which is
-   called FGNM extension by us, we suggest to define the common
-   attributes for all the technologies in a TE topology FGNM extension
-   model.
+   called RDNM extension by us, we suggest to define the common
+   attributes for all the technologies in a RDNM extension model.
 
-   For layer-specific FGNM extensions could reference existing way and
-   define in a separated layer-specific FGNM extension document.  So in
-   the FGNM approach, the ACTN topology architecture will be extended to
+   For layer-specific RDNM extensions could reference existing way and
+   define in a separated layer-specific RDNM extension document.  So in
+   the RDNM approach, the ACTN topology architecture will be extended to
    be:
 
           +----------------------+
@@ -360,54 +359,54 @@ Table of Contents
                       |
                       |
           +----------------------+           +----------------------+
-          |     TE topology      |<----------|   TE FGNM Extension  |
+          |     TE topology      |<----------|      RDNM Extension  |
           +----------------------+           +----------------------+
              ^      ^       ^                     ^      ^       ^
              |      |       |                     |      |       |
              |      |       |                     |      |       |
    +--------------+ |       |         +----------------+ |       |
-   | ETH topology | |       |         | ETH FGNM EXT   | |       |
+   | ETH topology | |       |         | ETH RDNM EXT   | |       |
    +--------------+ |       |         +----------------+ |       |
                     |       |                            |       |
           +--------------+  |                +--------------+    |
-          | OTN topology |  |                | OTN FGNM EXT |    |
+          | OTN topology |  |                | OTN RDNM EXT |    |
           +--------------+  |                +--------------+    |
                             |                                    |
               +--------------+                     +--------------+
-              | WDM topology |                     | WDM FGNM EXT |
+              | WDM topology |                     | WDM RDNM EXT |
               +--------------+                     +--------------+
 
-                Figure 2: Relationship of FGNM ACTN topology
+                Figure 2: Relationship of RDNM ACTN topology
 
    It is also same for the TE tunnel architecture.  The whole
-   architecture after FGNM tunnel extensions will be:
+   architecture after RDNM tunnel extensions will be:
 
       +----------------------+           +----------------------+
-      |      TE Tunnel       |<----------|   TE FGNM Extension  |
+      |      TE Tunnel       |<----------|      RDNM Extension  |
       +----------------------+           +----------------------+
            ^      ^       ^                   ^      ^       ^
            |      |       |                   |      |       |
            |      |       |                   |      |       |
    +------------+ |       |       +----------------+ |       |
-   | ETH Tunnel | |       |       | ETH FGNM EXT   | |       |
+   | ETH Tunnel | |       |       | ETH RDNM EXT   | |       |
    +------------+ |       |       +----------------+ |       |
                   |       |                          |       |
         +--------------+  |              +--------------+    |
-        | OTN Tunnel   |  |              | OTN FGNM EXT |    |
+        | OTN Tunnel   |  |              | OTN RDNM EXT |    |
         +--------------+  |              +--------------+    |
                           |                                  |
               +--------------+                 +--------------+
-              | WDM Tunnel   |                 | WDM FGNM EXT |
+              | WDM Tunnel   |                 | WDM RDNM EXT |
               +--------------+                 +--------------+
 
-                 Figure 3: Relationship of FGNM ACTN tunnel
+                 Figure 3: Relationship of RDNM ACTN tunnel
 
-4.  FGNM Topology
+4.  RDNM Extension for Topology
 
    For the some objects, although it is defined in IETF, but the way of
    abstraction is not so implementation friendly, especially for TTP.
 
-4.1.  FGNM extension for TE topology
+4.1.  RDNM extension for TE topology
 
    (To be added)
 
@@ -461,7 +460,7 @@ Table of Contents
                   +--ro ttp-name?       string
                   +--ro using-status?   enumeration
 
-5.  FGNM Extensions for TE Tunnel
+5.  RDNM Extensions for TE Tunnel
 
 5.1.  Modelling of Point to Multi-Points and Multi-Points to Multi-
       Points TE Tunnel
@@ -598,12 +597,12 @@ Table of Contents
 
 6.  Tree Diagram
 
-6.1.  FGNM Extension for TE Topology
+6.1.  RDNM Topology
 
    Figure 4 below shows the tree diagram of the YANG data model defined
-   in module "ietf-te-topology-fgnm-ext".
+   in module "ietf-rdnm-topology".
 
-   module: ietf-te-topology-fgnm-ext
+   module: ietf-rdnm-topology
 
      augment /nw:networks/nw:network/nw:node/tet:te:
        +--rw (layer-specific-extension)?
@@ -634,14 +633,14 @@ Table of Contents
                    +--ro ttp-name?       string
                    +--ro using-status?   enumeration
 
-                Figure 4: Tree of TE Topology FGNM Extension
+                      Figure 4: Tree of RDNM Topology
 
-6.2.  FGNM Extension for TE Tunnel
+6.2.  RDNM Tunnel
 
    Figure 5 below shows the tree diagram of the YANG data model defined
-   in module "ietf-te-fgnm-ext".
+   in module "ietf-rdnm-tunnel".
 
-   module: ietf-te-fgnm-ext
+   module: ietf-rdnm-tunnel
 
      augment /te:te/te:tunnels/te:tunnel:
        +--rw alias?                   string
@@ -682,17 +681,17 @@ Table of Contents
        +--rw restoration-priority?         enumeration
        +--rw restoration-layer?            enumeration
 
-                 Figure 5: Tree of TE Tunnel FGNM Extension
+                       Figure 5: Tree of RDNM Tunnel
 
 7.  YANG Data Model
 
-7.1.  FGNM Extensin for TE Topology
+7.1.  RDNM Topology
 
-   <CODE BEGINS> file "ietf-te-topology-fgnm-ext@2024-07-08.yang"
-   module ietf-te-topology-fgnm-ext {
+   <CODE BEGINS> file "ietf-rdnm-topology@2025-02-22.yang"
+   module ietf-rdnm-topology {
      yang-version 1.1;
-     namespace "urn:ietf:params:xml:ns:yang:ietf-te-topology-fgnm-ext";
-     prefix tet-fgnm-ext;
+     namespace "urn:ietf:params:xml:ns:yang:ietf-rdnm-topology";
+     prefix rdnmt;
 
      import ietf-network {
        prefix "nw";
@@ -725,82 +724,112 @@ Table of Contents
 
      description
        "This module provide some extensions to TE topology model, based
-       on transport fine-grain network management requirement";
+       on transport Rich-Detail Network Management requirement";
 
-     revision 2024-07-08 {
+     revision 2025-02-22 {
        description
          "Revision 1.0";
        reference
-         "draft-yu-ccamp-te-fgnm-yang-01";
+         "draft-yu-ccamp-rdnm-yang-00";
      }
 
      augment "/nw:networks/nw:network/nw:node/tet:te" {
        description
-         "Generic fine-grain network management extensions for
+         "Generic Rich-Detail Network Management extensions for
          te node";
 
-       uses node-fgnm-ext-grouping;
+       uses node-rdnm-ext-grouping;
      }
 
      augment "/nw:networks/nw:network/nw:node/nt:termination-point/"
            + "tet:te" {
        description
-         "Generic fine-grain network management extensions for
+         "Generic Rich-Detail Network Management extensions for
          termination point";
 
-       uses tp-fgnm-ext-grouping;
+       uses tp-rdnm-ext-grouping;
      }
 
      augment "/nw:networks/nw:network/nw:node/tet:te" +
              "/tet:tunnel-termination-point" {
        description
-         "Generic fine-grain network management extensions for
+         "Generic Rich-Detail Network Management extensions for
          te node";
 
-       uses ttp-fgnm-ext-grouping;
+       uses ttp-rdnm-ext-grouping;
      }
 
      augment "/nw:networks/nw:network/nt:link/tet:te" {
        description
-         "Generic fine-grain network management extensions for link";
+         "Generic Rich-Detail Network Management extensions for link";
 
-       uses link-fgnm-ext-grouping;
+       uses link-rdnm-ext-grouping;
      }
 
-     grouping node-fgnm-ext-grouping {
+     grouping node-rdnm-ext-grouping {
+       description
+         "Generic extension of node.";
+
        choice layer-specific-extension {
+         description
+           "The layer rate information.";
+
          case generic {
 
          }
        }
      }
 
-     grouping tp-fgnm-ext-grouping {
+     grouping tp-rdnm-ext-grouping {
+       description
+         "Generic extension of TP.";
+
        choice layer-specific-extension {
+         description
+           "The layer rate information.";
+
          case generic {
 
          }
        }
      }
 
-     grouping ttp-fgnm-ext-grouping {
+     grouping ttp-rdnm-ext-grouping {
+       description
+         "Generic extension of TTP.";
+
        choice layer-specific-extension {
+         description
+           "The layer rate information.";
+
          case generic {
 
          }
        }
      }
 
-     grouping link-fgnm-ext-grouping {
+     grouping link-rdnm-ext-grouping {
+       description
+         "Generic extension of link.";
+
        choice layer-specific-extension {
+         description
+           "The layer rate information.";
+
          case generic {
          }
        }
      }
 
      rpc query-ttp-by-tps {
+       description
+         "Query all the TTPs on the LTPs";
+
        input {
          list tp-list {
+           description
+             "the LTPs to retrieve.";
+
            key tp-id;
            leaf tp-id {
              type leafref {
@@ -825,6 +854,9 @@ Table of Contents
          }
 
          list result-list {
+           description
+             "The result list.";
+
            key tp-id;
 
            leaf tp-id {
@@ -837,6 +869,9 @@ Table of Contents
            }
 
            list ttp-list {
+             description
+               "the TTPs list for this LTP.";
+
              leaf tunnel-tp-id {
                type leafref {
                  path "/nw:networks/nw:network/nw:node/tet:te" +
@@ -869,15 +904,15 @@ Table of Contents
    }
    <CODE ENDS>
 
-              Figure 6: TE Topology FGNM Extension YANG module
+                    Figure 6: RDNM Topology YANG module
 
-7.2.  FGNM Extensin for TE Tunnel
+7.2.  RDNM Tunnel
 
-   <CODE BEGINS> file "ietf-te-fgnm-ext@2024-07-08.yang"
-   module ietf-te-fgnm-ext {
+   <CODE BEGINS> file "ietf-rdnm-tunnel@2025-02-22.yang"
+   module ietf-rdnm-tunnel {
      yang-version 1.1;
-     namespace "urn:ietf:params:xml:ns:yang:ietf-te-fgnm-ext";
-     prefix te-fgnm-ext;
+     namespace "urn:ietf:params:xml:ns:yang:ietf-rdnm-tunnel";
+     prefix rdnm-tnl;
 
      import ietf-te {
        prefix "te";
@@ -887,8 +922,8 @@ Table of Contents
        prefix "yang";
      }
 
-     import ietf-te-types-fgnm-ext {
-       prefix "te-types-fgnm-ext";
+     import ietf-rdnm-types {
+       prefix "rdnm-types";
      }
 
      import ietf-network {
@@ -922,166 +957,207 @@ Table of Contents
 
      description
        "This module provide some extensions to TE topology model, based
-       on transport fine-grain network management requirement";
+       on transport Rich-Detail Network Management requirement";
 
-     revision 2024-07-08 {
+     revision 2025-02-22 {
        description
          "Revision 1.0";
        reference
-         "draft-yu-ccamp-te-fgnm-yang-01";
+         "draft-yu-ccamp-rdnm-yang-00";
      }
 
      augment "/te:te/te:tunnels/te:tunnel" {
+       description
+         "Extensions for TE tunnel structure, includes alias, time
+         management and another option of specifying source and
+         destination.";
+
        leaf alias {
+         type string;
          description
            "alias of TE tunnel";
-         type string;
        }
 
        uses time-state-grouping;
 
        container source-endpoints {
+         description
+           "Source endpoints.";
          list source-endpoint {
            uses endpoint-grouping;
+           description
+             "List of source endpoints.";
          }
        }
 
        container destination-endpoints {
+         description
+           "Destination endpoints.";
          list destination-endpoint {
            uses endpoint-grouping;
+           description
+             "List of destination endpoints.";
          }
        }
      }
 
      augment  "/te:te/te:tunnels/te:tunnel/te:restoration" {
+       description
+         "Extensions of TE tunnel restoration.";
+
        leaf restoration-lock {
+         type boolean;
+
          description
            "a lock to control whether the restoration can take effect or
            not, it is useful in the maintenance scenrios, such as in
            cutover";
-         type boolean;
        }
 
        leaf restoration-reversion-lock {
+         type boolean;
          description
            "a lock to control whether the reversion of restoration can
            take effect or not.";
-         type boolean;
        }
 
        leaf scheduled-reversion-time {
+         type yang:date-and-time;
+
          description
            "a time when the reversion of restoration can take effect.";
-         type yang:date-and-time;
        }
 
        leaf restoration-priority {
-         description
-           "when there are multiple services need to be restored, the
-           higher estoration priority services can occupied the idle
-           resource in priority, it is used to control the restoration
-           sequence.";
          type enumeration {
            enum high;
            enum medium;
            enum low;
          }
+
+         description
+           "when there are multiple services need to be restored, the
+           higher estoration priority services can occupied the idle
+           resource in priority, it is used to control the restoration
+           sequence.";
        }
 
        leaf restoration-layer {
-         description
-           "the layer of topolgy prefered to be operated when restoration
-           is needed.";
          type enumeration {
            enum odu;
            enum wdm;
          }
+
+         description
+           "the layer of topolgy prefered to be operated when restoration
+           is needed.";
        }
      }
 
      augment  "/te:te/te:tunnels/te:tunnel/te:primary-paths"
-              + "/te:primary-path/te:explicit-route-objects-always"
+              + "/te:primary-path/te:explicit-route-objects"
               + "/te:route-object-include-exclude/te:type"    {
        description
          "a TTP hop";
        case ttp-hop {
-         uses te-types-fgnm-ext:explicit-ttp-hop;
+         uses rdnm-types:explicit-ttp-hop;
        }
      }
 
      augment  "/te:te/te:tunnels/te:tunnel/te:secondary-paths"
-              + "/te:secondary-path/te:explicit-route-objects-always"
+              + "/te:secondary-path/te:explicit-route-objects"
               + "/te:route-object-include-exclude/te:type"    {
        description
          "a TTP hop";
        case ttp-hop {
-         uses te-types-fgnm-ext:explicit-ttp-hop;
+         uses rdnm-types:explicit-ttp-hop;
        }
      }
 
      augment  "/te:te/te:tunnels/te:tunnel/te:primary-paths"
               + "/te:primary-path/te:primary-reverse-path"
-              + "/te:explicit-route-objects-always"
+              + "/te:explicit-route-objects"
               + "/te:route-object-include-exclude/te:type"    {
        description
          "a TTP hop";
        case ttp-hop {
-         uses te-types-fgnm-ext:explicit-ttp-hop;
+         uses rdnm-types:explicit-ttp-hop;
        }
      }
 
      augment  "/te:te/te:tunnels/te:tunnel/te:secondary-reverse-paths"
               + "/te:secondary-reverse-path"
-              + "/te:explicit-route-objects-always"
+              + "/te:explicit-route-objects"
               + "/te:route-object-include-exclude/te:type"    {
        description
          "a TTP hop";
        case ttp-hop {
-         uses te-types-fgnm-ext:explicit-ttp-hop;
+         uses rdnm-types:explicit-ttp-hop;
        }
      }
 
      grouping time-state-grouping {
+       description
+         "time management of TE tunnel.";
+
        leaf create-time {
+         type yang:date-and-time;
          config false;
          description
            "the time when the tunnel was created";
-         type yang:date-and-time;
+
        }
 
        leaf active-time {
+         type yang:date-and-time;
          config false;
          description
            "the lastest time when the tunnel was activated";
-         type yang:date-and-time;
        }
      }
 
      grouping endpoint-grouping {
+       description
+         "Source/destination endpoint information of TE tunnel.";
+
        leaf node-id {
          type leafref {
            path "/nw:networks/nw:network/nw:node/nw:node-id";
          }
+         description
+           "Identifier of node for this endpoint.";
        }
 
        choice endpoint-tp {
+         description
+           "The client can choose to specify LTP or TTP to create TE
+           tunnel.";
+
          case ltp {
            leaf tp-id {
              type leafref {
                path "/nw:networks/nw:network/nw:node/nt:termination-point"
                + "/nt:tp-id";
              }
+             description
+               "identifier of LTP for this endpoint.";
            }
          }
 
          case ttp {
            choice id-or-name {
+             description
+               "The client can choose to specify the identifier or the
+               name of TTP to create TE tunnel.";
+
              case id {
                leaf ttp-id {
                  type leafref {
                    path "/nw:networks/nw:network/nw:node/tet:te"
                    + "/tet:tunnel-termination-point/tet:tunnel-tp-id";
                  }
+                 description
+                   "the identifier of TTP for this endpoint.";
                }
              }
 
@@ -1091,6 +1167,8 @@ Table of Contents
                    path "/nw:networks/nw:network/nw:node/tet:te"
                    + "/tet:tunnel-termination-point/tet:name";
                  }
+                 description
+                   "the name of TTP for this endpoint.";
                }
              }
            }
@@ -1098,11 +1176,86 @@ Table of Contents
        }
 
        leaf protection-role {
-         description
-           "role of this endpoint in multipoints scenario";
          type enumeration {
            enum work;
            enum protect;
+         }
+         description
+           "role of this endpoint in multipoints scenario";
+       }
+     }
+
+   }
+   <CODE ENDS>
+
+                     Figure 7: RDNM Tunnel YANG module
+
+7.3.  RDNM Types
+
+   <CODE BEGINS> file "ietf-rdnm-types@2025-02-22.yang"
+   module ietf-rdnm-types {
+     yang-version 1.1;
+     namespace "urn:ietf:params:xml:ns:yang:ietf-rdnm-types";
+     prefix rdnm-types;
+
+     organization
+       "IETF CCAMP Working Group";
+     contact
+       "WG Web: <http://tools.ietf.org/wg/ccamp/>
+        WG List: <mailto:ccamp@ietf.org>
+
+        Editor: Chaode Yu
+                <mailto:yuchaode@huawei.com>
+                Xing Zhao
+                <mailto:zhaoxing@caict.ac.cn>
+                Yanxia Tan
+                <mailto:tanyx11@chinaunicom.cn>
+                Nigel Davis
+                <mailto:ndavis@ciena.com>
+                Daniel King
+                <mailto:daniel@olddog.co.uk>";
+
+     description
+       "This module defines Rich-Detail Network Management (RDNM) YANG types.";
+
+
+     revision 2025-02-22 {
+       description
+         "Revision 1.0";
+       reference
+         "draft-yu-ccamp-rdnm-yang-00";
+     }
+
+     grouping explicit-ttp-hop {
+       container ttp-hop {
+         description
+           "TTP Hop";
+
+         leaf node-id {
+           type nw:node-id;
+           description
+             "identifier of node for this TTP hop.";
+         }
+
+         choice id-or-name {
+           description
+             "The server can choose to display the identifier or
+             the name of TTP.";
+
+           case id {
+             leaf ttp-id {
+               type binary;
+             }
+             description
+               "the identifier of TTP for this TTP hop.";
+           }
+           case name {
+             leaf ttp-name {
+               type string;
+             }
+             description
+               "the name of TTP for this TTP hop.";
+           }
          }
        }
      }
@@ -1110,7 +1263,7 @@ Table of Contents
    }
    <CODE ENDS>
 
-               Figure 7: TE Tunnel FGNM Extension YANG module
+                      Figure 8: RDNM Types YANG module
 
 8.  Manageability Considerations
 
