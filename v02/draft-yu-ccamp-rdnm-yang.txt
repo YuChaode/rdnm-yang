@@ -5,14 +5,14 @@
 Common Control and Measurement Plane                               C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                                 X. Zhao
-Expires: 26 August 2025                                            CAICT
+Expires: 10 October 2025                                           CAICT
                                                                   Y. Tan
                                                             China Unicom
                                                                 N. Davis
                                                                    Ciena
                                                                  D. King
                                                       Old Dog Consulting
-                                                        22 February 2025
+                                                            8 April 2025
 
 
  YANG Data Models for Transport Network Rich-Detail Network Management
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 August 2025.
+   This Internet-Draft will expire on 10 October 2025.
 
 Copyright Notice
 
@@ -345,8 +345,7 @@ Table of Contents
    of TE-related modelling.  If we want to extend the current IETF data
    models to have full modelling of traditional approach, which is
    called RDNM extension by us, we suggest to define the common
-   attributes for all the technologies in a TE topology RDNM extension
-   model.
+   attributes for all the technologies in a RDNM extension model.
 
    For layer-specific RDNM extensions could reference existing way and
    define in a separated layer-specific RDNM extension document.  So in

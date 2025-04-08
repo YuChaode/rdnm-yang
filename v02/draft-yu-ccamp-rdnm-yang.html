@@ -13,20 +13,20 @@
 <meta content="
        This document defines two extension YANG data models augmenting to TE topology and TE tunnel modules, based on the RDNM (Rich-Detail Network Management) requirements in transport networks. 
     " name="description">
-<meta content="xml2rfc 3.27.0" name="generator">
+<meta content="xml2rfc 3.28.1" name="generator">
 <meta content="next generation" name="keyword">
 <meta content="unicorn" name="keyword">
 <meta content="sparkling distributed ledger" name="keyword">
 <meta content="draft-yu-ccamp-rdnm-yang-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.27.0
+  xml2rfc 3.28.1
     Python 3.12.9
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.5
+    Jinja2 3.1.6
     lxml 5.3.0
-    platformdirs 4.3.6
+    platformdirs 4.3.7
     pycountry 24.6.1
     PyYAML 6.0.2
     requests 2.32.3
@@ -1050,11 +1050,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">RDNM YANG</td>
-<td class="right">February 2025</td>
+<td class="right">April 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Yu, et al.</td>
-<td class="center">Expires 26 August 2025</td>
+<td class="center">Expires 10 October 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1067,12 +1067,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-yu-ccamp-rdnm-yang-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-02-22" class="published">22 February 2025</time>
+<time datetime="2025-04-08" class="published">8 April 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-08-26">26 August 2025</time></dd>
+<dd class="expires"><time datetime="2025-10-10">10 October 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1138,7 +1138,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 26 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 10 October 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1556,7 +1556,7 @@ Please remove this note.<a href="#section-1.4-3" class="pilcrow">¶</a></p>
 </div>
 <p id="section-3-3">TE topology model was aimed to define common attributes for all the technologies.  OTN topology and WDM topology, etc., they are all augmenting TE topology model to provide layer-specific extensions.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <p id="section-3-4">Although most of the objects in ACTN and TMF can be mapped to each other, the parameters of the objects cannot be completely matched. In other words, the current ACTN object needs to be extended with some properties to support the full functionality of a traditional object.<a href="#section-3-4" class="pilcrow">¶</a></p>
-<p id="section-3-5">But in the traditional transport standards there is not such a saying of  TE-related modelling. If we want to extend the current IETF data models to have full modelling of traditional approach, which is called RDNM extension by us, we suggest to define the common attributes for all the technologies in a TE topology RDNM extension model.<a href="#section-3-5" class="pilcrow">¶</a></p>
+<p id="section-3-5">But in the traditional transport standards there is not such a saying of  TE-related modelling. If we want to extend the current IETF data models to have full modelling of traditional approach, which is called RDNM extension by us, we suggest to define the common attributes for all the technologies in a RDNM extension model.<a href="#section-3-5" class="pilcrow">¶</a></p>
 <p id="section-3-6">For layer-specific RDNM extensions could reference existing way and define in a separated layer-specific RDNM extension document. So in the RDNM approach, the ACTN topology architecture will be extended to be:<a href="#section-3-6" class="pilcrow">¶</a></p>
 <span id="name-relationship-of-rdnm-actn-t"></span><div id="fig-actn-rdnm-topology">
 <figure id="figure-2">
