@@ -247,7 +247,7 @@ TE topology model was aimed to define common attributes for all the technologies
 
 Although most of the objects in ACTN and TMF can be mapped to each other, the parameters of the objects cannot be completely matched. In other words, the current ACTN object needs to be extended with some properties to support the full functionality of a traditional object.
 
-But in the traditional transport standards there is not such a saying of  TE-related modelling. If we want to extend the current IETF data models to have full modelling of traditional approach, which is called RDNM extension by us, we suggest to define the common attributes for all the technologies in a TE topology RDNM extension model.
+But in the traditional transport standards there is not such a saying of  TE-related modelling. If we want to extend the current IETF data models to have full modelling of traditional approach, which is called RDNM extension by us, we suggest to define the common attributes for all the technologies in a RDNM extension model.
 
 For layer-specific RDNM extensions could reference existing way and define in a separated layer-specific RDNM extension document. So in the RDNM approach, the ACTN topology architecture will be extended to be:
 
