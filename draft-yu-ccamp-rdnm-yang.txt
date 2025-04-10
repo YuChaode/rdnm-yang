@@ -5,14 +5,14 @@
 Common Control and Measurement Plane                               C. Yu
 Internet-Draft                                       Huawei Technologies
 Intended status: Standards Track                                 X. Zhao
-Expires: 10 October 2025                                           CAICT
+Expires: 12 October 2025                                           CAICT
                                                                   Y. Tan
                                                             China Unicom
                                                                 N. Davis
                                                                    Ciena
                                                                  D. King
                                                       Old Dog Consulting
-                                                            8 April 2025
+                                                           10 April 2025
 
 
  YANG Data Models for Transport Network Rich-Detail Network Management
@@ -57,7 +57,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 October 2025.
+   This Internet-Draft will expire on 12 October 2025.
 
 Copyright Notice
 
@@ -1423,9 +1423,22 @@ A.1.  Mapping Between ACTN & TMF & TAPI Modelling
 
 Acknowledgments
 
+   The authors would like to thank Adrian Farrrel and Scott Mansfield
+   for their inputs and suggestions.
+
    This document was prepared using kramdown.
 
 Contributors
+
+   Julien Meuric
+   Orange Innovation
+   Email: julien.meuric@orange.com
+
+
+   Sergio Belotti
+   Nokia
+   Email: sergio.belotti@nokia.com
+
 
    Zhoulong Liu
    Huawei Technologies
