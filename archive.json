@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-06T01:11:02.207854+00:00",
+  "timestamp": "2025-04-10T01:06:45.494954+00:00",
   "repo": "YuChaode/rdnm-yang",
   "labels": [
     {
@@ -89,7 +89,7 @@
       "id": "I_kwDOMTkN6c6gV28o",
       "title": "FGNM acronym replacement",
       "url": "https://github.com/YuChaode/rdnm-yang/issues/2",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "sergiobelotti",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -103,8 +103,8 @@
       ],
       "body": "We are not happy with the \"FGNM\" naming since it has been confused with \"Fine-grain optical transport networking (fgOTN)\"\r\nAction @AdrianFarrel : to provide some suggestions for an FGNM acronym replacement",
       "createdAt": "2024-11-25T10:02:01Z",
-      "updatedAt": "2024-12-12T14:55:03Z",
-      "closedAt": null,
+      "updatedAt": "2025-04-08T08:17:30Z",
+      "closedAt": "2025-04-08T08:17:30Z",
       "comments": [
         {
           "author": "sergiobelotti",
@@ -127,7 +127,7 @@
       "id": "I_kwDOMTkN6c6gV4uJ",
       "title": "Remove \"TE\" from I-D name/file",
       "url": "https://github.com/YuChaode/rdnm-yang/issues/3",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "sergiobelotti",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -140,8 +140,8 @@
       ],
       "body": "Action @YuChaode : Remove \"TE\" from I-D name/file",
       "createdAt": "2024-11-25T10:04:58Z",
-      "updatedAt": "2024-11-28T14:09:54Z",
-      "closedAt": null,
+      "updatedAt": "2025-04-08T08:17:31Z",
+      "closedAt": "2025-04-08T08:17:31Z",
       "comments": []
     },
     {
@@ -211,15 +211,15 @@
       "id": "I_kwDOMTkN6c6nTVe2",
       "title": "Fix the errors of YANG",
       "url": "https://github.com/YuChaode/rdnm-yang/issues/7",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "YuChaode",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-01-23T13:06:44Z",
-      "updatedAt": "2025-01-23T13:06:44Z",
-      "closedAt": null,
+      "updatedAt": "2025-04-08T08:17:31Z",
+      "closedAt": "2025-04-08T08:17:31Z",
       "comments": []
     },
     {
@@ -279,6 +279,24 @@
           "updatedAt": "2025-04-05T22:07:09Z"
         }
       ]
+    },
+    {
+      "number": 12,
+      "id": "I_kwDOMTkN6c6xj5Ov",
+      "title": "Text rephrase",
+      "url": "https://github.com/YuChaode/rdnm-yang/issues/12",
+      "state": "OPEN",
+      "author": "YuChaode",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "danielkinguk"
+      ],
+      "labels": [],
+      "body": "\"Traditional transport standards do not include a concept of TE-related modeling. If we aim to extend the current IETF data models for a comprehensive representation of the traditional approach, referred to as the RDNM extension. We propose defining common attributes for all technologies within a TE topology RDNM extension model.\"\n\n_Originally posted by @danielkinguk in https://github.com/YuChaode/rdnm-yang/pull/8#discussion_r1963607226_\n            ",
+      "createdAt": "2025-04-08T08:10:28Z",
+      "updatedAt": "2025-04-08T08:11:14Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -287,24 +305,26 @@
       "id": "PR_kwDOMTkN6c6IxVWV",
       "title": "Remove TE and Replace FGNM with RDNM",
       "url": "https://github.com/YuChaode/rdnm-yang/pull/8",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "YuChaode",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-01-23T14:30:50Z",
-      "updatedAt": "2025-02-22T03:48:49Z",
+      "updatedAt": "2025-04-08T08:17:30Z",
       "baseRepository": "YuChaode/rdnm-yang",
       "baseRefName": "main",
       "baseRefOid": "fb316aa08013d780f9030bd6f24f4f7e6ea1c704",
       "headRepository": "YuChaode/rdnm-yang",
       "headRefName": "v02",
-      "headRefOid": "72a4f581547da08b1762a53be73321da1b1ae2e5",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "6e7dad0d97e861649764adbb068d573c86718b08",
+      "closedAt": "2025-04-08T08:17:29Z",
+      "mergedAt": "2025-04-08T08:17:29Z",
+      "mergedBy": "YuChaode",
+      "mergeCommit": {
+        "oid": "8276db721dc9b5b08053d9589ad33d53979ac890"
+      },
       "comments": [],
       "reviews": [
         {
@@ -581,6 +601,46 @@
               "body": "agree",
               "createdAt": "2025-02-20T14:36:38Z",
               "updatedAt": "2025-02-20T14:37:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMTkN6c6j24Ef",
+          "commit": {
+            "abbreviatedOid": "72a4f58"
+          },
+          "author": "YuChaode",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-08T08:08:49Z",
+          "updatedAt": "2025-04-08T08:08:50Z",
+          "comments": [
+            {
+              "originalPosition": 61,
+              "body": "```suggestion\r\nBut in the traditional transport standards there is not such a saying of  TE-related modelling. If we want to extend the current IETF data models to have full modelling of traditional approach, which is called RDNM extension by us, we suggest to define the common attributes for all the technologies in a RDNM extension model.\r\n```",
+              "createdAt": "2025-04-08T08:08:49Z",
+              "updatedAt": "2025-04-08T08:08:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMTkN6c6j29bM",
+          "commit": {
+            "abbreviatedOid": "4756d1e"
+          },
+          "author": "italobusi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-04-08T08:16:23Z",
+          "updatedAt": "2025-04-08T08:16:23Z",
+          "comments": [
+            {
+              "originalPosition": 61,
+              "body": "See #12 ",
+              "createdAt": "2025-04-08T08:16:23Z",
+              "updatedAt": "2025-04-08T08:16:23Z"
             }
           ]
         }
