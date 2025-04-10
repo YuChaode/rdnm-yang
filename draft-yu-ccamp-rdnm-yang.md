@@ -47,6 +47,14 @@ author:
 
 contributor:
   -
+    name: Julien Meuric
+    org: Orange Innovation
+    email: julien.meuric@orange.com
+  -
+    name: Sergio Belotti
+    org: Nokia
+    email: sergio.belotti@nokia.com
+  -
     name: Zhoulong Liu
     org: Huawei Technologies
     email: liuzhoulong@huawei.com
@@ -515,5 +523,7 @@ sourcecode-markers="true" sourcecode-name="ietf-rdnm-types@2025-02-22.yang"}
 {: numbered="false"}
 
 # Acknowledgments
+
+The authors would like to thank Adrian Farrrel and Scott Mansfield for their inputs and suggestions.
 
 This document was prepared using kramdown.
